@@ -122,7 +122,7 @@
 右上に味方のライフとエナジーを見れるようになるボタン    
 右下に武器の使用ボタンとメカの使用ボタン  
 左下に移動スティック  
-![image](https://gyazo.com/801223fab027bf7042a23fa6a7bddf7e)  
+![UiDuringBattle](https://user-images.githubusercontent.com/108681797/213846726-3a741a93-f3fd-45df-aeff-629f5c40b14e.JPG)  
 
 
 ### 操作性
