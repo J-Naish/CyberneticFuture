@@ -46,9 +46,20 @@ public class BasePlayer : MonoBehaviour
     protected int superPowerCoolTime;
 
 
+    /// <summary>
+    /// 最新の位置
+    /// </summary>
+    protected Vector3 latestPosition;
+
+
+    // キャラの移動のメソッド
+    // 暫定的に矢印キーで移動
     protected void MoveByArrowKey()
     {
-        // 暫定的に矢印キーで移動
+
+        // 移動ベクトルを取得
+        Vector3 diff = transform.position - latestPosition;
+
 
         // 上矢印キーで前進
         if (Input.GetKey(KeyCode.UpArrow))
@@ -73,6 +84,15 @@ public class BasePlayer : MonoBehaviour
         {
             transform.position -= transform.right * moveVelocity;
         }
+
+
+        // 向いている向きを修正
+        transform.rotation = Quaternion.LookRotation(diff,Vector3.up);
+        
+
+        // 最新の位置を更新
+        latestPosition = transform.position;
+
     }
 
 }

@@ -19,6 +19,10 @@ public class Player1 : BasePlayer
         superPowerCoolTime = 50;
 
 
+        // 初期位置を取得
+        latestPosition = transform.position;
+
+
     }
 
 
