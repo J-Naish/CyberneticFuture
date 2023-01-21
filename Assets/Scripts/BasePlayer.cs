@@ -52,6 +52,7 @@ public class BasePlayer : MonoBehaviour
     protected Vector3 latestPosition;
 
 
+
     // キャラの移動のメソッド
     // 暫定的に矢印キーで移動
     protected void MoveByArrowKey()
@@ -87,8 +88,8 @@ public class BasePlayer : MonoBehaviour
 
 
         // 向いている向きを修正
-        transform.rotation = Quaternion.LookRotation(diff,Vector3.up);
-        
+        transform.rotation = Quaternion.LookRotation(diff, Vector3.up);
+
 
         // 最新の位置を更新
         latestPosition = transform.position;
