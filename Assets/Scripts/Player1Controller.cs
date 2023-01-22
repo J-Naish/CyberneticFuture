@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player1 : BasePlayer
+public class Player1Controller : BasePlayer
 {
 
+    [SerializeField] private Animator animator;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class Player1 : BasePlayer
     void Update()
     {
         MoveByArrowKey();
+        animator.SetFloat("MoveSpeed", moveVelocity);
     }
 
 
