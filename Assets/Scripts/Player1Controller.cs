@@ -22,15 +22,16 @@ public class Player1Controller : BasePlayer
 
         // 初期位置を取得
         latestPosition = transform.position;
+        
 
 
     }
-
+    
 
     void Update()
     {
         MoveByArrowKey();
-        animator.SetFloat("MoveSpeed", moveVelocity);
+        animator.SetFloat("MoveSpeed",0.1f); // diff.magnitudeでやりたいけどできないからとりあえず数値で
     }
 
 

@@ -47,9 +47,17 @@ public class BasePlayer : MonoBehaviour
 
 
     /// <summary>
+    /// プレイヤーのレベル
+    /// </summary>
+    protected int playerLevel;
+
+
+    /// <summary>
     /// 最新の位置
     /// </summary>
     protected Vector3 latestPosition;
+
+
 
 
 
