@@ -67,7 +67,7 @@ public class BasePlayer : MonoBehaviour
     {
 
         // 移動ベクトルを取得
-        Vector3 diff = transform.position - latestPosition;
+        Vector3 direction = transform.position - latestPosition;
 
 
         // 上矢印キーで前進
@@ -96,7 +96,7 @@ public class BasePlayer : MonoBehaviour
 
 
         // 向いている向きを修正
-        transform.rotation = Quaternion.LookRotation(diff, Vector3.up);
+        transform.rotation = Quaternion.LookRotation(direction);
 
 
         // 最新の位置を更新

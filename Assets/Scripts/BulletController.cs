@@ -14,6 +14,11 @@ public class BulletController : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Hit!");
+    }
+
 
     void Update()
     {
