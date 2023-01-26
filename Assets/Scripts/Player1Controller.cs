@@ -1,34 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Player1Controller : BasePlayer
 {
 
     [SerializeField] private Animator animator;
 
+    private CharacterController characterController;
+    private Vector3 moveDirection;
+
 
     void Start()
     {
-
-        // 速度係数
-        moveVelocity = 0.1f;
-
+        moveVelocity = 10.0f;
+        characterController = GetComponent<CharacterController>();
     }
     
 
     void Update()
     {
 
-        animator.SetFloat("MoveSpeed",0.1f); // diff.magnitudeでやりたいけどできないからとりあえず数値で
-
-        MoveByArrowKey();
-    }
+        animator.SetFloat("MoveSpeed",0.1f); // direction.magnitudeでやりたいけどできないからとりあえず数値で
 
 
-    private void LateUpdate()
-    {
-        latestPosition = transform.position;
+        // キャラクターの移動
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            moveDirection += transform.forward;
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            moveDirection -= transform.forward;
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            moveDirection += transform.right;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            moveDirection -= transform.right;
+        }
+
+        if (!Input.anyKey)
+        {
+            moveDirection = Vector3.zero;
+        }
+
+        moveDirection.Normalize();
+
+        transform.LookAt(transform.position + moveDirection);
+
+        characterController.Move(moveDirection * moveVelocity * Time.deltaTime);
+
+
     }
 
 

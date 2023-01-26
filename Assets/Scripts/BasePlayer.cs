@@ -23,6 +23,12 @@ public class BasePlayer : MonoBehaviour
 
 
     /// <summary>
+    /// 回転の速度
+    /// </summary>
+    protected float rotationSpeed;
+
+
+    /// <summary>
     /// 攻撃力
     /// </summary>
     protected float attackPoint;
@@ -96,11 +102,10 @@ public class BasePlayer : MonoBehaviour
 
 
         // 向いている向きを修正
-        transform.rotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.LookRotation(direction,Vector3.up);
 
 
-        // 最新の位置を更新
-        latestPosition = transform.position;
+
 
     }
 
