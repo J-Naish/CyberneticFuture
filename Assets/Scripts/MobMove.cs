@@ -22,6 +22,7 @@ public class MobMove : MonoBehaviour
         if (collider.CompareTag("Player"))
         {
             roboAgent.destination = collider.transform.position;
+            roboAgent.transform.LookAt(collider.transform.position);
         }
     }
 }
