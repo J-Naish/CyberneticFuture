@@ -11,7 +11,7 @@ public class BulletController : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -22,6 +22,7 @@ public class BulletController : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Return)) // 暫定的にエンターボタンで発射
         {
             GameObject Bullet =
@@ -30,5 +31,9 @@ public class BulletController : MonoBehaviour
             bulletRb.AddForce(transform.forward * bulletSpeed);
             Destroy(Bullet, 3.0f);
         }
+
+
+
+
     }
 }

@@ -17,12 +17,12 @@ public class Player1Controller : BasePlayer
         moveVelocity = 10.0f;
         characterController = GetComponent<CharacterController>();
     }
-    
+
 
     void Update()
     {
 
-        animator.SetFloat("MoveSpeed",0.1f); // direction.magnitudeでやりたいけどできないからとりあえず数値で
+        animator.SetFloat("MoveSpeed", moveDirection.magnitude); // とりあえず数値で
 
 
         // キャラクターの移動

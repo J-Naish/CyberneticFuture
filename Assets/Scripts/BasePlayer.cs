@@ -58,55 +58,7 @@ public class BasePlayer : MonoBehaviour
     protected int playerLevel;
 
 
-    /// <summary>
-    /// 最新の位置
-    /// </summary>
-    protected Vector3 latestPosition;
 
 
-
-
-
-    // キャラの移動のメソッド
-    // 暫定的に矢印キーで移動
-    protected void MoveByArrowKey()
-    {
-
-        // 移動ベクトルを取得
-        Vector3 direction = transform.position - latestPosition;
-
-
-        // 上矢印キーで前進
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.position += transform.forward * moveVelocity;
-        }
-
-        // 下矢印キーで後進
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.position -= transform.forward * moveVelocity;
-        }
-
-        // 右矢印キーで右に
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.position += transform.right * moveVelocity;
-        }
-
-        // 左矢印キーで左に
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.position -= transform.right * moveVelocity;
-        }
-
-
-        // 向いている向きを修正
-        transform.rotation = Quaternion.LookRotation(direction,Vector3.up);
-
-
-
-
-    }
 
 }
