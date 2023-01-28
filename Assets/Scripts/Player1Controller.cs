@@ -33,6 +33,7 @@ public class Player1Controller : BasePlayer
 
 
         // キャラクターの移動
+        // 1/n 暫定的に十字キーで移動
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             moveDirection += transform.forward;

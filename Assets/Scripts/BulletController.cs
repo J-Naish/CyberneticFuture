@@ -30,7 +30,7 @@ public class BulletController : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Return)) // 暫定的にエンターボタンで発射
+        if (Input.GetKeyDown(KeyCode.Return)) // 2/n 暫定的にエンターボタンで発射
         {
             GameObject Bullet =
                 Instantiate(bullet, transform.position, Quaternion.Euler(transform.parent.eulerAngles.x, transform.parent.eulerAngles.y, 0));
