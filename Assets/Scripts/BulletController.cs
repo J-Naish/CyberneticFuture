@@ -8,6 +8,7 @@ public class BulletController : MonoBehaviour
     public GameObject bullet;
     public float bulletSpeed;
 
+    private string objName;
 
     void Start()
     {
@@ -15,6 +16,12 @@ public class BulletController : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision)
+    {
+        objName = collision.gameObject.name;
+        Debug.Log(objName);
+    }
+
+    private void OnCollisionStay(Collision collision)
     {
         Debug.Log("Hit!");
     }
