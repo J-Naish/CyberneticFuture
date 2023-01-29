@@ -21,6 +21,10 @@ public class EnemyController : BasePlayer
         grossLife = 1000.0f;
         currentLife = grossLife;
 
+        // エナジーの設定
+        grossEnergy = 1000.0f;
+        currentEnergy = grossEnergy;
+
         // スライダーの設定
         lifeSlider = LifeBar.transform.Find("Slider").GetComponent<Slider>();
         lifeSlider.value = 1f;

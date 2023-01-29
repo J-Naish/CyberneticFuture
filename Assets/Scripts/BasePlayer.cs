@@ -24,6 +24,12 @@ public class BasePlayer : MonoBehaviour
 
 
     /// <summary>
+    /// 現在のエナジー
+    /// </summary>
+    public float currentEnergy;
+
+
+    /// <summary>
     /// 移動速度の係数
     /// </summary>
     protected float moveVelocity;

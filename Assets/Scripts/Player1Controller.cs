@@ -25,8 +25,9 @@ public class Player1Controller : BasePlayer
         // Player1のステータス
         moveVelocity = 10.0f;
         grossLife = 1000.0f;
-        grossEnergy = 1000.0f;
         currentLife = grossLife;
+        grossEnergy = 1000.0f;
+        currentEnergy = grossEnergy;
 
 
         // キャラクターコントローラー取得
