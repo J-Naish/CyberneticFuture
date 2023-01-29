@@ -8,7 +8,7 @@ public class BasePlayer : MonoBehaviour
     /// <summary>
     /// ライフの総量
     /// </summary>
-    protected float grossLife;
+    public float grossLife;
 
 
     /// <summary>
