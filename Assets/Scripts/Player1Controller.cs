@@ -19,6 +19,10 @@ public class Player1Controller : BasePlayer
     [SerializeField] private GameObject LifeBar;
     private Slider lifeSlider;
 
+    // エナジー表示UI
+    [SerializeField] private GameObject EnergyBar;
+    private Slider energySlider;
+
 
     void Start()
     {
@@ -35,8 +39,14 @@ public class Player1Controller : BasePlayer
 
 
         // スライダーの設定
+
+        // ライフ
         lifeSlider = LifeBar.transform.Find("Slider").GetComponent<Slider>();
         lifeSlider.value = 1f;
+
+        // エナジー
+        energySlider = EnergyBar.transform.Find("Slider").GetComponent<Slider>();
+        energySlider.value = 1f; // エナジー消費処理を書く時に値を更新するコードが必要
 
 
     }

@@ -14,20 +14,33 @@ public class EnemyController : BasePlayer
     [SerializeField] private GameObject LifeBar;
     private Slider lifeSlider;
 
+    // エナジー表示UI
+    [SerializeField] private GameObject EnergyBar;
+    private Slider energySlider;
+
 
     void Start()
     {
+
         // とりあえずライフの最大を1000に設定
         grossLife = 1000.0f;
         currentLife = grossLife;
+
 
         // エナジーの設定
         grossEnergy = 1000.0f;
         currentEnergy = grossEnergy;
 
+
         // スライダーの設定
+
+        // ライフ
         lifeSlider = LifeBar.transform.Find("Slider").GetComponent<Slider>();
         lifeSlider.value = 1f;
+
+        // エナジー
+        energySlider = EnergyBar.transform.Find("Slider").GetComponent<Slider>();
+        energySlider.value = 1f; // エナジー消費処理を書く時に値を更新するコードが必要
 
 
 

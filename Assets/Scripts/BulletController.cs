@@ -16,6 +16,7 @@ public class BulletController : MonoBehaviour
     // playerのエナジー消費のためにplayerを取得
     private GameObject player;
     // private float energy;
+    private float currentEnergy;
 
 
 
@@ -27,6 +28,7 @@ public class BulletController : MonoBehaviour
 
         // Player1を取得
         player = GameObject.Find("Player1");
+
 
         // energyに代入すると値が謎に0になるのでコメントアウト
         // energy = player.GetComponent<Player1Controller>().grossEnergy;
@@ -54,8 +56,9 @@ public class BulletController : MonoBehaviour
 
                 // エナジーを消費
                 player.GetComponent<Player1Controller>().grossEnergy -= bulletRequiringEnergy;
-                // 確認用
-                Debug.Log(player.GetComponent<Player1Controller>().grossEnergy);
+
+
+
 
                 Destroy(Bullet, 3.0f);
             }
