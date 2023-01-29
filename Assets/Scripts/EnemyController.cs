@@ -1,17 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyController : BasePlayer
 {
 
+    // 敵の武器とそのダメージ
     private float damage;
     private GameObject weapon;
+
+    // ライフ表示UI
+    [SerializeField] private GameObject LifeBar;
+    private Slider lifeSlider;
 
 
     void Start()
     {
+        // とりあえずライフの最大を1000に設定
         grossLife = 1000.0f;
+        currentLife = grossLife;
+
+        // スライダーの設定
+        lifeSlider = LifeBar.transform.Find("Slider").GetComponent<Slider>();
+        lifeSlider.value = 1f;
+
+
+
     }
 
 
@@ -22,7 +37,9 @@ public class EnemyController : BasePlayer
         {
             weapon = other.gameObject;
             damage = weapon.GetComponent<BulletCollisionController>().damage;
-            grossLife -= damage;
+            currentLife -= damage;
+
+            lifeSlider.value = (float)currentLife / (float)grossLife;
 
             // 衝突対象を破壊(剣などの場合は残す処理は必要)
             Destroy(weapon);
@@ -35,12 +52,17 @@ public class EnemyController : BasePlayer
     void Update()
     {
         // ライフ0で消える処理
-        if(grossLife <= 0)
+        if(currentLife <= 0)
         {
+
+            LifeBar.SetActive(false);
             Destroy(gameObject);
+            
         }
 
     }
+
+
 
     
 }
