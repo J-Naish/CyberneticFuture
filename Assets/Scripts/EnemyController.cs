@@ -35,10 +35,12 @@ public class EnemyController : BasePlayer
 
         if (other.CompareTag("Weapon"))
         {
+            // ダメージ処理
             weapon = other.gameObject;
             damage = weapon.GetComponent<BulletCollisionController>().damage;
             currentLife -= damage;
 
+            // ライフゲージ処理
             lifeSlider.value = (float)currentLife / (float)grossLife;
 
             // 衝突対象を破壊(剣などの場合は残す処理は必要)
