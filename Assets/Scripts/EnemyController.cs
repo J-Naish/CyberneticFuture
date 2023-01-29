@@ -27,8 +27,6 @@ public class EnemyController : BasePlayer
             // 衝突対象を破壊(剣などの場合は残す処理は必要)
             Destroy(weapon);
 
-            // 確認でライフ表示
-            Debug.Log(grossLife);
         }
 
     }

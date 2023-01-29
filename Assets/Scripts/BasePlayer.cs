@@ -14,13 +14,13 @@ public class BasePlayer : MonoBehaviour
     /// <summary>
     /// 現在のライフ
     /// </summary>
-    protected float currentLife;
+    public float currentLife;
 
 
     /// <summary>
     /// エナジーの総量
     /// </summary>
-    protected float grossEnergy;
+    public float grossEnergy;
 
 
     /// <summary>
@@ -65,11 +65,6 @@ public class BasePlayer : MonoBehaviour
     protected int playerLevel;
 
 
-
-    public void Damaged(int damage)
-    {
-        currentLife -= damage; 
-    }
 
 
 }
