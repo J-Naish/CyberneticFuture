@@ -9,13 +9,11 @@ public class MobMove : MonoBehaviour
 {
 
     private NavMeshAgent roboAgent;
-    private Vector3 firstPosition;
 
 
     void Start()
     {
         roboAgent = GetComponent<NavMeshAgent>();
-        firstPosition = roboAgent.transform.position;
     }
 
 
@@ -28,12 +26,5 @@ public class MobMove : MonoBehaviour
         }
     }
 
-    public void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            roboAgent.destination = firstPosition;
-        }
-    }
 
 }
