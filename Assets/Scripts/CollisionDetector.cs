@@ -41,7 +41,6 @@ public class CollisionDetector : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Exit");
         roboAgentNMA.destination = originalPosition;
     }
 
