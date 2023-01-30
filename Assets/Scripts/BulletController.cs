@@ -15,7 +15,7 @@ public class BulletController : MonoBehaviour
 
     // playerのエナジー消費のためにplayerを取得
     private GameObject player;
-    // private float energy;
+    private float grossEnergy;
     private float currentEnergy;
 
 
@@ -23,15 +23,15 @@ public class BulletController : MonoBehaviour
     void Start()
     {
 
-        // とりあえずエナジーを40消費する
+        // とりあえずエナジーを40消費する設定
         bulletRequiringEnergy = 40.0f;
 
         // Player1を取得
         player = GameObject.Find("Player1");
 
 
-        // energyに代入すると値が謎に0になるのでコメントアウト
-        // energy = player.GetComponent<Player1Controller>().grossEnergy;
+        // ※代入すると値が謎に0になる
+        // currentEnergy = player.GetComponent<Player1Controller>().currentEnergy;
 
 
     }
@@ -43,8 +43,11 @@ public class BulletController : MonoBehaviour
     {
 
 
+
+
         // 必要エナジーがある時だけ呼び出す
-        if (player.GetComponent<Player1Controller>().grossEnergy >= bulletRequiringEnergy)
+        // できれば変数に代入して書きたい
+        if (player.GetComponent<Player1Controller>().currentEnergy >= bulletRequiringEnergy)
         {
 
             if (Input.GetKeyDown(KeyCode.Return)) // 2/n 暫定的にエンターボタンで発射
@@ -54,9 +57,9 @@ public class BulletController : MonoBehaviour
                 Rigidbody bulletRb = Bullet.GetComponent<Rigidbody>();
                 bulletRb.AddForce(transform.forward * bulletSpeed);
 
-                // エナジーを消費
-                player.GetComponent<Player1Controller>().grossEnergy -= bulletRequiringEnergy;
 
+                // エナジーを消費
+                player.GetComponent<Player1Controller>().currentEnergy -= bulletRequiringEnergy;
 
 
 

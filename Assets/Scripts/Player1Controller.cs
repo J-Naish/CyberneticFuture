@@ -92,6 +92,17 @@ public class Player1Controller : BasePlayer
         characterController.Move(moveDirection * moveVelocity * Time.deltaTime);
 
 
+        // エナジーバーを変化
+        EnergyBarChange();
+
+    }
+
+
+    // エナジーバー変更の関数
+
+    private void EnergyBarChange()
+    {
+        energySlider.value = (float)currentEnergy / (float)grossEnergy;
     }
 
 
