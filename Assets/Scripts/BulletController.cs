@@ -30,7 +30,7 @@ public class BulletController : MonoBehaviour
         player = GameObject.Find("Player1");
 
 
-        // ※代入すると値が謎に0になる
+        // ※代入すると値が謎に0になる 2/2
         // currentEnergy = player.GetComponent<Player1Controller>().currentEnergy;
 
 
