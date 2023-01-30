@@ -46,7 +46,7 @@ public class Player1Controller : BasePlayer
 
         // エナジー
         energySlider = EnergyBar.transform.Find("Slider").GetComponent<Slider>();
-        energySlider.value = 1f; // エナジー消費処理を書く時に値を更新するコードが必要
+        energySlider.value = 1f;
 
 
     }

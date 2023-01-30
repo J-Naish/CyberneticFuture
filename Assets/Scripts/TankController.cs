@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TankController : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class TankController : MonoBehaviour
     private float maxEnergyCapacity;
     // タンクに注入されたエナジー量
     private float currentTankEnergy;
+
+    // エナジー表示UI
+    [SerializeField] private GameObject EnergyBar;
+    private Slider energySlider;
 
 
     private void Start()
@@ -22,6 +27,24 @@ public class TankController : MonoBehaviour
         currentTankEnergy = 0f;
 
 
+        // スライダーの設定
+        energySlider = EnergyBar.transform.Find("Slider").GetComponent<Slider>();
+        energySlider.value = 1f;
+
+    }
+
+
+
+    private void Update()
+    {
+        EnergyBarChange();
+    }
+
+
+    // エナジー量に応じてUIを変えるUI
+    private void EnergyBarChange()
+    {
+        energySlider.value = (float)currentTankEnergy / (float)maxEnergyCapacity;
     }
 
 
