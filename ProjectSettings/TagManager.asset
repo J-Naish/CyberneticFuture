@@ -19,6 +19,8 @@ TagManager:
   - CinemachineTarget
   - Enemy
   - Weapon
+  - TankLeft
+  - TankRight
   layers:
   - Default
   - TransparentFX

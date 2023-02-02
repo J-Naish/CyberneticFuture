@@ -24,6 +24,12 @@ public class TankCollider : MonoBehaviour
     private bool isInArea;
 
 
+    // 全タンクに注入された合計エナジーを取得
+    private GameObject gameManager;
+    private float currentLeftTotalEnergy;
+    private float currentRightTotalEnergy;
+
+
 
     private void Start()
     {
@@ -51,6 +57,12 @@ public class TankCollider : MonoBehaviour
         isInArea = false;
 
 
+        // 左右両チームの合計注入エナジーを取得
+        gameManager = GameObject.Find("GameManager");
+        currentLeftTotalEnergy = gameManager.GetComponent<GameManager>().currentLeftTotalEnergy;
+        currentRightTotalEnergy = gameManager.GetComponent<GameManager>().currentRightTotalEnergy;
+
+
     }
 
 
@@ -73,11 +85,22 @@ public class TankCollider : MonoBehaviour
                     currentTankEnergy += pouringEnergy;
 
 
+                    if (gameObject.CompareTag("TankLeft"))
+                    {
+                        currentLeftTotalEnergy += pouringEnergy;
+                    }
+                    else if (gameObject.CompareTag("TankRight"))
+                    {
+                        currentRightTotalEnergy += pouringEnergy;
+                    }
 
                 }
             }
 
+
         }
+
+        
 
     }
 

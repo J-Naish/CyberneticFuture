@@ -41,7 +41,10 @@ public class CollisionDetector : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        roboAgentNMA.destination = originalPosition;
+        if (other.CompareTag("Player"))
+        {
+            roboAgentNMA.destination = originalPosition;
+        }
     }
 
 
