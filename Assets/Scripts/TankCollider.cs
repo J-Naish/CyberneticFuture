@@ -17,7 +17,9 @@ public class TankCollider : MonoBehaviour
     private float currentTankEnergy;
 
     // エナジーの注入量
-    private float pouringEnergy;
+    //private float pouringEnergy; 何故か値が0になってしまうためとりあえずpublicに
+    public float pouringEnergy;
+
 
 
     // 範囲内にプレイヤーがいるかどうか
@@ -28,6 +30,8 @@ public class TankCollider : MonoBehaviour
     private GameObject gameManager;
     private float currentLeftTotalEnergy;
     private float currentRightTotalEnergy;
+
+
 
 
 
@@ -77,19 +81,22 @@ public class TankCollider : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.Space))
                 {
+                    
 
                     // Playerのエナジーを減らす
                     player.GetComponent<Player1Controller>().currentEnergy -= pouringEnergy;
+
 
                     // Tankのエナジーを増やす
                     currentTankEnergy += pouringEnergy;
 
 
-                    if (gameObject.CompareTag("TankLeft"))
+
+                    if (this.gameObject.CompareTag("TankLeft"))
                     {
                         currentLeftTotalEnergy += pouringEnergy;
                     }
-                    else if (gameObject.CompareTag("TankRight"))
+                    else if (this.gameObject.CompareTag("TankRight"))
                     {
                         currentRightTotalEnergy += pouringEnergy;
                     }
