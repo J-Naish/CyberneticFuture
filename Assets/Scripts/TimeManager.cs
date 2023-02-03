@@ -26,6 +26,9 @@ public class TimeManager : MonoBehaviour
     // タイムアップ用のテキストを取得
     [SerializeField] private TextMeshProUGUI timeupText;
 
+    // ゲームスタート用のテキストを取得
+    [SerializeField] private TextMeshProUGUI startText;
+
 
     // Resultシーンでもスコアを持ち越すためにGameManagerオブジェクトを取得
     private GameObject gameManager;
@@ -37,13 +40,16 @@ public class TimeManager : MonoBehaviour
         this.timerText = GameObject.Find("TimerText");
 
         // 制限時間8:00
-        minute = 0; 
-        second = 30.0f;
+        minute = 8; 
+        second = 0.1f;
         totalTime = minute * 60 + second;
 
 
         // タイムアップテキストは時間が0になるまで表示させない
         timeupText.enabled = false;
+
+        // Start()時点でスタートテキストは表示させない
+        startText.enabled = false;
 
 
         // GameManagerを取得  
@@ -64,65 +70,92 @@ public class TimeManager : MonoBehaviour
         second = totalTime - minute * 60;
 
 
-        // ゲーム終了処理
-        if (totalTime <= 0)
+        // ゲームスタート処理
+        if (totalTime >= 480.0f)
         {
 
-            // 時間の流れを停止する
+            // ゲームの流れを遅くする
             Time.timeScale = 0.1f;
 
-            // タイムアップテキストを表示させる
-            timeupText.enabled = true;
-
-
-            // 表示時間を00:00で固定
-            this.timerText.GetComponent<TextMeshProUGUI>().text = "00:00";
-
+            // ゲームスタートテキストを表示させる
+            startText.enabled = true;
 
         }
 
-
-        // タイムアップを表示した0.5秒後にリザルト画面にシーン遷移
-        if(totalTime <= -0.5f)
+        else if (totalTime < 480.0f)
         {
 
-            // リザルト画面へ
-            SceneManager.LoadScene("Result");
+            // 時間の流れを元に戻す
+            Time.timeScale = 1.0f;
+
+            // ゲームスタートテキストを非表示に
+            startText.enabled = false;
 
 
-        }
-
-
-        if (totalTime > 0)
-        {
-
-
-            if (second >= 10)
+            // 時間表示処理
+            if (totalTime > 0)
             {
-                this.timerText.GetComponent<TextMeshProUGUI>().text = "0" + minute.ToString("F0") + ":" + second.ToString("F0");
-            }
-            else if (second <= 9)
-            {
-                // 秒数が一桁になって見栄えが悪くならないようにする処理
-                this.timerText.GetComponent<TextMeshProUGUI>().text = "0" + minute.ToString("F0") + ":0" + second.ToString("F0");
-            }
-            else if (second == 60)
-            {
-                // ※00:60というような表記をなくす処理が必要
+
+                if (second >= 10)
+                {
+                    this.timerText.GetComponent<TextMeshProUGUI>().text = "0" + minute.ToString("F0") + ":" + second.ToString("F0");
+                }
+                else if (second <= 9)
+                {
+                    // 秒数が一桁になって見栄えが悪くならないようにする処理
+                    this.timerText.GetComponent<TextMeshProUGUI>().text = "0" + minute.ToString("F0") + ":0" + second.ToString("F0");
+                }
+                else if (second == 60)
+                {
+                    // ※00:60というような表記をなくす処理が必要
+                }
+
             }
 
+
+            // フォントカラーの変更処理
+            if (minute >= 2)
+            {
+                // 残り2分までは緑字
+                this.timerText.GetComponent<TextMeshProUGUI>().color = greenColor;
+            }
+            else if (minute < 2)
+            {
+                // 残り2分で赤字に
+                this.timerText.GetComponent<TextMeshProUGUI>().color = redColor;
+            }
+
+
+
+            // ゲーム終了処理
+            if (totalTime <= 0)
+            {
+
+                // 時間の流れを停止する
+                Time.timeScale = 0.1f;
+
+                // タイムアップテキストを表示させる
+                timeupText.enabled = true;
+
+
+                // 表示時間を00:00で固定
+                this.timerText.GetComponent<TextMeshProUGUI>().text = "00:00";
+
+
+            }
+
+
+            // タイムアップを表示した0.5秒後にリザルト画面にシーン遷移
+            if (totalTime <= -0.5f)
+            {
+
+                // リザルト画面へ
+                SceneManager.LoadScene("Result");
+
+            }
+
         }
 
 
-        if (minute >= 2)
-        {
-            // 残り2分までは緑字
-            this.timerText.GetComponent<TextMeshProUGUI>().color = greenColor;
-        }
-        else if (minute < 2)
-        {
-            // 残り2分で赤字に
-            this.timerText.GetComponent<TextMeshProUGUI>().color = redColor;
-        }
     }
 }
