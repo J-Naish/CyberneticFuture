@@ -38,7 +38,7 @@ public class TimeManager : MonoBehaviour
 
         // 制限時間8:00
         minute = 0; 
-        second = 20.0f;
+        second = 30.0f;
         totalTime = minute * 60 + second;
 
 

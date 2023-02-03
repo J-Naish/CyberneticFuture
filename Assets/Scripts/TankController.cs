@@ -46,8 +46,12 @@ public class TankController : MonoBehaviour
         {
 
             Destroy(this.gameObject);
+            
 
         }
+
+
+
 
 
     }

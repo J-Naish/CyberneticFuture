@@ -45,12 +45,14 @@ public class TankCollider : MonoBehaviour
         // Player1の現在エナジー量を取得
         player = GameObject.Find("Player1");
         // この変数を代入して使うと0になるためコメントアウト 1/2
-        // currentEnergy = player.GetComponent<Player1Controller>().currentEnergy;
+        // this.currentEnergy = player.GetComponent<Player1Controller>().currentEnergy;
 
 
         // Tankの現在エナジー量を取得
-        tank = GameObject.Find("EnergyTank");
-        currentTankEnergy = tank.GetComponent<TankController>().currentTankEnergy;
+        tank = transform.parent.gameObject;
+        // Start内で定義しても値の変更が反映されないためコメントアウト
+        // おそらくTankControllerのStart内で定義した0が値として入れられるだけで連動しない
+        //this.currentTankEnergy = tank.GetComponent<TankController>().currentTankEnergy;
 
 
         // エナジー注入量
@@ -63,8 +65,8 @@ public class TankCollider : MonoBehaviour
 
         // 左右両チームの合計注入エナジーを取得
         gameManager = GameObject.Find("GameManager");
-        currentLeftTotalEnergy = gameManager.GetComponent<GameManager>().currentLeftTotalEnergy;
-        currentRightTotalEnergy = gameManager.GetComponent<GameManager>().currentRightTotalEnergy;
+        //currentLeftTotalEnergy = gameManager.GetComponent<GameManager>().currentLeftTotalEnergy;
+        //currentRightTotalEnergy = gameManager.GetComponent<GameManager>().currentRightTotalEnergy;
 
 
     }
@@ -88,17 +90,18 @@ public class TankCollider : MonoBehaviour
 
 
                     // Tankのエナジーを増やす
-                    currentTankEnergy += pouringEnergy;
+                    tank.GetComponent<TankController>().currentTankEnergy += pouringEnergy;
+
 
 
 
                     if (this.gameObject.CompareTag("TankLeft"))
                     {
-                        currentLeftTotalEnergy += pouringEnergy;
+                        gameManager.GetComponent<GameManager>().currentLeftTotalEnergy += pouringEnergy;
                     }
                     else if (this.gameObject.CompareTag("TankRight"))
                     {
-                        currentRightTotalEnergy += pouringEnergy;
+                        gameManager.GetComponent<GameManager>().currentRightTotalEnergy += pouringEnergy;
                     }
 
                 }
