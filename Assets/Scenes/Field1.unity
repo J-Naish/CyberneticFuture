@@ -3446,7 +3446,6 @@ GameObject:
   - component: {fileID: 468180323}
   - component: {fileID: 468180325}
   - component: {fileID: 468180324}
-  - component: {fileID: 468180326}
   m_Layer: 0
   m_Name: TankCollider
   m_TagString: TankLeft
@@ -3495,20 +3494,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 15.566479
   m_Center: {x: -5.0834084, y: 7.8361435, z: -2.146923}
---- !u!114 &468180326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468180322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2282d7612619a4763b8dc4d153662e6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentTankEnergy: 0
-  EnergyBar: {fileID: 1150688187}
 --- !u!1 &472217889
 GameObject:
   m_ObjectHideFlags: 0
