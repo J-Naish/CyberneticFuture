@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 12e52e465ed793a4d801955e9f964a82
+guid: 1ba9a2145412243b7b64305f90a381b2
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -39,7 +39,7 @@ ModelImporter:
       takeName: Idle
       internalID: 0
       firstFrame: 1
-      lastFrame: 10
+      lastFrame: 149
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
