@@ -299,7 +299,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d29d2321f5bcf4f79a2963e9fb4010da,
         type: 3}
       propertyPath: m_Name
-      value: MechaBox
+      value: MechaBox Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d29d2321f5bcf4f79a2963e9fb4010da, type: 3}
@@ -341,3 +341,16 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2.372778
   m_Center: {x: 0, y: -0.03201453, z: 0.005520821}
+--- !u!114 &5120236755053649559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8513357304473507081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d43e6472c1f4949d0b7b3f2b898b3ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mechaGetButton: {fileID: 1071288619}
