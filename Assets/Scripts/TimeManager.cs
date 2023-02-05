@@ -13,7 +13,7 @@ public class TimeManager : MonoBehaviour
 
 
     // 時間を定義
-    private float totalTime;
+    public float totalTime;
     private int minute;
     private float second;
 
