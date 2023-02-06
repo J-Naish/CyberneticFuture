@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 // メカに近づくと獲得ボタンを表示したりできるクラス
@@ -19,6 +20,11 @@ public class MechaCollider : MonoBehaviour
     [SerializeField] private GameObject mechaEmpty;
 
 
+    // メカ獲得テキストを取得
+    [SerializeField] private TextMeshProUGUI mechaGetText;
+
+
+
     private void Start()
     {
 
@@ -27,6 +33,9 @@ public class MechaCollider : MonoBehaviour
 
         // デフォルトでは範囲外
         isInMechaBoxArea = false;
+
+        // デフォルトではメカ獲得テキストを非表示
+        mechaGetText.enabled = false;
 
     }
 
@@ -46,10 +55,15 @@ public class MechaCollider : MonoBehaviour
                 mechaEmpty.GetComponent<MechaButton>().hasMecha = true;
 
 
-                // メカ獲得に関するUI表示処理
+                // メカ獲得テキストを表示させる
+                mechaGetText.GetComponent<MechaGetText>().gotMehca = true;
+
+
                 // Playerがメカを所持した状態に関する処理
 
 
+                // メカを取得したらメカボックスを破壊
+                Destroy(this.gameObject);
 
             }
 
