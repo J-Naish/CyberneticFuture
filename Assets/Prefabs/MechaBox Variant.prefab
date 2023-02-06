@@ -354,3 +354,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mechaGetButton: {fileID: 1071288619}
+  isInMechaBoxArea: 0
+  MechaButtonImage: {fileID: 1921865439440982413, guid: 950c00ce0f52a4533bd1c0f9b7162eb1,
+    type: 3}

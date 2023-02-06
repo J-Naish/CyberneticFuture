@@ -15,6 +15,10 @@ public class MechaCollider : MonoBehaviour
     public bool isInMechaBoxArea;
 
 
+    // メカボタンを取得(メカ所持のbool値を変更するため)
+    [SerializeField] private GameObject mechaEmpty;
+
+
     private void Start()
     {
 
@@ -37,8 +41,16 @@ public class MechaCollider : MonoBehaviour
             // Gキーでメカを獲得
             if (Input.GetKeyDown(KeyCode.G))
             {
+
+                // メカ所持のbool値を変更
+                mechaEmpty.GetComponent<MechaButton>().hasMecha = true;
+
+
                 // メカ獲得に関するUI表示処理
                 // Playerがメカを所持した状態に関する処理
+
+
+
             }
 
         }
@@ -67,6 +79,8 @@ public class MechaCollider : MonoBehaviour
         isInMechaBoxArea = false;
 
     }
+
+
 
 
 }

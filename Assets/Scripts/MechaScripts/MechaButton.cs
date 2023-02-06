@@ -11,30 +11,49 @@ public class MechaButton : MonoBehaviour
     // メカボタンオブジェクトを取得
     [SerializeField] private Image mechaButtonImage;
 
-
+    // メカを持ってるかどうかの変数
+    public bool hasMecha;
 
     void Start()
     {
-
-        // UIの色をメカを取得するまで半透明に
-        SetOpacity(mechaButtonImage, 0.2f);
+        // 初期はメカを持ってないのでfalse
+        hasMecha = false;
 
     }
 
     
     void Update()
     {
-        
+
+        SetOpacity();
+
     }
 
 
     // 透明度を変更する関数
-    private void SetOpacity(Image image,float alpha)
+    private void SetOpacity()
     {
-        // imageのcolorを取得
-        var c = image.color;
-        // colorはそのままでalphaを変更する
-        image.color = new Color(c.r, c.g, c.b, alpha);
+
+        if (hasMecha)
+        {
+            // メカを非透明に
+
+            // imageのcolorを取得
+            var c = mechaButtonImage.color;
+            // colorはそのままでalphaを変更する
+            mechaButtonImage.color = new Color(c.r, c.g, c.b, 1.0f);
+        }
+        else
+        {
+            // メカを透明に
+
+            // imageのcolorを取得
+            var c = mechaButtonImage.color;
+            // colorはそのままでalphaを変更する
+            mechaButtonImage.color = new Color(c.r, c.g, c.b, 0.4f);
+
+        }
+
     }
 
 }
