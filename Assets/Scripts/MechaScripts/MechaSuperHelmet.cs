@@ -25,6 +25,9 @@ public class MechaSuperHelmet : MechaBase
         duration = 7.0f;
 
 
+        this.gameObject.GetComponent<MechaSuperHelmet>().enabled = false;
+
+
         // メカ使用時のPlayerのライフ
         playerCurrentLife = player.GetComponent<Player1Controller>().currentLife;
 

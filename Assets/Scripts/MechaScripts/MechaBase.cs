@@ -9,4 +9,5 @@ public class MechaBase : MonoBehaviour
     protected float duration;
     protected float currentTime = 0f;
 
+
 }

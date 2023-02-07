@@ -22,7 +22,14 @@ public class MechaCollider : MonoBehaviour
 
     // メカ獲得テキストを取得
     [SerializeField] private TextMeshProUGUI mechaGetText;
+    // どのメカを取得したかのテキスト
+    private string mechaTypeText;
 
+
+    // それぞれのメカを取得
+    [SerializeField] private GameObject superShoes;
+    [SerializeField] private GameObject superHelmet;
+    [SerializeField] private GameObject energyCharger;
 
 
     private void Start()
@@ -55,11 +62,14 @@ public class MechaCollider : MonoBehaviour
                 mechaEmpty.GetComponent<MechaButton>().hasMecha = true;
 
 
+                // Playerがメカを取得
+                GetNewMecha();
+
+
                 // メカ獲得テキストを表示させる
+                mechaGetText.GetComponent<TextMeshProUGUI>().text = "You've got " + mechaTypeText;
                 mechaGetText.GetComponent<MechaGetText>().gotMehca = true;
 
-
-                // Playerがメカを所持した状態に関する処理
 
 
                 // メカを取得したらメカボックスを破壊
@@ -74,23 +84,65 @@ public class MechaCollider : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        // 範囲内にいればメカ獲得ボタンを表示
-        mechaGetButton.enabled = true;
 
-        // 範囲内にいればtrue
-        isInMechaBoxArea = true;
+        if (other.CompareTag("Player"))
+        {
+            // 範囲内にいればメカ獲得ボタンを表示
+            mechaGetButton.enabled = true;
 
+            // 範囲内にいればtrue
+            isInMechaBoxArea = true;
+
+        }
     }
 
 
     private void OnTriggerExit(Collider other)
     {
 
-        // 範囲外に出ればメカ獲得ボタンを非表示
-        mechaGetButton.enabled = false;
+        if (other.CompareTag("Player"))
+        {
+            // 範囲外に出ればメカ獲得ボタンを非表示
+            mechaGetButton.enabled = false;
 
-        // 範囲外に出ればflaseに
-        isInMechaBoxArea = false;
+            // 範囲外に出ればflaseに
+            isInMechaBoxArea = false;
+        }
+    }
+
+
+
+    // アイテムを取得する関数
+    private void GetNewMecha()
+    {
+
+        // 乱数を生成
+        int x = Random.Range(1,4);
+        Debug.Log(x);
+
+
+        // 取得した乱数に応じてメカをactiveに
+        if(x == 1)
+        {
+
+            superShoes.GetComponent<MechaSuperShoes>().enabled = true;
+            mechaTypeText = "SuperShoes";
+        }
+
+        else if(x == 2)
+        {
+
+            superHelmet.GetComponent<MechaSuperHelmet>().enabled = true;
+            mechaTypeText = "SuperHelmet";
+
+        }
+        else  if(x == 3)
+        {
+
+            energyCharger.GetComponent<MechaEnergyCharger>().enabled = true;
+            mechaTypeText = "EnergyCharger";
+
+        }
 
     }
 
