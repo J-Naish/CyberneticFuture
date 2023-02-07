@@ -11190,6 +11190,51 @@ Transform:
   m_Father: {fileID: 567461820}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &638599929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 638599930}
+  - component: {fileID: 638599931}
+  m_Layer: 0
+  m_Name: MechaUse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &638599930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638599929}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1991160601}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &638599931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638599929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef23ebe095504fea8deeffed0dd0132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useMecha: 0
+  mechaEmpty: {fileID: 1991160600}
 --- !u!1 &653827059
 GameObject:
   m_ObjectHideFlags: 0
@@ -15857,7 +15902,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.024976593, y: 0.000000017201012, z: -4.2975679e-10, w: 0.999688}
+  m_LocalRotation: {x: 0.024976613, y: -0.000000017201012, z: 4.2975715e-10, w: 0.999688}
   m_LocalPosition: {x: 105.63, y: 246.44003, z: -327.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -19658,19 +19703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onTriggerStay:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2022620085}
-        m_TargetAssemblyTypeName: MobMove, Assembly-CSharp
-        m_MethodName: OnDetectObject
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!135 &1197170898
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -29912,7 +29945,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748352947}
-  m_LocalRotation: {x: 0.024976593, y: 0.000000017201012, z: -4.2975679e-10, w: 0.999688}
+  m_LocalRotation: {x: 0.024976613, y: -0.000000017201012, z: 4.2975715e-10, w: 0.999688}
   m_LocalPosition: {x: 105.63, y: 246.44003, z: -327.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -33954,6 +33987,7 @@ Transform:
   - {fileID: 1478247819}
   - {fileID: 1274934806}
   - {fileID: 1983018120}
+  - {fileID: 638599930}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
