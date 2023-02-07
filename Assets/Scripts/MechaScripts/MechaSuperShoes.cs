@@ -7,17 +7,15 @@ public class MechaSuperShoes : MechaBase
 {
 
     // 移動速度上昇率
-    private float boostedVelocity = 2.0f;
+    private float boostVelocity = 3.0f;
 
     // Playerを取得
     [SerializeField] private GameObject player;
 
 
-    // Playerの元の速度
-    private float originalMoveVelocity;
-
     // 処理を一度だけ起こすためのbool値
     private bool isAlreadyBoosted;
+    private bool isAlreadyDeboosted;
 
 
     private void Start()
@@ -27,9 +25,9 @@ public class MechaSuperShoes : MechaBase
 
         // 初期はfalseとして設定
         isAlreadyBoosted = false;
+        isAlreadyDeboosted = false;
 
-        // Playerの本来の移動速度係数を取得
-        originalMoveVelocity = player.GetComponent<Player1Controller>().moveVelocity;
+
 
         //持続時間を設定
         duration = 10.0f;
@@ -40,23 +38,34 @@ public class MechaSuperShoes : MechaBase
     private void Update()
     {
 
+
         currentTime += Time.deltaTime;
 
         // 一定時間移動速度上昇
         if (currentTime < duration)
         {
+            // 一度だけ処理を起こす
             if (!isAlreadyBoosted)
             {
-                player.GetComponent<Player1Controller>().moveVelocity *= boostedVelocity;
+                player.GetComponent<Player1Controller>().moveVelocity *= boostVelocity;
 
                 // 処理を起こしたのでbool値を元に戻す
                 isAlreadyBoosted = true;
             }
 
         }
-        if(currentTime >= duration)
+        //  速度を元に戻す
+        if(currentTime >=  duration)
         {
-            player.GetComponent<Player1Controller>().moveVelocity = originalMoveVelocity;
+            // 一度だけ処理を起こす
+            if (!isAlreadyDeboosted)
+            {
+                player.GetComponent<Player1Controller>().moveVelocity /= boostVelocity;
+
+                // 処理を起こしたのでbool値を元に戻す
+                isAlreadyDeboosted = true;
+            }
+
         }
 
     }

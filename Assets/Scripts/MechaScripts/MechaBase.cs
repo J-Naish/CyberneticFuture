@@ -10,4 +10,7 @@ public class MechaBase : MonoBehaviour
     protected float currentTime = 0f;
 
 
+    // メカの使用を検知するbool値
+    private bool useMecha = false;
+
 }

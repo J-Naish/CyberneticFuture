@@ -24,6 +24,7 @@ public class Player1Controller : BasePlayer
     private Slider energySlider;
 
 
+
     void Start()
     {
         // Player1のステータス
