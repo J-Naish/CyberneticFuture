@@ -14,8 +14,11 @@ public class MechaUse : MonoBehaviour
     [SerializeField] private GameObject mechaEmpty;
 
 
+
     void Update()
     {
+
+        
 
         if (Input.GetKey(KeyCode.M))
         {

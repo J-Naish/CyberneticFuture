@@ -14,6 +14,10 @@ public class MechaEnergyCharger : MechaBase
     private bool isAlreadyCharged;
 
 
+    // メカ使用を検知するためのオブジェクト取得
+    [SerializeField] private GameObject mechaUse;
+
+
     void Start()
     {
 
@@ -28,16 +32,23 @@ public class MechaEnergyCharger : MechaBase
     private void Update()
     {
 
-        if (!isAlreadyCharged)
+        if (mechaUse.GetComponent<MechaUse>().useMecha)
         {
 
-            // PlayerのエナジーをMAXに
-            player.GetComponent<Player1Controller>().currentEnergy = player.GetComponent<Player1Controller>().grossEnergy;
+            if (!isAlreadyCharged)
+            {
 
-            // bool値を更新
-            isAlreadyCharged = true;
+                // PlayerのエナジーをMAXに
+                player.GetComponent<Player1Controller>().currentEnergy = player.GetComponent<Player1Controller>().grossEnergy;
 
+                // bool値を更新
+                isAlreadyCharged = true;
+
+            }
+
+            mechaUse.GetComponent<MechaUse>().useMecha = false;
         }
+
     }
 
 

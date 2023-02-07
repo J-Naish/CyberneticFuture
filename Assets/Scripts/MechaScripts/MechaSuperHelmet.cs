@@ -18,7 +18,11 @@ public class MechaSuperHelmet : MechaBase
     // Playerの最大ライフと現在ライフの差
     private float lifeDecrease;
 
-    
+
+    // メカ使用を検知するためのオブジェクト取得
+    [SerializeField] private GameObject mechaUse;
+
+
     void Start()
     {
         // 持続時間を設定
@@ -43,22 +47,30 @@ public class MechaSuperHelmet : MechaBase
     void Update()
     {
 
-        currentTime += Time.deltaTime;
 
-
-        // 一定時間ライフが減らない
-        // 一旦ライフを満タンにしてライフを一定にする
-        if(currentTime < duration)
+        if (mechaUse.GetComponent<MechaUse>().useMecha)
         {
 
-            player.GetComponent<Player1Controller>().currentLife = playerGrossLife;
+            // カウント開始
+            currentTime += Time.deltaTime;
 
-        }
-        // 持続時間が終わればライフを元に
-        if(currentTime == duration)
-        {
 
-            player.GetComponent<Player1Controller>().currentLife -= lifeDecrease;
+            // 一定時間ライフが減らない
+            // 一旦ライフを満タンにしてライフを一定にする
+            if (currentTime < duration)
+            {
+
+                player.GetComponent<Player1Controller>().currentLife = playerGrossLife;
+
+            }
+            // 持続時間が終わればライフを元に
+            if (currentTime == duration)
+            {
+
+                player.GetComponent<Player1Controller>().currentLife -= lifeDecrease;
+
+                mechaUse.GetComponent<MechaUse>().useMecha = false;
+            }
 
         }
 

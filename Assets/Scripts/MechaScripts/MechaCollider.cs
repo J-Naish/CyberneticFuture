@@ -117,7 +117,7 @@ public class MechaCollider : MonoBehaviour
     {
 
         // 乱数を生成
-        int x = Random.Range(1,2);
+        int x = Random.Range(1,4);
 
 
         // 取得した乱数に応じてメカをactiveに
