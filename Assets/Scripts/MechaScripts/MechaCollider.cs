@@ -32,6 +32,11 @@ public class MechaCollider : MonoBehaviour
     [SerializeField] private GameObject energyCharger;
 
 
+    // メカ所持時にはメカを取得できないようにメカボタンを取得
+    [SerializeField] private GameObject mechaButton;
+
+
+
     private void Start()
     {
 
@@ -54,26 +59,32 @@ public class MechaCollider : MonoBehaviour
         if (isInMechaBoxArea)
         {
 
-            // Gキーでメカを獲得
-            if (Input.GetKeyDown(KeyCode.G))
+            // メカを持ってない時のみ取得できる
+            if (!mechaButton.GetComponent<MechaButton>().hasMecha)
             {
 
-                // メカ所持のbool値を変更
-                mechaEmpty.GetComponent<MechaButton>().hasMecha = true;
+                // Gキーでメカを獲得
+                if (Input.GetKeyDown(KeyCode.G))
+                {
+
+                    // メカ所持のbool値を変更
+                    mechaEmpty.GetComponent<MechaButton>().hasMecha = true;
 
 
-                // Playerがメカを取得
-                GetNewMecha();
+                    // Playerがメカを取得
+                    GetNewMecha();
 
 
-                // メカ獲得テキストを表示させる
-                mechaGetText.GetComponent<TextMeshProUGUI>().text = "You've got " + mechaTypeText;
-                mechaGetText.GetComponent<MechaGetText>().gotMehca = true;
+                    // メカ獲得テキストを表示させる
+                    mechaGetText.GetComponent<TextMeshProUGUI>().text = "You've got " + mechaTypeText;
+                    mechaGetText.GetComponent<MechaGetText>().gotMehca = true;
 
 
 
-                // メカを取得したらメカボックスを破壊
-                Destroy(this.gameObject);
+                    // メカを取得したらメカボックスを破壊
+                    Destroy(this.gameObject);
+
+                }
 
             }
 
