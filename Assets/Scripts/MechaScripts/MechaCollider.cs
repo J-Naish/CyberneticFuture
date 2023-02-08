@@ -128,7 +128,7 @@ public class MechaCollider : MonoBehaviour
     {
 
         // 乱数を生成
-        int x = Random.Range(1,2);
+        int x = Random.Range(3,4);
 
 
         // 取得した乱数に応じてメカをactiveに
@@ -138,8 +138,12 @@ public class MechaCollider : MonoBehaviour
 
             // プレファブ元のスクリプトを有効に
             superShoes.GetComponent<MechaSuperShoes>().enabled = true;
+
             // プレファブ化
             GameObject SuperShoes = Instantiate(superShoes);
+            // ※Prefab生成を検知するbool値を変更
+            SuperShoes.GetComponent<MechaSuperShoes>().isPrefabGenerated = true;
+
             // プレファブ元のスクリプトがダブって効果が出ないように無効に
             superShoes.GetComponent<MechaSuperShoes>().enabled = false;
 
@@ -153,10 +157,14 @@ public class MechaCollider : MonoBehaviour
 
             // プレファブ元のスクリプトを有効に
             superHelmet.GetComponent<MechaSuperHelmet>().enabled = true;
+
             // プレファブ化
             GameObject SuperHelmet = Instantiate(superHelmet);
+            // ※Prefab生成を検知するbool値を変更
+            SuperHelmet.GetComponent<MechaSuperHelmet>().isPrefabGenerated = true;
+
             // プレファブ元のスクリプトがダブって効果が出ないように無効に
-            superHelmet.GetComponent<MechaSuperShoes>().enabled = false;
+            superHelmet.GetComponent<MechaSuperHelmet>().enabled = false;
 
             // どのメカを獲得したかわかるようにする文字列
             mechaTypeText = "SuperHelmet";
@@ -168,14 +176,15 @@ public class MechaCollider : MonoBehaviour
 
             // プレファブ元のスクリプトを有効に
             energyCharger.GetComponent<MechaEnergyCharger>().enabled = true;
+
             // プレファブ化
             GameObject EnergyCharger = Instantiate(energyCharger);
+            // ※Prefab生成を検知するbool値を変更
+            EnergyCharger.GetComponent<MechaEnergyCharger>().isPrefabGenerated = true;
+
             // プレファブ元のスクリプトを有効に
             energyCharger.GetComponent<MechaEnergyCharger>().enabled = false;
 
-            //// 他のメカを無効に
-            //superShoes.GetComponent<MechaSuperShoes>().enabled = false;
-            //superHelmet.GetComponent<MechaSuperShoes>().enabled = false;
 
             // どのメカを獲得したかわかるようにする文字列
             mechaTypeText = "EnergyCharger";

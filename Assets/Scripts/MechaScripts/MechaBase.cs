@@ -10,4 +10,8 @@ public class MechaBase : MonoBehaviour
     protected float duration;
     protected float currentTime = 0f;
 
+
+    // ※Prefabが生成されたことを検知するbool値
+    public bool isPrefabGenerated = false;
+
 }

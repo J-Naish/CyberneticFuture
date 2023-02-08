@@ -44,36 +44,41 @@ public class MechaSuperHelmet : MechaBase
     
     void Update()
     {
-
-
-        if (mechaUse.GetComponent<MechaUse>().useMecha)
+        // ※
+        if (isPrefabGenerated)
         {
-
-            // カウント開始
-            currentTime += Time.deltaTime;
-
-
-            // 一定時間ライフが減らない
-            // 一旦ライフを満タンにしてライフを一定にする
-            if (currentTime < duration)
+            if (mechaUse.GetComponent<MechaUse>().useMecha)
             {
-                // ライフを満タンのままキープ
-                player.GetComponent<Player1Controller>().currentLife = playerGrossLife;
+
+                // カウント開始
+                currentTime += Time.deltaTime;
+
+
+                // 一定時間ライフが減らない
+                // 一旦ライフを満タンにしてライフを一定にする
+                if (currentTime < duration)
+                {
+                    // ライフを満タンのままキープ
+                    player.GetComponent<Player1Controller>().currentLife = playerGrossLife;
+
+                }
+                // 持続時間が終わればライフを元に
+                if (currentTime == duration)
+                {
+                    // ライフをメカ使用前に戻す
+                    player.GetComponent<Player1Controller>().currentLife -= lifeDecrease;
+
+                    // 使用後はuseMechaをfalseに戻す
+                    mechaUse.GetComponent<MechaUse>().useMecha = false;
+
+                    // 使用後はisPrefabGeneratedをfalseに戻す
+                    isPrefabGenerated = false;
+
+                    // メカ使用後はプレファブ化されたものを破壊
+                    Destroy(this.gameObject);
+                }
 
             }
-            // 持続時間が終わればライフを元に
-            if (currentTime == duration)
-            {
-                // ライフをメカ使用前に戻す
-                player.GetComponent<Player1Controller>().currentLife -= lifeDecrease;
-
-                // 使用後はuseMechaをfalseに戻す
-                mechaUse.GetComponent<MechaUse>().useMecha = false;
-
-                // メカ使用後はプレファブ化されたものを破壊
-                Destroy(this.gameObject);
-            }
-
         }
 
     }

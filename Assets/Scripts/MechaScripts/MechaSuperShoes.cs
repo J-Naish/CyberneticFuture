@@ -40,48 +40,53 @@ public class MechaSuperShoes : MechaBase
 
     private void Update()
     {
-
-
-        if (mechaUse.GetComponent<MechaUse>().useMecha)
+        // ※
+        if (isPrefabGenerated)
         {
-
-            // カウント開始
-            currentTime += Time.deltaTime;
-
-            // 一定時間移動速度上昇
-            if (currentTime < duration)
+            if (mechaUse.GetComponent<MechaUse>().useMecha)
             {
-                // 一度だけ処理を起こす
-                if (!isAlreadyBoosted)
-                {
-                    player.GetComponent<Player1Controller>().moveVelocity *= boostVelocity;
 
-                    // 処理を起こしたのでbool値を元に戻す
-                    isAlreadyBoosted = true;
+                // カウント開始
+                currentTime += Time.deltaTime;
+
+                // 一定時間移動速度上昇
+                if (currentTime < duration)
+                {
+                    // 一度だけ処理を起こす
+                    if (!isAlreadyBoosted)
+                    {
+                        player.GetComponent<Player1Controller>().moveVelocity *= boostVelocity;
+
+                        // 処理を起こしたのでbool値を元に戻す
+                        isAlreadyBoosted = true;
+                    }
+
+                }
+                //  速度を元に戻す
+                if (currentTime >= duration)
+                {
+                    // 一度だけ処理を起こす
+                    if (!isAlreadyDeboosted)
+                    {
+                        player.GetComponent<Player1Controller>().moveVelocity /= boostVelocity;
+
+                        // 処理を起こしたのでbool値を元に戻す
+                        isAlreadyDeboosted = true;
+                    }
+
+                    // 使用後はuseMechaをfalseに戻す
+                    // メカ効果時間経過後に戻すためにバグが起きるかも
+                    mechaUse.GetComponent<MechaUse>().useMecha = false;
+
+
+                    // 使用後はisPrefabGeneratedをfalseに戻す
+                    isPrefabGenerated = false;
+
+                    // メカ使用後はプレファブ化されたものを破壊
+                    Destroy(this.gameObject);
                 }
 
             }
-            //  速度を元に戻す
-            if (currentTime >= duration)
-            {
-                // 一度だけ処理を起こす
-                if (!isAlreadyDeboosted)
-                {
-                    player.GetComponent<Player1Controller>().moveVelocity /= boostVelocity;
-
-                    // 処理を起こしたのでbool値を元に戻す
-                    isAlreadyDeboosted = true;
-                }
-
-                // 使用後はuseMechaをfalseに戻す
-                // メカ効果時間経過後に戻すためにバグが起きるかも
-                mechaUse.GetComponent<MechaUse>().useMecha = false;
-
-
-                // メカ使用後はプレファブ化されたものを破壊
-                Destroy(this.gameObject);
-            }
-
         }
 
     }

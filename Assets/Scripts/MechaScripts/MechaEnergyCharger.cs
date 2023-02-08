@@ -29,27 +29,32 @@ public class MechaEnergyCharger : MechaBase
 
     private void Update()
     {
-
-        if (mechaUse.GetComponent<MechaUse>().useMecha)
+        // ※
+        if (isPrefabGenerated)
         {
-
-            if (!isAlreadyCharged)
+            if (mechaUse.GetComponent<MechaUse>().useMecha)
             {
 
-                // PlayerのエナジーをMAXに
-                player.GetComponent<Player1Controller>().currentEnergy = player.GetComponent<Player1Controller>().grossEnergy;
+                if (!isAlreadyCharged)
+                {
 
-                // bool値を更新
-                isAlreadyCharged = true;
+                    // PlayerのエナジーをMAXに
+                    player.GetComponent<Player1Controller>().currentEnergy = player.GetComponent<Player1Controller>().grossEnergy;
 
+                    // bool値を更新
+                    isAlreadyCharged = true;
+
+                }
+
+                // メカ使用後はfalseに戻す
+                mechaUse.GetComponent<MechaUse>().useMecha = false;
+
+                // 使用後はisPrefabGeneratedをfalseに戻す
+                isPrefabGenerated = false;
+
+                // メカ使用後はプレファブ化されたものを破壊
+                Destroy(this.gameObject);
             }
-
-            // メカ使用後はfalseに戻す
-            mechaUse.GetComponent<MechaUse>().useMecha = false;
-
-
-            // メカ使用後はプレファブ化されたものを破壊
-            Destroy(this.gameObject);
         }
 
     }
