@@ -25,22 +25,22 @@ public class MechaSuperShoes : MechaBase
     private void Start()
     {
 
-        this.gameObject.GetComponent<MechaSuperShoes>().enabled = false;
-
         // 初期はfalseとして設定
         isAlreadyBoosted = false;
         isAlreadyDeboosted = false;
 
+        
 
 
         //持続時間を設定
-        duration = 10.0f;
+        duration = 5.0f;
 
     }
 
 
     private void Update()
     {
+
 
         if (mechaUse.GetComponent<MechaUse>().useMecha)
         {
@@ -77,6 +77,9 @@ public class MechaSuperShoes : MechaBase
                 // メカ効果時間経過後に戻すためにバグが起きるかも
                 mechaUse.GetComponent<MechaUse>().useMecha = false;
 
+
+                // メカ使用後はプレファブ化されたものを破壊
+                Destroy(this.gameObject);
             }
 
         }

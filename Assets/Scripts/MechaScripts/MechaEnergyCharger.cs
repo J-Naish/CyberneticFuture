@@ -21,8 +21,6 @@ public class MechaEnergyCharger : MechaBase
     void Start()
     {
 
-        this.gameObject.GetComponent<MechaEnergyCharger>().enabled = false;
-
         // 初期はfalse
         isAlreadyCharged = false;
 
@@ -46,7 +44,12 @@ public class MechaEnergyCharger : MechaBase
 
             }
 
+            // メカ使用後はfalseに戻す
             mechaUse.GetComponent<MechaUse>().useMecha = false;
+
+
+            // メカ使用後はプレファブ化されたものを破壊
+            Destroy(this.gameObject);
         }
 
     }

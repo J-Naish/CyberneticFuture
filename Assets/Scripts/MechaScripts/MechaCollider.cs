@@ -128,28 +128,56 @@ public class MechaCollider : MonoBehaviour
     {
 
         // 乱数を生成
-        int x = Random.Range(1,4);
+        int x = Random.Range(1,2);
 
 
         // 取得した乱数に応じてメカをactiveに
         if(x == 1)
         {
+            // メカをPrefab化
 
+            // プレファブ元のスクリプトを有効に
             superShoes.GetComponent<MechaSuperShoes>().enabled = true;
+            // プレファブ化
+            GameObject SuperShoes = Instantiate(superShoes);
+            // プレファブ元のスクリプトがダブって効果が出ないように無効に
+            superShoes.GetComponent<MechaSuperShoes>().enabled = false;
+
+            // どのメカを獲得したかわかるようにする文字列
             mechaTypeText = "SuperShoes";
         }
 
         else if(x == 2)
         {
+            // メカをPrefab化
 
+            // プレファブ元のスクリプトを有効に
             superHelmet.GetComponent<MechaSuperHelmet>().enabled = true;
+            // プレファブ化
+            GameObject SuperHelmet = Instantiate(superHelmet);
+            // プレファブ元のスクリプトがダブって効果が出ないように無効に
+            superHelmet.GetComponent<MechaSuperShoes>().enabled = false;
+
+            // どのメカを獲得したかわかるようにする文字列
             mechaTypeText = "SuperHelmet";
 
         }
         else  if(x == 3)
         {
+            // メカをPrefab化
 
+            // プレファブ元のスクリプトを有効に
             energyCharger.GetComponent<MechaEnergyCharger>().enabled = true;
+            // プレファブ化
+            GameObject EnergyCharger = Instantiate(energyCharger);
+            // プレファブ元のスクリプトを有効に
+            energyCharger.GetComponent<MechaEnergyCharger>().enabled = false;
+
+            //// 他のメカを無効に
+            //superShoes.GetComponent<MechaSuperShoes>().enabled = false;
+            //superHelmet.GetComponent<MechaSuperShoes>().enabled = false;
+
+            // どのメカを獲得したかわかるようにする文字列
             mechaTypeText = "EnergyCharger";
 
         }
