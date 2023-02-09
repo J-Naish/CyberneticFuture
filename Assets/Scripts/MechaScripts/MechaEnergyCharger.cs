@@ -46,17 +46,25 @@ public class MechaEnergyCharger : MechaBase
 
                 }
 
+
                 // メカ使用後はfalseに戻す
                 mechaUse.GetComponent<MechaUse>().useMecha = false;
+
+
 
                 // 使用後はisPrefabGeneratedをfalseに戻す
                 isPrefabGenerated = false;
 
+
                 // メカ使用後はプレファブ化されたものを破壊
                 Destroy(this.gameObject);
+
+
             }
         }
 
+
+        
     }
 
 

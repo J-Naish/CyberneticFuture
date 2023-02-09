@@ -19,8 +19,7 @@ public class MechaUse : MonoBehaviour
     {
 
         
-
-        if (Input.GetKey(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M))
         {
             useMecha = true;
 
