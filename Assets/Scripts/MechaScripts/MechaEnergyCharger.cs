@@ -29,9 +29,19 @@ public class MechaEnergyCharger : MechaBase
 
     private void Update()
     {
-        // ※
+
+        EnergyChargerUsed();
+
+    }
+
+
+
+    private void EnergyChargerUsed()
+    {
+        // Prefabが新規生成された時のみ実行
         if (isPrefabGenerated)
         {
+            // Mキーでのメカの使用を検知
             if (mechaUse.GetComponent<MechaUse>().useMecha)
             {
 
@@ -51,7 +61,6 @@ public class MechaEnergyCharger : MechaBase
                 mechaUse.GetComponent<MechaUse>().useMecha = false;
 
 
-
                 // 使用後はisPrefabGeneratedをfalseに戻す
                 isPrefabGenerated = false;
 
@@ -63,8 +72,6 @@ public class MechaEnergyCharger : MechaBase
             }
         }
 
-
-        
     }
 
 

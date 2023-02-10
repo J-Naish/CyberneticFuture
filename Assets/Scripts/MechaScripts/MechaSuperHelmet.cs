@@ -41,12 +41,24 @@ public class MechaSuperHelmet : MechaBase
 
     }
 
+
     
     void Update()
     {
-        // ※
+
+        SuperHelmetUsed();
+
+    }
+
+
+
+    // SuperHelmetの効果を実行する関数
+    private void SuperHelmetUsed()
+    {
+        // Prefabが新規生成された時のみ実行
         if (isPrefabGenerated)
         {
+            // Mキーでのメカの使用を検知
             if (mechaUse.GetComponent<MechaUse>().useMecha)
             {
 

@@ -71,12 +71,6 @@ public class MechaCollider : MonoBehaviour
                     GetNewMecha();
 
 
-                    // メカ獲得テキストを表示させる*
-                    //mechaGetText.GetComponent<TextMeshProUGUI>().text = "You've got " + mechaTypeText;
-                    //mechaGetText.GetComponent<MechaGetText>().gotMehca = true;
-
-
-
                     // メカを取得したらメカボックスを破壊
                     Destroy(this.gameObject);
 

@@ -40,9 +40,19 @@ public class MechaSuperShoes : MechaBase
 
     private void Update()
     {
-        // ※
+
+        SuperShoesUsed();
+
+    }
+
+
+
+    private void SuperShoesUsed()
+    {
+        // Prefabが新規生成された時のみ実行
         if (isPrefabGenerated)
         {
+            // メカの使用を検知
             if (mechaUse.GetComponent<MechaUse>().useMecha)
             {
 
