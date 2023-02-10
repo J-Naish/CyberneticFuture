@@ -9,7 +9,7 @@ public class MechaGetText : MonoBehaviour
 
     // メカを取得したらtrueになるbool値
     // MechaColliderクラスでメカの近くでGキーを押すとtrueにするよう定義
-    public bool gotMehca;
+    public bool gotMehca = false;
 
 
     // テキストを表示する秒数を指定するための変数
@@ -17,14 +17,14 @@ public class MechaGetText : MonoBehaviour
     private float duration = 2.0f;
 
 
+    [SerializeField] public TextMeshProUGUI mechaGetText;
+
+
 
     private void Start()
     {
-        // 初期ではgotMechaはfalse
-        gotMehca = false;
-
-        // メカ獲得テキストは初期では表示させない
-        this.gameObject.GetComponent<TextMeshProUGUI>().enabled = false;
+        // メカ獲得テキストをデフォルトでは表示させないようにする
+        mechaGetText.GetComponent<TextMeshProUGUI>().enabled = false;
     }
 
 
@@ -48,12 +48,13 @@ public class MechaGetText : MonoBehaviour
             // 2秒間だけ表示
             if(currentTime < duration)
             {
-                this.gameObject.GetComponent<TextMeshProUGUI>().enabled = true;
+                mechaGetText.GetComponent<TextMeshProUGUI>().enabled = true;
             }
             else if(currentTime > duration)
             {
                 // 2秒表示した後は非表示に
-                this.gameObject.GetComponent<TextMeshProUGUI>().enabled = false;
+                mechaGetText.GetComponent<TextMeshProUGUI>().enabled = false;
+                Destroy(this.gameObject);
             }
         }
 

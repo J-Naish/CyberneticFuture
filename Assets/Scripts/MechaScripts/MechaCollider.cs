@@ -21,9 +21,7 @@ public class MechaCollider : MonoBehaviour
 
 
     // メカ獲得テキストを取得
-    [SerializeField] private TextMeshProUGUI mechaGetText;
-    // どのメカを取得したかのテキスト
-    private string mechaTypeText;
+    [SerializeField] private GameObject mechaGetText;
 
 
     // それぞれのメカを取得
@@ -46,8 +44,6 @@ public class MechaCollider : MonoBehaviour
         // デフォルトでは範囲外
         isInMechaBoxArea = false;
 
-        // デフォルトではメカ獲得テキストを非表示
-        mechaGetText.enabled = false;
 
     }
 
@@ -75,9 +71,9 @@ public class MechaCollider : MonoBehaviour
                     GetNewMecha();
 
 
-                    // メカ獲得テキストを表示させる
-                    mechaGetText.GetComponent<TextMeshProUGUI>().text = "You've got " + mechaTypeText;
-                    mechaGetText.GetComponent<MechaGetText>().gotMehca = true;
+                    // メカ獲得テキストを表示させる*
+                    //mechaGetText.GetComponent<TextMeshProUGUI>().text = "You've got " + mechaTypeText;
+                    //mechaGetText.GetComponent<MechaGetText>().gotMehca = true;
 
 
 
@@ -108,6 +104,7 @@ public class MechaCollider : MonoBehaviour
     }
 
 
+
     private void OnTriggerExit(Collider other)
     {
 
@@ -131,7 +128,7 @@ public class MechaCollider : MonoBehaviour
         int x = Random.Range(1,4);
 
 
-        // 取得した乱数に応じてメカをactiveに
+        // 取得した乱数に応じてメカをPrefab化
         if(x == 1)
         {
             // メカをPrefab化
@@ -147,8 +144,11 @@ public class MechaCollider : MonoBehaviour
             // プレファブ元のスクリプトがダブって効果が出ないように無効に
             superShoes.GetComponent<MechaSuperShoes>().enabled = false;
 
-            // どのメカを獲得したかわかるようにする文字列
-            mechaTypeText = "SuperShoes";
+
+            // どのメカを獲得したかわかるようにするUI*
+            ShowMechaGetText("Supershoes");
+
+            
         }
 
         else if(x == 2)
@@ -166,8 +166,9 @@ public class MechaCollider : MonoBehaviour
             // プレファブ元のスクリプトがダブって効果が出ないように無効に
             superHelmet.GetComponent<MechaSuperHelmet>().enabled = false;
 
-            // どのメカを獲得したかわかるようにする文字列
-            mechaTypeText = "SuperHelmet";
+
+            ShowMechaGetText("SuperHelmet");
+
 
         }
         else  if(x == 3)
@@ -186,13 +187,23 @@ public class MechaCollider : MonoBehaviour
             energyCharger.GetComponent<MechaEnergyCharger>().enabled = false;
 
 
-            // どのメカを獲得したかわかるようにする文字列
-            mechaTypeText = "EnergyCharger";
-
+            ShowMechaGetText("EnergyCharger");
         }
 
     }
 
+
+    // どのメカを取得したか表示するUI
+    private void ShowMechaGetText(string str)
+    {
+
+        // どのメカを獲得したかわかるようにするUI*
+        GameObject MechaGetText = Instantiate(mechaGetText);
+        //MechaGetText.GetComponent<TextMeshProUGUI>().enabled = true;
+        MechaGetText.GetComponent<MechaGetText>().mechaGetText.GetComponent<TextMeshProUGUI>().text = "You've got " + str;
+        MechaGetText.GetComponent<MechaGetText>().gotMehca = true;
+
+    }
 
 
 
