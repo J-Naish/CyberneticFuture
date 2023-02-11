@@ -36,15 +36,10 @@ public class LoginTextController : MonoBehaviour
 
         i -= x;
 
-        // alphaが0になればalpha値を増やしていく
-        if(i == 0f)
+        // alphaが0または1になればalpha値の加算を変更
+        if(i == 0f || i == 240.0f)
         {
-            x = -1.0f;
-        }
-        // alpha値が1になればalpha値を減らしていく
-        else if(i == 240.0f)
-        {
-            x = 1.0f;
+            x *= -1.0f;
         }
 
     }
