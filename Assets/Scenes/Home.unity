@@ -568,7 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277432cf2a4b946ce986583fec75f9cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joinMatchingImage: {fileID: 779445874}
+  collisionDetector: {fileID: 1260214246}
 --- !u!4 &672438185
 Transform:
   m_ObjectHideFlags: 0
@@ -594,7 +594,6 @@ GameObject:
   - component: {fileID: 779445876}
   - component: {fileID: 779445875}
   - component: {fileID: 779445874}
-  - component: {fileID: 779445877}
   m_Layer: 5
   m_Name: JoinMatchingImage
   m_TagString: Untagged
@@ -659,19 +658,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &779445877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 779445873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6658f164feeb14f72b62438a1a2ca119, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseClicked: 0
 --- !u!1 &879950349
 GameObject:
   m_ObjectHideFlags: 0
