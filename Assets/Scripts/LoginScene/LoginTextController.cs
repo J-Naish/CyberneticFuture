@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
+// ログインテキストの表示に関するスクリプト
 public class LoginTextController : MonoBehaviour
 {
 
