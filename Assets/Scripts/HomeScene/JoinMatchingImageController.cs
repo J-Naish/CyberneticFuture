@@ -12,6 +12,8 @@ public class JoinMatchingImageController : MonoBehaviour
     [SerializeField] private GameObject collisionDetector;
 
 
+
+
     private void Start()
     {
         // デフォルトではUIを表示しない
@@ -22,7 +24,7 @@ public class JoinMatchingImageController : MonoBehaviour
 
     void Update()
     {
-
+        
         ShowImage();
 
     }
@@ -43,6 +45,9 @@ public class JoinMatchingImageController : MonoBehaviour
         }
 
     }
+
+
+
 
 
 }

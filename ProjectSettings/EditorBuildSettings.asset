@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Home.unity
     guid: af92c0ac0e2c0406493eff7463269bd2
   - enabled: 1
+    path: Assets/Scenes/Matching.unity
+    guid: 9509aab3a725f4f449cb320a90200fda
+  - enabled: 1
     path: Assets/Scenes/Field1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
