@@ -24,7 +24,15 @@ public class EnemyMove : MonoBehaviour
         // 衝突対象がPlayerの場合のみPlayerに近づく
         if (collider.CompareTag("Player"))
         {
-            enemyAgent.destination = collider.transform.position;
+            // 一定距離までしか近づかない
+            if (Vector3.Distance(collider.transform.position, this.transform.position) >= 20.0f)
+            {
+                enemyAgent.destination = collider.transform.position;
+            }
+            else if(Vector3.Distance(collider.transform.position, this.transform.position) < 20.0f)
+            {
+                enemyAgent.destination = this.transform.position;
+            }
             enemyAgent.transform.LookAt(collider.transform.position);
         }
 
