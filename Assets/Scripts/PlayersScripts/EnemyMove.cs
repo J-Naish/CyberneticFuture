@@ -10,6 +10,9 @@ public class EnemyMove : MonoBehaviour
 
     private NavMeshAgent enemyAgent;
 
+    // Pleyerとの距離を測る変数
+    public float distance;
+
 
     void Start()
     {
@@ -24,12 +27,16 @@ public class EnemyMove : MonoBehaviour
         // 衝突対象がPlayerの場合のみPlayerに近づく
         if (collider.CompareTag("Player"))
         {
+
+            // distanceを定義
+            distance = Vector3.Distance(collider.transform.position, this.transform.position);
+
             // 一定距離までしか近づかない
-            if (Vector3.Distance(collider.transform.position, this.transform.position) >= 20.0f)
+            if (distance >= 20.0f)
             {
                 enemyAgent.destination = collider.transform.position;
             }
-            else if(Vector3.Distance(collider.transform.position, this.transform.position) < 20.0f)
+            else if(distance < 20.0f)
             {
                 enemyAgent.destination = this.transform.position;
             }
