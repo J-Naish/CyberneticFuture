@@ -15933,7 +15933,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.024976613, y: -0.000000017201012, z: 4.2975715e-10, w: 0.999688}
+  m_LocalRotation: {x: 0.024976593, y: 0.000000017201012, z: -4.2975679e-10, w: 0.999688}
   m_LocalPosition: {x: 105.63, y: 246.44003, z: -327.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -17612,7 +17612,7 @@ MonoBehaviour:
   mechaGetButton: {fileID: 1014635592}
   isInMechaBoxArea: 0
   mechaEmpty: {fileID: 1991160600}
-  mechaGetText: {fileID: 1243503846}
+  mechaGetText: {fileID: 1243503845}
   superShoes: {fileID: 7679824475531194939}
   superHelmet: {fileID: 1123422063}
   energyCharger: {fileID: 1686658749}
@@ -17708,7 +17708,7 @@ MonoBehaviour:
   mechaGetButton: {fileID: 1937161265}
   isInMechaBoxArea: 0
   mechaEmpty: {fileID: 1991160600}
-  mechaGetText: {fileID: 1243503846}
+  mechaGetText: {fileID: 1243503845}
   superShoes: {fileID: 7679824475531194939}
   superHelmet: {fileID: 1123422063}
   energyCharger: {fileID: 1686658749}
@@ -18425,6 +18425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c7fcd56200a84160959175953239fcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPrefabGenerated: 0
   player: {fileID: 1935733224}
   mechaUse: {fileID: 638599929}
 --- !u!1 &1127525877
@@ -21555,6 +21556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gotMehca: 0
+  mechaGetText: {fileID: 1243503846}
 --- !u!1 &1248353098
 GameObject:
   m_ObjectHideFlags: 0
@@ -29078,6 +29080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893977e7602654f4ea0541f3c67f824d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPrefabGenerated: 0
   player: {fileID: 1935733224}
   mechaUse: {fileID: 638599929}
 --- !u!4 &1686658751
@@ -30265,7 +30268,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748352947}
-  m_LocalRotation: {x: 0.024976613, y: -0.000000017201012, z: 4.2975715e-10, w: 0.999688}
+  m_LocalRotation: {x: 0.024976593, y: 0.000000017201012, z: -4.2975679e-10, w: 0.999688}
   m_LocalPosition: {x: 105.63, y: 246.44003, z: -327.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -36631,6 +36634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6087458cb3f004eb09dbe7c9c3ec43f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPrefabGenerated: 0
   player: {fileID: 1935733224}
   mechaUse: {fileID: 638599929}
 --- !u!4 &7679824475531194938
