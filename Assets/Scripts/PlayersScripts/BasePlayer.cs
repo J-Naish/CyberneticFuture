@@ -72,5 +72,16 @@ public class BasePlayer : MonoBehaviour
 
 
 
+    // エナジーが上限を超えないようにする関数
+    protected void NotExcessGrossEnergy()
+    {
+
+        if(currentEnergy > grossEnergy)
+        {
+            currentEnergy = grossEnergy;
+        }
+
+    }
+
 
 }

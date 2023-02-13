@@ -24,6 +24,14 @@ public class Player1Controller : BasePlayer
     private Slider energySlider;
 
 
+    // 敵を取得
+    [SerializeField] private GameObject enemy;
+
+
+    // ダメージを宣言
+    private float damage;
+
+
 
     void Start()
     {
@@ -96,6 +104,9 @@ public class Player1Controller : BasePlayer
         // エナジーバーを変化
         EnergyBarChange();
 
+        // エナジーが上限を超えないように
+        NotExcessGrossEnergy();
+
     }
 
 
@@ -113,11 +124,30 @@ public class Player1Controller : BasePlayer
         // 衝突対象が弾の時のみ
         if (collision.gameObject.tag == "EnemyWeapon")
         {
-            float damage = collision.gameObject.GetComponent<EnemyBulletCollisionController>().enemyBulletDamage;
+            // damageを定義
+            damage = collision.gameObject.GetComponent<EnemyBulletCollisionController>().enemyBulletDamage;
+
+            // エナジーを受け渡す
+            TransferEnergyToKiller();
+
             currentLife -= damage;
         }
 
     }
 
+
+
+    // デスしたら相手にエナジーを渡す関数
+    private void TransferEnergyToKiller()
+    {
+        // ダメージ量が現在ライフを超えてる時だけ渡す
+        if (currentLife <= damage)
+        {
+            // エナジーを受け渡す
+            enemy.GetComponent<EnemyController>().currentEnergy += this.currentEnergy;
+
+        }
+
+    }
 
 }
