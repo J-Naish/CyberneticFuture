@@ -100,10 +100,23 @@ public class Player1Controller : BasePlayer
 
 
     // エナジーバー変更の関数
-
     private void EnergyBarChange()
     {
         energySlider.value = (float)currentEnergy / (float)grossEnergy;
+        lifeSlider.value = (float)currentLife / (float)grossLife;
+    }
+
+
+    // 弾が当たったらダメージが減る処理
+    private void OnCollisionEnter(Collision collision)
+    {
+        // 衝突対象が弾の時のみ
+        if (collision.gameObject.tag == "EnemyWeapon")
+        {
+            float damage = collision.gameObject.GetComponent<EnemyBulletCollisionController>().enemyBulletDamage;
+            currentLife -= damage;
+        }
+
     }
 
 

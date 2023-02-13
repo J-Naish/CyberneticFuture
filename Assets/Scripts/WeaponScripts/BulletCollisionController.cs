@@ -5,23 +5,13 @@ using UnityEngine;
 public class BulletCollisionController : MonoBehaviour
 {
 
-    // この銃弾が与えるダメージ変数
+    // 銃弾がヒットした時に与えるダメージの変数
     public float damage;
 
-
-
-    private void Start()
+    private void Update()
     {
-
-        // とりあえず150に設定
+        // ダメージ数を定義
         damage = 150.0f;
-
-
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        //Debug.Log("Hit!");
     }
 
 }

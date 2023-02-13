@@ -22,6 +22,8 @@ TagManager:
   - TankLeft
   - TankRight
   - Mecha
+  - PlayerWeapon
+  - EnemyWeapon
   layers:
   - Default
   - TransparentFX

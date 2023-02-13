@@ -50,7 +50,8 @@ public class EnemyController : BasePlayer
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.CompareTag("Weapon"))
+
+        if (other.CompareTag("PlayerWeapon"))
         {
             // ダメージ処理
             weapon = other.gameObject;
@@ -78,6 +79,10 @@ public class EnemyController : BasePlayer
             Destroy(gameObject);
             
         }
+
+
+        // エナジーバーを更新する処理
+        energySlider.value = (float)currentEnergy / (float)grossEnergy;
 
     }
 
