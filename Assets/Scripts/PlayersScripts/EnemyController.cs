@@ -58,9 +58,6 @@ public class EnemyController : BasePlayer
             damage = weapon.GetComponent<BulletCollisionController>().damage;
             currentLife -= damage;
 
-            // ライフゲージ処理
-            lifeSlider.value = (float)currentLife / (float)grossLife;
-
             // 衝突対象を破壊(剣などの場合は残す処理は必要)
             Destroy(weapon);
 
@@ -71,15 +68,15 @@ public class EnemyController : BasePlayer
 
     void Update()
     {
-        // ライフ0で消える処理
-        if(currentLife <= 0)
-        {
+        EnergyBarChange();
+    }
 
-            LifeBar.SetActive(false);
-            Destroy(gameObject);
-            
-        }
 
+    // バーを更新する関数
+    private void EnergyBarChange()
+    {
+        // ライフゲージ処理
+        lifeSlider.value = (float)currentLife / (float)grossLife;
 
         // エナジーバーを更新する処理
         energySlider.value = (float)currentEnergy / (float)grossEnergy;
