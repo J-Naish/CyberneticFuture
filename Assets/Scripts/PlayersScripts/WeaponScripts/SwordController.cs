@@ -31,6 +31,9 @@ public class SwordController : BaseWeaponController
         {
             // 剣を振るアニメーションを起動
             player.GetComponent<Player1Controller>().animator.SetTrigger("SwordAttack");
+
+            // エナジーを消費
+            player.GetComponent<Player1Controller>().currentEnergy -= requiringEnergy;
         }
     }
 

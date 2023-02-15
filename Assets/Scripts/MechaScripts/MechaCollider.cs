@@ -34,6 +34,9 @@ public class MechaCollider : MonoBehaviour
     [SerializeField] private GameObject mechaButton;
 
 
+    // アニメーションのためPlayerを取得
+    [SerializeField] private GameObject player;
+
 
     private void Start()
     {
@@ -62,6 +65,9 @@ public class MechaCollider : MonoBehaviour
                 // Gキーでメカを獲得
                 if (Input.GetKeyDown(KeyCode.G))
                 {
+
+                    // メカを拾うアニメーションを起動
+                    player.GetComponent<Player1Controller>().animator.SetTrigger("Pick");
 
                     // メカ所持のbool値を変更
                     mechaEmpty.GetComponent<MechaButton>().hasMecha = true;
