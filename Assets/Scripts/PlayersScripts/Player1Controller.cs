@@ -36,10 +36,7 @@ public class Player1Controller : BasePlayer
     void Start()
     {
         // Player1のステータス
-        moveVelocity = 10.0f;
-        grossLife = 1000.0f;
         currentLife = grossLife;
-        grossEnergy = 1000.0f;
         currentEnergy = grossEnergy;
 
 

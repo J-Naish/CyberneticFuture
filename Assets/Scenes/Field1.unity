@@ -19977,6 +19977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eadcfe891de0481db6b05e15170c438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1935733224}
   bullet: {fileID: 2630605865897858281, guid: ef42a4282744c4bb78a940da5dfb5e83, type: 3}
   bulletSpeed: 30000
 --- !u!65 &1163661509

@@ -2,19 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class BulletController : BaseWeaponController
 {
 
     // 弾丸と弾丸速度を宣言
     public GameObject bullet;
     public float bulletSpeed;
 
-    // 弾丸の消費エナジー
-    private float bulletRequiringEnergy;
 
 
     // playerのエナジー消費のためにplayerを取得
-    private GameObject player;
     private float grossEnergy;
     private float currentEnergy;
 
@@ -24,15 +21,14 @@ public class BulletController : MonoBehaviour
     {
 
         // とりあえずエナジーを40消費する設定
-        bulletRequiringEnergy = 40.0f;
+        requiringEnergy = 40.0f;
 
-        // Player1を取得
-        player = GameObject.Find("Player1");
 
 
         // ※代入すると値が謎に0になる 2/2
         // currentEnergy = player.GetComponent<Player1Controller>().currentEnergy;
 
+        SetStatus(900.0f, 1100.0f, 10.0f);
 
     }
 
@@ -47,7 +43,7 @@ public class BulletController : MonoBehaviour
 
         // 必要エナジーがある時だけ呼び出す
         // できれば変数に代入して書きたい
-        if (player.GetComponent<Player1Controller>().currentEnergy >= bulletRequiringEnergy)
+        if (player.GetComponent<Player1Controller>().currentEnergy >= requiringEnergy)
         {
 
             if (Input.GetKeyDown(KeyCode.Return)) // 2/n 暫定的にエンターボタンで発射
@@ -59,7 +55,7 @@ public class BulletController : MonoBehaviour
 
 
                 // エナジーを消費
-                player.GetComponent<Player1Controller>().currentEnergy -= bulletRequiringEnergy;
+                player.GetComponent<Player1Controller>().currentEnergy -= requiringEnergy;
 
 
 
