@@ -8,7 +8,7 @@ public class Player1Controller : BasePlayer
 {
 
     // アニメーション用変数
-    [SerializeField] private Animator animator;
+    [SerializeField] public Animator animator;
 
     // キャラクター移動用変数
     private CharacterController characterController;
