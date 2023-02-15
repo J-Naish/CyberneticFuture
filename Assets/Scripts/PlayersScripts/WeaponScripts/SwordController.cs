@@ -6,12 +6,17 @@ using UnityEngine;
 // ライトセーバーに関するクラス
 public class SwordController : BaseWeaponController
 {
-    
-    void Start()
+
+
+    private void Awake()
     {
         // Playerのステータスを設定
         SetStatus(1400.0f, 700.0f, 14.0f);
+    }
 
+
+    void Start()
+    {
         // 消費エナジー量を設定
         requiringEnergy = 10.0f;
     }

@@ -13,10 +13,17 @@ public class LaserGunController : BaseWeaponController
     // レーザーのスピードを定義
     private float laserSpeed = 5000.0f;
 
-    void Start()
+
+    private void Awake()
     {
         // ステータスを設定
         SetStatus(800.0f, 700.0f, 9.0f);
+
+    }
+
+
+    void Start()
+    {
 
         // エナジー消費量を設定
         requiringEnergy = 20.0f;

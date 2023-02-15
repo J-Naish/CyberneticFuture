@@ -17,18 +17,18 @@ public class BulletController : BaseWeaponController
 
 
 
+    private void Awake()
+    {
+        // ステータスを設定
+        SetStatus(900.0f, 1100.0f, 10.0f);
+
+    }
+
+
     void Start()
     {
-
         // とりあえずエナジーを40消費する設定
         requiringEnergy = 40.0f;
-
-
-
-        // ※代入すると値が謎に0になる 2/2
-        // currentEnergy = player.GetComponent<Player1Controller>().currentEnergy;
-
-        SetStatus(900.0f, 1100.0f, 10.0f);
 
     }
 

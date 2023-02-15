@@ -6,12 +6,15 @@ using UnityEngine;
 public class EnergyGlove : BaseWeaponController
 {
 
+    private void Awake()
+    {
+        // ステータスを設定
+        SetStatus(1700.0f, 500.0f, 17.0f);
+    }
+
 
     void Start()
     {
-
-        // ステータスを設定
-        SetStatus(1700.0f,500.0f, 17.0f);
 
         // 消費エナジーを設定
         requiringEnergy = 3.0f;
@@ -21,6 +24,7 @@ public class EnergyGlove : BaseWeaponController
     
     void Update()
     {
+
         GloveAttack();
     }
 
