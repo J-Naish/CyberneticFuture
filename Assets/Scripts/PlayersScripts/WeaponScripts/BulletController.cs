@@ -10,11 +10,9 @@ public class BulletController : BaseWeaponController
     public float bulletSpeed;
 
 
-
-    // playerのエナジー消費のためにplayerを取得
-    private float grossEnergy;
-    private float currentEnergy;
-
+    // 必殺技の弾丸と速度を取得
+    [SerializeField] private GameObject superBullet;
+    private float superBulletSpeed = 7000.0f;
 
 
     private void Awake()
@@ -27,8 +25,11 @@ public class BulletController : BaseWeaponController
 
     void Start()
     {
-        // とりあえずエナジーを40消費する設定
+        // 消費エナジーを設定
         requiringEnergy = 40.0f;
+
+        // 必殺技が溜まる時間を定義
+        superPowerCoolTime = 8.0f;
 
     }
 
@@ -37,12 +38,24 @@ public class BulletController : BaseWeaponController
 
     void Update()
     {
+        // 時間計測
+        currentTime += Time.deltaTime;
+
+        // 通常攻撃
+        BulletAttack();
+
+        // 必殺技
+        BulletSuperPower();
+
+        // bool値変更関数
+        SuperPowerCharged();
+    }
 
 
-
+    private void BulletAttack()
+    {
 
         // 必要エナジーがある時だけ呼び出す
-        // できれば変数に代入して書きたい
         if (player.GetComponent<Player1Controller>().currentEnergy >= requiringEnergy)
         {
 
@@ -53,17 +66,44 @@ public class BulletController : BaseWeaponController
                 Rigidbody bulletRb = Bullet.GetComponent<Rigidbody>();
                 bulletRb.AddForce(transform.forward * bulletSpeed);
 
-
                 // エナジーを消費
                 player.GetComponent<Player1Controller>().currentEnergy -= requiringEnergy;
 
-
-
+                // Prefab化した弾丸を破壊
                 Destroy(Bullet, 3.0f);
             }
 
         }
 
+    }
+
+
+    private void BulletSuperPower()
+    {
+        // 必殺技が溜まってたら使用できる
+        if (superPowerButton.GetComponent<SuperPowerButton>().isSuperPowerCharged)
+        {
+
+            // Sキーで使える
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                GameObject SuperBullet =
+                    Instantiate(superBullet, transform.position, Quaternion.Euler(transform.parent.eulerAngles.x, transform.parent.eulerAngles.y, 0));
+                SuperBullet.GetComponent<BulletCollisionController>().damage = 200.0f;
+
+                Rigidbody superBulletRb = SuperBullet.GetComponent<Rigidbody>();
+                superBulletRb.AddForce(transform.forward * superBulletSpeed);
+
+                // 必殺技を使用した判定をする関数
+                SuperPowerUsed();
+
+                // Prefab化した弾丸を破壊
+                Destroy(SuperBullet, 3.0f);
+            }
+
+        }
 
     }
+
+
 }

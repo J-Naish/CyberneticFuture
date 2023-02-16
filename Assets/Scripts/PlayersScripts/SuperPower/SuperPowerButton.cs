@@ -14,7 +14,7 @@ public class SuperPowerButton : MonoBehaviour
 
 
     // 必殺技が溜まってるかどうかのbool値
-    public bool isSuperPowerChaarged = false;
+    public bool isSuperPowerCharged = false;
 
 
     
@@ -30,12 +30,12 @@ public class SuperPowerButton : MonoBehaviour
     private void SetSuperPowerButtonOpacity()
     {
 
-        if (isSuperPowerChaarged)
+        if (isSuperPowerCharged)
         {
             float alphaValue = 1.0f;
             SetOpacity(alphaValue);
         }
-        else if (!isSuperPowerChaarged)
+        else if (!isSuperPowerCharged)
         {
             float alphaValue = 0.4f;
             SetOpacity(alphaValue);

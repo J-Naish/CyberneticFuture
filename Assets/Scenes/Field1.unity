@@ -2642,6 +2642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1935733224}
+  superPowerButton: {fileID: 0}
 --- !u!1 &131003963
 GameObject:
   m_ObjectHideFlags: 0
@@ -7535,6 +7536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 245064691}
+  superPowerButton: {fileID: 0}
   muzzle: {fileID: 0}
 --- !u!1001 &401314984
 PrefabInstance:
@@ -8476,7 +8478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &445780940
 Transform:
   m_ObjectHideFlags: 0
@@ -8484,14 +8486,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445780939}
-  m_LocalRotation: {x: -0.67181534, y: -0.32008526, z: -0.6628974, w: -0.08232058}
-  m_LocalPosition: {x: 0.83959806, y: -1.2112995, z: -4.2848735}
+  m_LocalRotation: {x: -0.5977372, y: -0.6421923, z: -0.35983226, w: 0.3175218}
+  m_LocalPosition: {x: -0.004, y: 0.131, z: -0.053}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1367468098}
   m_Father: {fileID: 1631741659}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -57.326, y: 177.627, z: 87.19}
 --- !u!1 &448734660
 GameObject:
   m_ObjectHideFlags: 0
@@ -8781,6 +8783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 245064691}
+  superPowerButton: {fileID: 501635064}
 --- !u!1 &462841393
 GameObject:
   m_ObjectHideFlags: 0
@@ -9890,7 +9893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   superPowerButton: {fileID: 501635067}
-  isSuperPowerChaarged: 0
+  isSuperPowerCharged: 0
 --- !u!114 &501635067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17395,7 +17398,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.024976613, y: 0.000000017201012, z: -4.2975715e-10, w: 0.999688}
+  m_LocalRotation: {x: 0.024976593, y: -0.000000017201012, z: 4.2975679e-10, w: 0.999688}
   m_LocalPosition: {x: 103.76, y: 246.41, z: -331.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -19430,15 +19433,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4485997996375822, guid: 0b66ff5634a8e0b4a9388e90530ad4c5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.47736055
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4485997996375822, guid: 0b66ff5634a8e0b4a9388e90530ad4c5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.97999877
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4485997996375822, guid: 0b66ff5634a8e0b4a9388e90530ad4c5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.21500245
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4485997996375822, guid: 0b66ff5634a8e0b4a9388e90530ad4c5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -21067,8 +21070,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1935733224}
+  superPowerButton: {fileID: 0}
   bullet: {fileID: 2630605865897858281, guid: ef42a4282744c4bb78a940da5dfb5e83, type: 3}
   bulletSpeed: 30000
+  superBullet: {fileID: 0}
 --- !u!65 &1163661509
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21878,8 +21883,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 245064691}
+  superPowerButton: {fileID: 501635064}
   bullet: {fileID: 2630605865897858281, guid: ef42a4282744c4bb78a940da5dfb5e83, type: 3}
   bulletSpeed: 30000
+  superBullet: {fileID: 4495177470371224807, guid: 813a1a38228f049838e2ccf4be73a7c4,
+    type: 3}
 --- !u!65 &1192557911
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30518,7 +30526,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1608326442
 Transform:
   m_ObjectHideFlags: 0
@@ -31021,6 +31029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1935733224}
+  superPowerButton: {fileID: 0}
   muzzle: {fileID: 0}
 --- !u!1 &1651576694
 GameObject:
@@ -32392,6 +32401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 245064691}
+  superPowerButton: {fileID: 501635064}
 --- !u!65 &1728396916
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33005,7 +33015,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748352947}
-  m_LocalRotation: {x: 0.024976613, y: 0.000000017201012, z: -4.2975715e-10, w: 0.999688}
+  m_LocalRotation: {x: 0.024976593, y: -0.000000017201012, z: 4.2975679e-10, w: 0.999688}
   m_LocalPosition: {x: 103.76, y: 246.41, z: -331.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

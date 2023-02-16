@@ -12,6 +12,18 @@ public class BaseWeaponController : MonoBehaviour
     protected float requiringEnergy;
 
 
+    // 必殺技が溜まるまでの時間
+    protected float superPowerCoolTime;
+
+
+    // 必殺技ボタンを取得
+    [SerializeField] protected GameObject superPowerButton;
+
+
+    // 時間を計測するための変数
+    protected float currentTime;
+
+
     // 武器を使用する関数
     protected virtual void UseWeapon()
     {
@@ -26,6 +38,26 @@ public class BaseWeaponController : MonoBehaviour
         player.GetComponent<Player1Controller>().grossEnergy = energy;
         player.GetComponent<Player1Controller>().moveVelocity = speed;
 
+    }
+
+
+    // 必殺技が溜まってるかどうかのbool値変更
+    protected void SuperPowerCharged()
+    {
+        if (currentTime >= superPowerCoolTime)
+        {
+            // bool値変更
+            superPowerButton.GetComponent<SuperPowerButton>().isSuperPowerCharged = true;
+        }
+    }
+
+
+    protected void SuperPowerUsed()
+    {
+        // bool値をfalseに
+        superPowerButton.GetComponent<SuperPowerButton>().isSuperPowerCharged = false;
+        // 時間をリセット
+        currentTime = 0;
     }
 
 
