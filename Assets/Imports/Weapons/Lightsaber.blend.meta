@@ -3,7 +3,49 @@ guid: 81631754062954044b0235b2ec2c7769
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blue Lightsaber
+    second: {fileID: -6553343224719496434, guid: 81631754062954044b0235b2ec2c7769,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Copper
+    second: {fileID: 9219180724257492359, guid: 81631754062954044b0235b2ec2c7769,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dark Grey
+    second: {fileID: -3529822651928135958, guid: 81631754062954044b0235b2ec2c7769,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metallic Blue
+    second: {fileID: -7120822847044666695, guid: 81631754062954044b0235b2ec2c7769,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Reflective Black
+    second: {fileID: 1908390717757225162, guid: 81631754062954044b0235b2ec2c7769,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Silver
+    second: {fileID: 7490952440742008943, guid: 81631754062954044b0235b2ec2c7769,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Super Dark Grey metallic
+    second: {fileID: 3201336738367867237, guid: 81631754062954044b0235b2ec2c7769,
+      type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

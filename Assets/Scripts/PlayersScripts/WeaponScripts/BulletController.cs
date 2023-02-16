@@ -49,6 +49,9 @@ public class BulletController : BaseWeaponController
 
         // bool値変更関数
         SuperPowerCharged();
+
+        // エイムする関数
+        AimForward();
     }
 
 
@@ -104,6 +107,22 @@ public class BulletController : BaseWeaponController
         }
 
     }
+
+
+    // エイミングする関数
+    private void AimForward()
+    {
+
+        // Aキーを押してる間エイムモーションに
+        if (Input.GetKey(KeyCode.A))
+        {
+            // Aimトリガーを起動
+            player.GetComponent<Player1Controller>().animator.SetTrigger("Aim");
+        }
+
+
+    }
+
 
 
 }
