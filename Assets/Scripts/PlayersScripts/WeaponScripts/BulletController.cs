@@ -29,7 +29,7 @@ public class BulletController : BaseWeaponController
         requiringEnergy = 40.0f;
 
         // 必殺技が溜まる時間を定義
-        superPowerCoolTime = 8.0f;
+        superPowerCoolTime = 40.0f;
 
     }
 
