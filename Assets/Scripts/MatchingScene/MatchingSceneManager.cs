@@ -55,7 +55,7 @@ public class MatchingSceneManager : MonoBehaviour
         if(currentTime >= 10.0f)
         {
             
-            SceneManager.LoadScene("Loading");
+            SceneManager.LoadScene("Select");
 
         }
 
