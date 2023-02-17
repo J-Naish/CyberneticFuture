@@ -16,11 +16,9 @@ public class SelectController : MonoBehaviour
     private int arrayNumber;
 
 
+    // Sceneをまたいで選択武器データを取得するためのもの
+    [SerializeField] private WeaponSelectData weaponSelectData;
 
-    void Start()
-    {
-        
-    }
 
     
     void Update()
@@ -36,16 +34,21 @@ public class SelectController : MonoBehaviour
         {
             arrayNumber = 1 - 1;
             DarkenUnselectedWeapons();
+            weaponSelectData.weaponNumber = 1;
+
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             arrayNumber = 2 - 1;
             DarkenUnselectedWeapons();
+            weaponSelectData.weaponNumber = 2;
+
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             arrayNumber = 3 - 1;
             DarkenUnselectedWeapons();
+            weaponSelectData.weaponNumber = 3;
         }
 
     }

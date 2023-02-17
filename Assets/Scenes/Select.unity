@@ -1150,6 +1150,7 @@ MonoBehaviour:
   - {fileID: 384509230}
   - {fileID: 445242008}
   - {fileID: 340507938}
+  weaponSelectData: {fileID: 11400000, guid: d871010da11de4a1aa7d1e8b57753595, type: 2}
 --- !u!1 &784582201
 GameObject:
   m_ObjectHideFlags: 0
