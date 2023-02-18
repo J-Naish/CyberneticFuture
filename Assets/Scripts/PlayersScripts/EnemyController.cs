@@ -54,7 +54,6 @@ public class EnemyController : BasePlayer
     private void OnTriggerEnter(Collider other)
     {
 
-
         if (other.CompareTag("PlayerWeapon"))
         {
             // ダメージを取得
@@ -67,7 +66,6 @@ public class EnemyController : BasePlayer
 
             // 衝突対象を破壊(剣などの場合は残す処理は必要)
             Destroy(weapon);
-
         }
 
     }

@@ -24,6 +24,8 @@ TagManager:
   - Mecha
   - PlayerWeapon
   - EnemyWeapon
+  - EnergySword
+  - EnergyGlove
   layers:
   - Default
   - TransparentFX

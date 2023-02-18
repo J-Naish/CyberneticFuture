@@ -20,11 +20,15 @@ public class SelectController : MonoBehaviour
     [SerializeField] private WeaponSelectData weaponSelectData;
 
 
+    // 武器を取得
+    [SerializeField] private GameObject[] weapons = new GameObject[3];
+
     
     void Update()
     {
         SelectWeapon();
     }
+
 
 
     // 武器画像の明るさを変える関数
@@ -34,6 +38,7 @@ public class SelectController : MonoBehaviour
         {
             arrayNumber = 1 - 1;
             DarkenUnselectedWeapons();
+            ActivateSelectedWeapon();
             weaponSelectData.weaponNumber = 1;
 
         }
@@ -41,6 +46,7 @@ public class SelectController : MonoBehaviour
         {
             arrayNumber = 2 - 1;
             DarkenUnselectedWeapons();
+            ActivateSelectedWeapon();
             weaponSelectData.weaponNumber = 2;
 
         }
@@ -48,10 +54,12 @@ public class SelectController : MonoBehaviour
         {
             arrayNumber = 3 - 1;
             DarkenUnselectedWeapons();
+            ActivateSelectedWeapon();
             weaponSelectData.weaponNumber = 3;
         }
 
     }
+
 
 
     // 選択武器以外を暗くする関数
@@ -65,6 +73,21 @@ public class SelectController : MonoBehaviour
                 blackImages[i].GetComponent<BlackImage>().isSelected = true;
             }
         }
+    }
+
+
+    // 選択した武器を有効化する関数
+    private void ActivateSelectedWeapon()
+    {
+        for(int i = 0;i < weapons.Length; i++)
+        {
+            weapons[i].SetActive(false);
+            if(i == arrayNumber)
+            {
+                weapons[i].SetActive(true);
+            }
+        }
+
     }
 
 

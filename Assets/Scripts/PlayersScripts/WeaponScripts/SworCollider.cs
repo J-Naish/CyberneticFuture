@@ -14,7 +14,6 @@ public class SworCollider : MonoBehaviour
     // 衝突した時の処理
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.CompareTag("Enemy"))
         {
             other.transform.root.gameObject.GetComponent<EnemyController>().currentLife -= damage;
