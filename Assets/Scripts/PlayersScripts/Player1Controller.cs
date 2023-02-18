@@ -10,10 +10,6 @@ public class Player1Controller : BasePlayer
     // アニメーション用変数
     [SerializeField] public Animator animator;
 
-    // キャラクター移動用変数
-    private CharacterController characterController;
-    private Vector3 moveDirection;
-
 
     // ライフ表示UI
     [SerializeField] private GameObject LifeBar;
@@ -32,16 +28,18 @@ public class Player1Controller : BasePlayer
     private float damage;
 
 
+    // 移動処理に用いる変数
+    private float inputHorizontal;
+    private float inputVertical;
+    private Rigidbody rb;
+
+
 
     void Start()
     {
         // Player1のステータス
         currentLife = grossLife;
         currentEnergy = grossEnergy;
-
-
-        // キャラクターコントローラー取得
-        characterController = GetComponent<CharacterController>();
 
 
         // スライダーの設定
@@ -55,48 +53,16 @@ public class Player1Controller : BasePlayer
         energySlider.value = 1f;
 
 
+        // Rigidbodyを取得
+        rb = GetComponent<Rigidbody>();
+
     }
 
 
     void Update()
     {
 
-        animator.SetFloat("MoveSpeed", moveDirection.magnitude);
-
-
-        // キャラクターの移動
-        // 1/n 暫定的に十字キーで移動
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            moveDirection += transform.forward;
-        }
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            moveDirection -= transform.forward;
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            moveDirection += transform.right;
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            moveDirection -= transform.right;
-        }
-
-        if (!Input.anyKey)
-        {
-            moveDirection = Vector3.zero;
-        }
-
-        moveDirection.Normalize();
-
-        transform.LookAt(transform.position + moveDirection);
-
-        characterController.Move(moveDirection * moveVelocity * Time.deltaTime);
-
+        GetInputAxis();
 
         // エナジーバーを変化
         EnergyBarChange();
@@ -107,12 +73,22 @@ public class Player1Controller : BasePlayer
     }
 
 
+    private void FixedUpdate()
+    {
+        MoveByArrowKey();
+    }
+
+
+
+
+
     // エナジーバー変更の関数
     private void EnergyBarChange()
     {
         energySlider.value = (float)currentEnergy / (float)grossEnergy;
         lifeSlider.value = (float)currentLife / (float)grossLife;
     }
+
 
 
     // 弾が当たったらダメージが減る処理
@@ -146,5 +122,40 @@ public class Player1Controller : BasePlayer
         }
 
     }
+
+
+
+    // 入力を取得する関数
+    private void GetInputAxis()
+    {
+        inputHorizontal = Input.GetAxisRaw("Horizontal");
+        inputVertical = Input.GetAxisRaw("Vertical");
+    }
+
+
+
+
+    // 十字キーで移動する関数
+    private void MoveByArrowKey()
+    {
+        // カメラの方向から、X-Z平面の単位ベクトルを取得
+        Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
+
+        // 方向キーの入力値とカメラの向きから、移動方向を決定
+        Vector3 moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
+
+        // 移動方向にスピードを掛ける。ジャンプや落下がある場合は、別途Y軸方向の速度ベクトルを足す。
+        rb.velocity = moveForward * moveVelocity + new Vector3(0, rb.velocity.y, 0);
+
+        // アニメーションのパラメーターを設定
+        animator.SetFloat("MoveSpeed", moveForward.magnitude);
+
+        // キャラクターの向きを進行方向に
+        if (moveForward != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(moveForward);
+        }
+    }
+
 
 }
