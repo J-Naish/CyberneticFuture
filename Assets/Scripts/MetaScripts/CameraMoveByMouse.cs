@@ -11,7 +11,7 @@ public class CameraMoveByMouse : MonoBehaviour
     [SerializeField] private GameObject playerObject;
 
     // 回転の速さ
-    public float rotateSpeed = 0.2f;
+    public float rotateSpeed = 0.0001f;
 
 
     void Update()
