@@ -25,7 +25,7 @@ public class CollisionDetector : MonoBehaviour
     {
 
         // ロボの初期位置を取得
-        roboAgent = GameObject.Find("RoboAgent");
+        roboAgent = GameObject.Find("MobRobot");
         roboAgentNMA = roboAgent.GetComponent<NavMeshAgent>();
         originalPosition = roboAgent.transform.position;
 
