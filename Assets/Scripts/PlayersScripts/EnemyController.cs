@@ -58,14 +58,12 @@ public class EnemyController : BasePlayer
         {
             // ダメージを取得
             weapon = other.gameObject;
-            damage = weapon.GetComponent<BulletCollisionController>().damage;
+            damage = weapon.GetComponent<DamageController>().damage;
 
             TransferEnergyToKiller();
 
             currentLife -= damage;
 
-            // 衝突対象を破壊(剣などの場合は残す処理は必要)
-            Destroy(weapon);
         }
 
     }

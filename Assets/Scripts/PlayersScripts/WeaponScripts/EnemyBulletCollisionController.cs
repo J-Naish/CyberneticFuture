@@ -5,9 +5,6 @@ using UnityEngine;
 // 弾が当たった時の処理に関するクラス
 public class EnemyBulletCollisionController : MonoBehaviour
 {
-
-    // 弾が与えるダメージ数を定義
-    public float enemyBulletDamage = 100.0f;
     
 
     // 弾がPlayerに当たった時の処理

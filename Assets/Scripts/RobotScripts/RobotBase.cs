@@ -19,6 +19,10 @@ public class RobotBase : MonoBehaviour
     protected Slider lifeSlider;
 
 
+    // 攻撃してきたPlayerを取得するための変数
+    protected GameObject player;
+    protected float currentEnergyOfPlayer;
+
 
     /// <summary>
     /// ロボットのライフを設定する関数
