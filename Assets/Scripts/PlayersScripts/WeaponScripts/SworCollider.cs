@@ -18,6 +18,10 @@ public class SworCollider : MonoBehaviour
         {
             other.transform.root.gameObject.GetComponent<EnemyController>().currentLife -= damage;
         }
+        if (other.CompareTag("Robot"))
+        {
+            other.transform.root.gameObject.GetComponent<RobotAController>().robotCurrentLife -= damage;
+        }
 
     }
 
