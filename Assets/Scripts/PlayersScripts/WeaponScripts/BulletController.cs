@@ -92,7 +92,7 @@ public class BulletController : BaseWeaponController
             {
                 GameObject SuperBullet =
                     Instantiate(superBullet, transform.position, Quaternion.Euler(transform.parent.eulerAngles.x, transform.parent.eulerAngles.y, 0));
-                SuperBullet.GetComponent<BulletCollisionController>().damage = 200.0f;
+                SuperBullet.GetComponent<DamageController>().damage = 200.0f;
 
                 Rigidbody superBulletRb = SuperBullet.GetComponent<Rigidbody>();
                 superBulletRb.AddForce(transform.forward * superBulletSpeed);

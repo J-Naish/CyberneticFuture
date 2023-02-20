@@ -4,29 +4,32 @@ using UnityEngine;
 
 public class CameraMoveByMouse : MonoBehaviour
 {
-    //メインカメラを取得
-    [SerializeField] private GameObject mainCamera;
+    //プレイヤーを変数に格納
+    [SerializeField] private GameObject player;
 
-    // Playerを取得
-    [SerializeField] private GameObject playerObject;
-
-    // 回転の速さ
-    public float rotateSpeed = 0.0001f;
+    //回転させるスピード
+    [SerializeField] private float rotateSpeed = 3.0f;
 
 
     void Update()
     {
-        rotateCamera();
+        CameraMoveByArrowKey();
     }
 
-    //カメラを回転させる関数
-    private void rotateCamera()
+
+    private void CameraMoveByArrowKey()
     {
-        // Vector3でX,Y方向の回転の度合いを定義
-        Vector3 angle = new Vector3(Input.GetAxis("Mouse X") * rotateSpeed, Input.GetAxis("Mouse Y") * rotateSpeed, 0);
+        //回転させる角度
+        float angle = Input.GetAxis("Horizontal") * rotateSpeed;
 
-        // メインカメラを回転させる
-        mainCamera.transform.RotateAround(playerObject.transform.position, Vector3.up, angle.x);
-        mainCamera.transform.RotateAround(playerObject.transform.position, transform.right, angle.y);
+        //プレイヤー位置情報
+        Vector3 playerPosition = player.transform.position;
+
+        //カメラを回転させる
+        transform.RotateAround(playerPosition, Vector3.up, angle);
     }
+
+
+
+
 }
