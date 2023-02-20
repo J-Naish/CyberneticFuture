@@ -14,7 +14,10 @@ public class RobotAController : RobotBase
     // Playerを取得
     private GameObject playerObject;
 
-    
+    // ミニマップ用のCubeを取得
+    [SerializeField] private GameObject minimapCube;
+
+
     void Start()
     {
         // ロボットのライフを設定
@@ -68,10 +71,16 @@ public class RobotAController : RobotBase
         {
             if(colliderTag == "PlayerWeapon")
             {
+                // キルしたものの情報を取得
+                minimapCube.GetComponent<RobotMiniMapCube>().killerIsPlayer = true;
+
                 playerObject.GetComponent<Player1Controller>().currentEnergy += robotEnergy;
             }
             else if(colliderTag == "EnemyWeapon")
             {
+                // キルしたものの情報を取得
+                minimapCube.GetComponent<RobotMiniMapCube>().killerIsEnemy = true;
+
                 playerObject.GetComponent<EnemyController>().currentEnergy += robotEnergy;
             }
 
