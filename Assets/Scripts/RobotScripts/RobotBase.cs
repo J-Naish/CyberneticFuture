@@ -46,5 +46,16 @@ public class RobotBase : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// ライフが0以下になれば破壊される関数
+    /// </summary>
+    protected void BreakWhenDeath()
+    {
+        if(robotCurrentLife <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
 
 }
