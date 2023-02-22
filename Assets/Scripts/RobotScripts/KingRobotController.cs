@@ -19,7 +19,7 @@ public class KingRobotController : RobotBase
     void Start()
     {
         // ロボットの初期設定
-        robotGrossLife = 3000.0f;
+        robotGrossLife = 1500.0f;
         robotEnergy = 400.0f;
 
         SetRobotLife();
@@ -67,14 +67,17 @@ public class KingRobotController : RobotBase
         {
             if (colliderTag == "PlayerWeapon")
             {
-                // タグがPlayerのオブジェクトを全て取得
-                GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+                GameObject.FindWithTag("Player").GetComponent<Player1Controller>().currentEnergy += robotEnergy;
 
-                // それぞれにエナジーを追加
-                foreach(GameObject playerObject in players)
-                {
-                    playerObject.GetComponent<Player1Controller>().currentEnergy += robotEnergy;
-                }
+                // NullReference Errorとなるため一旦コメントアウト
+                //// タグがPlayerのオブジェクトを全て取得
+                //GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+                //// それぞれにエナジーを追加
+                //foreach(GameObject playerObject in players)
+                //{
+                //    playerObject.GetComponent<Player1Controller>().currentEnergy += robotEnergy;
+                //}
             }
             else if (colliderTag == "EnemyWeapon")
             {

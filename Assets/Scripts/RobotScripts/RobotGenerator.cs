@@ -19,49 +19,97 @@ public class RobotGenerator : MonoBehaviour
 
 
     // 一定時間ごとに生成するための時間に関する変数
-    private float currentTime = 0f;
+    private float mobCurrentTime = 0f;
 
 
-    // Prefab生成のスパンと個数を定義
-    private float span = 30.0f;
-    private int generatingNumber = 10;
+    // MobPrefab生成のスパンと個数を定義
+    private float mobSpan = 30.0f;
+    private int mobGeneratingNumber = 10;
+
+
+
+    // KingRobotを取得
+    [SerializeField] private GameObject kingRobot;
+
+    // 一定時間ごとに生成するための時間に関する変数
+    private float kingCurrentTime = 0f;
+
+    // MobPrefab生成のスパンと個数を定義
+    private float kingSpan = 120.0f;
+
+    // KinRobotを生成する位置取得
+    [SerializeField] private GameObject centerObject;
+
 
 
     private void Update()
     {
-        // モブロボットを10個10秒おきに生成
-        CreateRobotPrefab(span, generatingNumber, mobRobotPrefab);
+        // モブロボットを10個30秒おきに生成
+        CreateMobRobotPrefab(mobSpan,mobGeneratingNumber, mobRobotPrefab);
 
+        // キングロボットを生成
+        CreateKingRobotPrefab(kingSpan, kingRobot);
     }
 
 
-    // span時間おきにnumber個のrobotを生成する関数
-    private void CreateRobotPrefab(float t,int n,GameObject robot)
+
+    // t時間おきにnr個のMobRobotを生成する関数
+    private void CreateMobRobotPrefab(float t,int n,GameObject robot)
     {
         // 時間計測開始
-        currentTime += Time.deltaTime;
+        mobCurrentTime += Time.deltaTime;
 
 
         // span秒経過したらPrefab生成
-        if (currentTime >= t)
+        if (mobCurrentTime >= t)
         {
-
             for (int i = 0; i < n; i++)
             {
-                // 生成する範囲を定義
-                float x = Random.Range(rangeX1.transform.position.x, rangeX2.transform.position.x);
-                float y = 248.5f; // 地面のY座標
-                float z = Random.Range(rangeZ1.transform.position.z, rangeZ2.transform.position.z);
-
                 // robotをPrefab化
-                Instantiate(robot, new Vector3(x, y, z), robot.transform.rotation);
+                Instantiate(robot,GetRandomVector3(), robot.transform.rotation);
             }
 
             // 時間をリセット
-            currentTime = 0f;
+            mobCurrentTime = 0f;
 
         }
     }
+
+
+
+    // ランダムな位置を取得する関数
+    private Vector3 GetRandomVector3()
+    {
+        Vector3 randomVector3;
+        randomVector3.x = Random.Range(rangeX1.transform.position.x, rangeX2.transform.position.x);
+        randomVector3.y = 248.5f;
+        randomVector3.z = Random.Range(rangeZ1.transform.position.z, rangeZ2.transform.position.z);
+        return randomVector3;
+    }
+
+
+
+    // t時間おきにRobotを生成する関数
+    private void CreateKingRobotPrefab(float t, GameObject robot)
+    {
+        // 時間計測開始
+        kingCurrentTime += Time.deltaTime;
+
+
+        // span秒経過したらPrefab生成
+        if (kingCurrentTime >= t)
+        {
+
+            // robotをPrefab化
+            Instantiate(robot, centerObject.transform.position, robot.transform.rotation);
+
+            // 時間をリセット
+            kingCurrentTime = 0f;
+
+        }
+    }
+
+
 
 
 }
