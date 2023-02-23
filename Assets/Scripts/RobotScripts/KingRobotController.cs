@@ -69,12 +69,14 @@ public class KingRobotController : RobotBase
             {
                 GameObject.FindWithTag("Player").GetComponent<Player1Controller>().currentEnergy += robotEnergy;
 
-                // NullReference Errorとなるため一旦コメントアウト
-                //// タグがPlayerのオブジェクトを全て取得
+
+                // ※Debugで配列の中身確認
+                //NullReference Errorとなるため一旦コメントアウト
+                // タグがPlayerのオブジェクトを全て取得
                 //GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
                 //// それぞれにエナジーを追加
-                //foreach(GameObject playerObject in players)
+                //foreach (GameObject playerObject in players)
                 //{
                 //    playerObject.GetComponent<Player1Controller>().currentEnergy += robotEnergy;
                 //}

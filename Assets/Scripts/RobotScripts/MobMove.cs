@@ -19,7 +19,7 @@ public class MobMove : MonoBehaviour
 
     public void OnDetectObject(Collider collider)
     {
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag("Player") || collider.CompareTag("Enemy"))
         {
             roboAgent.destination = collider.transform.position;
             roboAgent.transform.LookAt(collider.transform.position);

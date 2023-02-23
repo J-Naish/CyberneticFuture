@@ -21,6 +21,10 @@ public class CollisionDetector : MonoBehaviour
     private Vector3 originalPosition;
 
 
+    // 範囲内にいるかどうかを検知するbool値
+    public bool isInArea = false;
+
+
     private void Start()
     {
 
@@ -36,14 +40,19 @@ public class CollisionDetector : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         onTriggerStay.Invoke(other);
+        if(other.CompareTag("Player") || other.CompareTag("Enemy"))
+        {
+            isInArea = true;
+        }
     }
 
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Enemy"))
         {
             roboAgentNMA.destination = originalPosition;
+            isInArea = false;
         }
     }
 
