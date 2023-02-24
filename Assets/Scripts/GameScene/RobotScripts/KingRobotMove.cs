@@ -6,16 +6,17 @@ using UnityEngine;
 // キングロボットの挙動に関するクラス
 public class KingRobotMove : MonoBehaviour
 {
+
     // 時間変数
-    private float currentTime = 0f;
-    private float span = 5.0f;
+    private float currentTimeLook = 0f;
+    private float spanLook = 5.0f;
 
     // 範囲内にいるキャラを格納するList
     List<GameObject> playerList = new List<GameObject>();
 
 
     // 範囲内にキャラがいることを検知するbool値
-    private bool playerIsInArea = false;
+    public bool playerIsInArea = false;
 
 
     // ターゲットを格納する変数
@@ -28,9 +29,10 @@ public class KingRobotMove : MonoBehaviour
 
 
 
+
     private void Update()
     {
-        ShootAndLookAtTarget();
+        LookAtTarget();
     }
 
 
@@ -69,26 +71,26 @@ public class KingRobotMove : MonoBehaviour
 
 
     // キングロボットの挙動に関する関数
-    private void ShootAndLookAtTarget()
+    private void LookAtTarget()
     {
         if (playerIsInArea)
         {
             // 時間計測開始
-            currentTime += Time.deltaTime;
+            currentTimeLook += Time.deltaTime;
 
             // 一定期間の間あるキャラを向く
-            if(currentTime <= span)
+            if(currentTimeLook <= spanLook)
             {
                 // ターゲットを確定
                 ChooseTargetInRandom();
 
                 transform.LookAt(targetPlayer.transform.position);
             }
-            if(currentTime > span)
+            if(currentTimeLook > spanLook)
             {
                 // 再度ターゲットを定めるようにする
                 isAlradyGenerated = false;
-                currentTime = 0f;
+                currentTimeLook = 0f;
             }
         }
 
@@ -111,7 +113,7 @@ public class KingRobotMove : MonoBehaviour
     }
 
 
-
+    
 
 
 
