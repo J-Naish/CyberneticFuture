@@ -14,10 +14,13 @@ public class KingRobotJumpParticle : MonoBehaviour
 
     // パーティクルを拡大させるための時間変数
     private float currentTimeExpand = 0f;
-    private float expandTime = 3.0f;
 
     // パーティクルの拡大の度合いの変数
     private float scaleupParameter = 0.03f;
+
+
+    // パーティクルを徐々に透明にするための変数
+    //private float opacityParameter = 0f;
 
 
     void Update()
@@ -26,6 +29,8 @@ public class KingRobotJumpParticle : MonoBehaviour
 
 
         ExpandParticle();
+
+        //ChangeOpacity();
     }
 
 
@@ -44,11 +49,21 @@ public class KingRobotJumpParticle : MonoBehaviour
     {
         currentTimeExpand += Time.deltaTime;
 
-        if(currentTimeExpand <= expandTime)
+        if(currentTimeExpand <= deleteTime)
         {
             transform.localScale += new Vector3(scaleupParameter, scaleupParameter, scaleupParameter);
         }
 
     }
+
+
+    //private void ChangeOpacity()
+    //{
+    //    Color c = GetComponent<Renderer>().material.color;
+    //    GetComponent<Renderer>().material.color = new Color(c.r, c.g, c.b, c.a - opacityParameter);
+    //    opacityParameter += 1.0f / (60.0f * deleteTime);
+    //}
+    // startColorの色を変更しても想定どおり動かず
+
 
 }

@@ -9,7 +9,7 @@ public class RobotBase : MonoBehaviour
 {
 
     // ロボットのステータス
-    protected float robotGrossLife;
+    public float robotGrossLife;
     public float robotCurrentLife;
     protected float robotEnergy;
 
