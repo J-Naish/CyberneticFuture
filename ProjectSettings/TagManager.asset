@@ -27,6 +27,7 @@ TagManager:
   - EnergySword
   - EnergyGlove
   - Robot
+  - Ground
   layers:
   - Default
   - TransparentFX
