@@ -90,7 +90,6 @@ public class Player1Controller : BasePlayer
         // 衝突対象が弾の時のみ
         if (collision.gameObject.tag == "EnemyWeapon")
         {
-            Debug.Log("Hit");
 
             // damageを定義
             damage = collision.gameObject.GetComponent<DamageController>().damage;
