@@ -5277,7 +5277,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248026625}
   m_LocalRotation: {x: -0.22661044, y: -0.66981167, z: -0.66981184, w: 0.22661032}
-  m_LocalPosition: {x: -2.42, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 102462815}
@@ -7996,7 +7996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2282d7612619a4763b8dc4d153662e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnergyCapacity: 0
+  maxEnergyCapacity: 800
   currentTankEnergy: 0
   EnergyBar: {fileID: 795618739}
 --- !u!136 &401314988
@@ -8012,7 +8012,7 @@ CapsuleCollider:
   m_Radius: 1.2296143
   m_Height: 9.411209
   m_Direction: 1
-  m_Center: {x: -0.36138916, y: 0.28577423, z: -0.96821976}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &401314989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8025,6 +8025,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a736584d4dae64b2fa8bf8d1ff0fc95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionParticle: {fileID: 1559149014829584437, guid: e726291913a1a4d2abe3a1e57adac326,
+    type: 3}
 --- !u!1 &409939946
 GameObject:
   m_ObjectHideFlags: 0
@@ -10610,7 +10612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519053564}
   m_LocalRotation: {x: -0.22661044, y: -0.66981167, z: -0.66981184, w: 0.22661032}
-  m_LocalPosition: {x: -2.42, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2021641531}
@@ -11512,7 +11514,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559577593}
   m_LocalRotation: {x: -0.22661044, y: -0.66981167, z: -0.66981184, w: 0.22661032}
-  m_LocalPosition: {x: -2.42, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 795618740}
@@ -11766,7 +11768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2282d7612619a4763b8dc4d153662e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnergyCapacity: 0
+  maxEnergyCapacity: 800
   currentTankEnergy: 0
   EnergyBar: {fileID: 1293439290}
 --- !u!136 &567461823
@@ -11782,7 +11784,7 @@ CapsuleCollider:
   m_Radius: 1.2296143
   m_Height: 9.411209
   m_Direction: 1
-  m_Center: {x: -0.36138916, y: 0.28577423, z: -0.96821976}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &567461824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11795,6 +11797,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a736584d4dae64b2fa8bf8d1ff0fc95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionParticle: {fileID: 1559149014829584437, guid: e726291913a1a4d2abe3a1e57adac326,
+    type: 3}
 --- !u!1 &567939311
 GameObject:
   m_ObjectHideFlags: 0
@@ -16533,7 +16537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2282d7612619a4763b8dc4d153662e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnergyCapacity: 0
+  maxEnergyCapacity: 10000
   currentTankEnergy: 0
   EnergyBar: {fileID: 189701056}
 --- !u!136 &868069591
@@ -16549,7 +16553,7 @@ CapsuleCollider:
   m_Radius: 1.2296143
   m_Height: 9.411209
   m_Direction: 1
-  m_Center: {x: -0.36138916, y: 0.28577423, z: -0.96821976}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &868069592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16562,6 +16566,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a736584d4dae64b2fa8bf8d1ff0fc95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionParticle: {fileID: 1559149014829584437, guid: e726291913a1a4d2abe3a1e57adac326,
+    type: 3}
 --- !u!1 &873018230
 GameObject:
   m_ObjectHideFlags: 0
@@ -23280,7 +23286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2282d7612619a4763b8dc4d153662e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnergyCapacity: 0
+  maxEnergyCapacity: 800
   currentTankEnergy: 0
   EnergyBar: {fileID: 102462814}
 --- !u!136 &1184576300
@@ -23296,7 +23302,7 @@ CapsuleCollider:
   m_Radius: 1.2296143
   m_Height: 9.411209
   m_Direction: 1
-  m_Center: {x: -0.36138916, y: 0.28577423, z: -0.96821976}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1184576301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23309,6 +23315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a736584d4dae64b2fa8bf8d1ff0fc95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionParticle: {fileID: 1559149014829584437, guid: e726291913a1a4d2abe3a1e57adac326,
+    type: 3}
 --- !u!1 &1192136876
 GameObject:
   m_ObjectHideFlags: 0
@@ -26882,7 +26890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2282d7612619a4763b8dc4d153662e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnergyCapacity: 0
+  maxEnergyCapacity: 800
   currentTankEnergy: 0
   EnergyBar: {fileID: 2021641530}
 --- !u!136 &1358321405
@@ -26898,7 +26906,7 @@ CapsuleCollider:
   m_Radius: 1.2296143
   m_Height: 9.411209
   m_Direction: 1
-  m_Center: {x: -0.36138916, y: 0.28577423, z: -0.96821976}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1358321406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26911,6 +26919,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a736584d4dae64b2fa8bf8d1ff0fc95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionParticle: {fileID: 1559149014829584437, guid: e726291913a1a4d2abe3a1e57adac326,
+    type: 3}
 --- !u!4 &1367468098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4485997996375822, guid: 0b66ff5634a8e0b4a9388e90530ad4c5,
@@ -28526,7 +28536,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1457660257}
   m_LocalRotation: {x: -0.22661044, y: -0.66981167, z: -0.66981184, w: 0.22661032}
-  m_LocalPosition: {x: -2.42, y: -0.64, z: 0}
+  m_LocalPosition: {x: 0, y: -0.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1150688191}
@@ -32422,7 +32432,7 @@ CapsuleCollider:
   m_Radius: 1.1866913
   m_Height: 8.600662
   m_Direction: 1
-  m_Center: {x: 0.05117798, y: 0.04009247, z: -0.01322937}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1659969724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32435,7 +32445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2282d7612619a4763b8dc4d153662e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnergyCapacity: 0
+  maxEnergyCapacity: 10000
   currentTankEnergy: 0
   EnergyBar: {fileID: 1150688187}
 --- !u!114 &1659969725
@@ -32450,6 +32460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a736584d4dae64b2fa8bf8d1ff0fc95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionParticle: {fileID: 1559149014829584437, guid: e726291913a1a4d2abe3a1e57adac326,
+    type: 3}
 --- !u!1 &1660005953
 GameObject:
   m_ObjectHideFlags: 0
@@ -36870,7 +36882,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915222298}
   m_LocalRotation: {x: -0.22661044, y: -0.66981167, z: -0.66981184, w: 0.22661032}
-  m_LocalPosition: {x: -2.42, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 189701057}
@@ -37043,7 +37055,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8cf152a0a06b3dc47a7c6d40918d95a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 92
+      value: 289.08
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8cf152a0a06b3dc47a7c6d40918d95a9,
         type: 3}
@@ -37053,7 +37065,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8cf152a0a06b3dc47a7c6d40918d95a9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -298
+      value: -35.66
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8cf152a0a06b3dc47a7c6d40918d95a9,
         type: 3}
@@ -39434,7 +39446,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023121906}
   m_LocalRotation: {x: -0.22661044, y: -0.66981167, z: -0.66981184, w: 0.22661032}
-  m_LocalPosition: {x: -2.42, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1293439291}
