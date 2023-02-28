@@ -8,7 +8,7 @@ public class TankController : MonoBehaviour
 
 
     // タンクのエナジー容量
-    private float maxEnergyCapacity;
+    public float maxEnergyCapacity;
     // タンクに注入されたエナジー量
     public float currentTankEnergy;
 
@@ -37,22 +37,8 @@ public class TankController : MonoBehaviour
 
     private void Update()
     {
-
         // エナジー量UIを変更する関数
         EnergyBarChange();
-
-        // エナジーが満タンになれば破壊
-        if(currentTankEnergy >= maxEnergyCapacity)
-        {
-
-            Destroy(this.gameObject);
-            
-
-        }
-
-
-
-
 
     }
 
