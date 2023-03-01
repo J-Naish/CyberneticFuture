@@ -9,7 +9,7 @@ public class EnergyGlove : BaseWeaponController
     private void Awake()
     {
         // ステータスを設定
-        SetStatus(1700.0f, 500.0f, 17.0f);
+        SetStatus(1700.0f, 500.0f, 17.0f,8);
 
     }
 

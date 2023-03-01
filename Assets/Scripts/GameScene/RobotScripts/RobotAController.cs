@@ -18,6 +18,11 @@ public class RobotAController : RobotBase
     [SerializeField] private GameObject minimapCube;
 
 
+    // 経験値を定義
+    [SerializeField] private int expPoint = 40;
+
+
+
     void Start()
     {
         // ロボットのライフを設定
@@ -30,13 +35,15 @@ public class RobotAController : RobotBase
 
     }
 
-    
+
+
     void Update()
     {
         BarChange();
 
         BreakWhenDeath();
     }
+
 
 
     // ダメージを受ける処理
@@ -56,6 +63,9 @@ public class RobotAController : RobotBase
 
             // デスした場合エナジーを受け渡す
             TransferEnergyToKiller();
+
+            // 経験値を受け渡す
+            TransferExpPointToKiller();
 
             // ダメージ処理
             robotCurrentLife -= damage;
@@ -85,6 +95,24 @@ public class RobotAController : RobotBase
             }
 
 
+        }
+    }
+
+
+    // キルされたら経験値を受け渡す関数
+    private void TransferExpPointToKiller()
+    {
+        // ダメージが現在ライフを超えた時のみ
+        if (damage >= robotCurrentLife)
+        {
+            if (colliderTag == "PlayerWeapon")
+            {
+                playerObject.GetComponent<Player1Controller>().grossExpPoint += expPoint;
+            }
+            else if (colliderTag == "EnemyWeapon")
+            {
+                playerObject.GetComponent<EnemyController>().grossExpPoint += expPoint;
+            }
         }
     }
 

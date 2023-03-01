@@ -11,7 +11,7 @@ public class SwordController : BaseWeaponController
     private void Awake()
     {
         // Playerのステータスを設定
-        SetStatus(1400.0f, 700.0f, 14.0f);
+        SetStatus(1400.0f, 700.0f, 14.0f,8);
     }
 
 

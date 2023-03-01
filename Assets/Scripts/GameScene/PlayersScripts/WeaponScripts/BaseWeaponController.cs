@@ -31,19 +31,25 @@ public class BaseWeaponController : MonoBehaviour
 
 
     // 武器の種類に応じてPlayerのステータスを決定する関数
-    protected void SetStatus(float life,float energy,float speed)
+    protected void SetStatus(float life, float energy, float speed, int superPowerLevel)
     {
         // Playerのステータスを決定
         player.GetComponent<Player1Controller>().grossLife = life;
         player.GetComponent<Player1Controller>().grossEnergy = energy;
         player.GetComponent<Player1Controller>().moveVelocity = speed;
-
+        player.GetComponent<Player1Controller>().superPowerRequringLevel = superPowerLevel;
     }
 
 
     // 必殺技が溜まってるかどうかのbool値変更
     protected void SuperPowerCharged()
     {
+        if(player.GetComponent<Player1Controller>().playerLevel
+            < player.GetComponent<Player1Controller>().superPowerRequringLevel)
+        {
+            return;
+        }
+
         if (currentTime >= superPowerCoolTime)
         {
             // bool値変更

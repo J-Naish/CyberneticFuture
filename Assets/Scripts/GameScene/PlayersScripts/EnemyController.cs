@@ -47,6 +47,11 @@ public class EnemyController : BasePlayer
         energySlider.value = 1f; // エナジー消費処理を書く時に値を更新するコードが必要
 
 
+        // 継承した変数を定義
+        playerLevel = 1;
+        maxLevel = 15;
+        grossExpPoint = 0;
+        expCoefficient = 80;
 
     }
 
@@ -61,6 +66,7 @@ public class EnemyController : BasePlayer
             damage = weapon.GetComponent<DamageController>().damage;
 
             TransferEnergyToKiller();
+            TransferExpPointToKiller();
 
             currentLife -= damage;
 
@@ -74,6 +80,9 @@ public class EnemyController : BasePlayer
         EnergyBarChange();
 
         NotExcessGrossEnergy();
+
+        LevelUp();
+        StatusIncreaseByLevel();
     }
 
 
@@ -103,6 +112,16 @@ public class EnemyController : BasePlayer
     }
 
 
+    // デスしたら相手に経験値を渡す関数
+    private void TransferExpPointToKiller()
+    {
+        // ダメージ量が現在ライフを超えてる時だけ渡す
+        if (currentLife <= damage)
+        {
+            // 経験値を現在レベルに応じて受け渡す
+            player.GetComponent<Player1Controller>().grossExpPoint += this.playerLevel * expCoefficient;
+        }
+    }
 
-    
+
 }

@@ -10,16 +10,14 @@ public class TankCollider : MonoBehaviour
 
     // Playerのエナジーを吸収するためにPlayerを取得
     private GameObject player;
-    private float currentEnergy;
+
 
     // Tankのエナジーを増やすためにTankを取得
     private GameObject tank;
-    private float currentTankEnergy;
+
 
     // エナジーの注入量
-    //private float pouringEnergy; 何故か値が0になってしまうためとりあえずpublicに
     public float pouringEnergy;
-
 
 
     // 範囲内にプレイヤーがいるかどうか
@@ -28,9 +26,6 @@ public class TankCollider : MonoBehaviour
 
     // 全タンクに注入された合計エナジーを取得
     private GameObject gameManager;
-    private float currentLeftTotalEnergy;
-    private float currentRightTotalEnergy;
-
 
 
 
@@ -44,15 +39,11 @@ public class TankCollider : MonoBehaviour
 
         // Player1の現在エナジー量を取得
         player = GameObject.Find("Player1");
-        // この変数を代入して使うと0になるためコメントアウト 1/2
-        // this.currentEnergy = player.GetComponent<Player1Controller>().currentEnergy;
 
 
-        // Tankの現在エナジー量を取得
+        // Tankオブジェクトを取得
         tank = transform.parent.gameObject;
-        // Start内で定義しても値の変更が反映されないためコメントアウト
-        // おそらくTankControllerのStart内で定義した0が値として入れられるだけで連動しない
-        //this.currentTankEnergy = tank.GetComponent<TankController>().currentTankEnergy;
+
 
 
         // エナジー注入量
@@ -65,11 +56,10 @@ public class TankCollider : MonoBehaviour
 
         // 左右両チームの合計注入エナジーを取得
         gameManager = GameObject.Find("GameManager");
-        //currentLeftTotalEnergy = gameManager.GetComponent<GameManager>().currentLeftTotalEnergy;
-        //currentRightTotalEnergy = gameManager.GetComponent<GameManager>().currentRightTotalEnergy;
 
 
     }
+
 
 
     private void Update()
@@ -83,7 +73,6 @@ public class TankCollider : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.Space))
                 {
-                    
 
                     // Playerのエナジーを減らす
                     player.GetComponent<Player1Controller>().currentEnergy -= pouringEnergy;
@@ -91,8 +80,6 @@ public class TankCollider : MonoBehaviour
 
                     // Tankのエナジーを増やす
                     tank.GetComponent<TankController>().currentTankEnergy += pouringEnergy;
-
-
 
 
                     if (this.gameObject.CompareTag("TankLeft"))

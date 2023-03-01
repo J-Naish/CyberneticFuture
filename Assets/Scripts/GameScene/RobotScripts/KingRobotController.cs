@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 
 public class KingRobotController : RobotBase
@@ -15,7 +16,14 @@ public class KingRobotController : RobotBase
     private string colliderTag;
 
 
-    
+    // Playerを取得
+    private GameObject playerObject;
+
+
+    // 経験値を定義
+    [SerializeField] private int expPoint = 500;
+
+
     void Start()
     {
         // ロボットの初期設定
@@ -45,6 +53,7 @@ public class KingRobotController : RobotBase
 
             // 衝突対象の情報を取得
             colliderTag = other.tag;
+            playerObject = other.transform.root.gameObject;
 
 
             // ダメージを取得
@@ -52,6 +61,9 @@ public class KingRobotController : RobotBase
 
             // デスした場合エナジーを受け渡す
             TransferEnergyToKillerTeam();
+
+            // 経験値を受け渡す
+            TransferExpPointToKiller();
 
             // ダメージ処理
             robotCurrentLife -= damage;
@@ -94,6 +106,25 @@ public class KingRobotController : RobotBase
             }
 
 
+        }
+    }
+
+
+
+    // キルされたら経験値を受け渡す関数
+    private void TransferExpPointToKiller()
+    {
+        // ダメージが現在ライフを超えた時のみ
+        if (damage >= robotCurrentLife)
+        {
+            if (colliderTag == "PlayerWeapon")
+            {
+                playerObject.GetComponent<Player1Controller>().grossExpPoint += expPoint;
+            }
+            else if (colliderTag == "EnemyWeapon")
+            {
+                playerObject.GetComponent<EnemyController>().grossExpPoint += expPoint;
+            }
         }
     }
 

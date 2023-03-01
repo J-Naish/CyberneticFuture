@@ -58,6 +58,13 @@ public class Player1Controller : BasePlayer
         // CharacterControllerを取得
         characterController = GetComponent<CharacterController>();
 
+
+        // 継承した変数を定義
+        playerLevel = 1;
+        maxLevel = 15;
+        grossExpPoint = 0;
+        expCoefficient = 80;
+
     }
 
 
@@ -71,6 +78,10 @@ public class Player1Controller : BasePlayer
 
         // キャラが移動する関数
         MoveByKey();
+
+        // レベルアップの関数
+        LevelUp();
+        StatusIncreaseByLevel();
     }
 
 
@@ -97,6 +108,9 @@ public class Player1Controller : BasePlayer
             // エナジーを受け渡す
             TransferEnergyToKiller();
 
+            // 経験値を受け渡す
+            TransferExpPointToKiller();
+
             currentLife -= damage;
         }
 
@@ -115,6 +129,19 @@ public class Player1Controller : BasePlayer
 
         }
 
+    }
+
+
+
+    // デスしたら相手に経験値を渡す関数
+    private void TransferExpPointToKiller()
+    {
+        // ダメージ量が現在ライフを超えてる時だけ渡す
+        if(currentLife <= damage)
+        {
+            // 経験値を現在レベルに応じて受け渡す
+            enemy.GetComponent<EnemyController>().grossExpPoint += this.playerLevel * expCoefficient;
+        }
     }
 
 

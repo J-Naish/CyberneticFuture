@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 
 
     // Player1のチームが勝利したかどうか
-    private bool isWinner;
+    private string winningTeam;
 
 
     // タンクのエナジーを集計するための変数
@@ -19,18 +19,38 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-
         // 0からスタート
         currentLeftTotalEnergy = 0f;
         currentRightTotalEnergy = 0f;
 
-
     }
 
-    
+
+
     void Update()
     {
-
-
+        SaveWinnerData();
     }
+
+
+
+    // どちらのチームが勝ってるか文字列として格納
+    private void SaveWinnerData()
+    {
+        if(currentLeftTotalEnergy > currentRightTotalEnergy)
+        {
+            winningTeam = "Left";
+        }
+        if(currentLeftTotalEnergy < currentRightTotalEnergy)
+        {
+            winningTeam = "Right";
+        }
+        if(currentLeftTotalEnergy == currentRightTotalEnergy)
+        {
+            winningTeam = "Draw";
+        }
+    }
+
+
+
 }

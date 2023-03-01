@@ -18,7 +18,7 @@ public class BulletController : BaseWeaponController
     private void Awake()
     {
         // ステータスを設定
-        SetStatus(900.0f, 1100.0f, 10.0f);
+        SetStatus(900.0f, 1100.0f, 10.0f,8);
 
     }
 
