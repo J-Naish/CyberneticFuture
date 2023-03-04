@@ -199,9 +199,8 @@ public class MechaCollider : MonoBehaviour
 
         // どのメカを獲得したかわかるようにするUI*
         GameObject MechaGetText = Instantiate(mechaGetText);
-        //MechaGetText.GetComponent<TextMeshProUGUI>().enabled = true;
-        MechaGetText.GetComponent<MechaGetText>().mechaGetText.GetComponent<TextMeshProUGUI>().text = "You've got " + str;
-        MechaGetText.GetComponent<MechaGetText>().gotMehca = true;
+        MechaGetText.transform.Find(("MechaGetText(TMP)")).gameObject.GetComponent<TextMeshProUGUI>().text = "You've got " + str;
+        MechaGetText.transform.Find(("MechaGetText(TMP)")).gameObject.GetComponent<MechaGetText>().gotMehca = true;
 
     }
 

@@ -3829,7 +3829,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d29d2321f5bcf4f79a2963e9fb4010da,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 87
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d29d2321f5bcf4f79a2963e9fb4010da,
         type: 3}
@@ -3839,7 +3839,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d29d2321f5bcf4f79a2963e9fb4010da,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 133
+      value: -181
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d29d2321f5bcf4f79a2963e9fb4010da,
         type: 3}
@@ -20374,7 +20374,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d29d2321f5bcf4f79a2963e9fb4010da,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 90
+      value: -67
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d29d2321f5bcf4f79a2963e9fb4010da,
         type: 3}
@@ -20384,7 +20384,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d29d2321f5bcf4f79a2963e9fb4010da,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 179
+      value: -213
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d29d2321f5bcf4f79a2963e9fb4010da,
         type: 3}
@@ -20460,7 +20460,7 @@ MonoBehaviour:
   mechaGetButton: {fileID: 1014635592}
   isInMechaBoxArea: 0
   mechaEmpty: {fileID: 1991160600}
-  mechaGetText: {fileID: 1243503845}
+  mechaGetText: {fileID: 473066733}
   superShoes: {fileID: 7679824475531194939}
   superHelmet: {fileID: 1123422063}
   energyCharger: {fileID: 1686658749}
@@ -20660,7 +20660,7 @@ MonoBehaviour:
   mechaGetButton: {fileID: 1937161265}
   isInMechaBoxArea: 0
   mechaEmpty: {fileID: 1991160600}
-  mechaGetText: {fileID: 1243503845}
+  mechaGetText: {fileID: 473066733}
   superShoes: {fileID: 7679824475531194939}
   superHelmet: {fileID: 1123422063}
   energyCharger: {fileID: 1686658749}
@@ -25201,7 +25201,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gotMehca: 0
-  mechaGetText: {fileID: 1243503846}
 --- !u!1 &1248353098
 GameObject:
   m_ObjectHideFlags: 0
@@ -37410,7 +37409,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8cf152a0a06b3dc47a7c6d40918d95a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 297
+      value: -67
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8cf152a0a06b3dc47a7c6d40918d95a9,
         type: 3}
@@ -37420,7 +37419,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8cf152a0a06b3dc47a7c6d40918d95a9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -235
+      value: -241
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8cf152a0a06b3dc47a7c6d40918d95a9,
         type: 3}

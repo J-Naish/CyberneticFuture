@@ -17,14 +17,13 @@ public class MechaGetText : MonoBehaviour
     private float duration = 2.0f;
 
 
-    [SerializeField] public TextMeshProUGUI mechaGetText;
 
 
 
     private void Start()
     {
         // メカ獲得テキストをデフォルトでは表示させないようにする
-        mechaGetText.GetComponent<TextMeshProUGUI>().enabled = false;
+        GetComponent<TextMeshProUGUI>().enabled = false;
     }
 
 
@@ -48,12 +47,12 @@ public class MechaGetText : MonoBehaviour
             // 2秒間だけ表示
             if(currentTime < duration)
             {
-                mechaGetText.GetComponent<TextMeshProUGUI>().enabled = true;
+                GetComponent<TextMeshProUGUI>().enabled = true;
             }
             else if(currentTime > duration)
             {
                 // 2秒表示した後は非表示に
-                mechaGetText.GetComponent<TextMeshProUGUI>().enabled = false;
+                GetComponent<TextMeshProUGUI>().enabled = false;
                 Destroy(this.gameObject);
             }
         }
