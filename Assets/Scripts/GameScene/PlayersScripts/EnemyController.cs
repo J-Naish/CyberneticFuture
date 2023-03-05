@@ -56,25 +56,6 @@ public class EnemyController : BasePlayer
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-
-        if (other.CompareTag("PlayerWeapon"))
-        {
-            // ダメージを取得
-            weapon = other.gameObject;
-            damage = weapon.GetComponent<DamageController>().damage;
-
-            TransferEnergyToKiller();
-            TransferExpPointToKiller();
-
-            currentLife -= damage;
-
-        }
-
-    }
-
-
     void Update()
     {
         EnergyBarChange();
@@ -97,31 +78,6 @@ public class EnemyController : BasePlayer
 
     }
 
-
-    // デスしたら相手にエナジーを渡す関数
-    private void TransferEnergyToKiller()
-    {
-        // ダメージ量が現在ライフを超えてる時だけ渡す
-        if(currentLife <= damage)
-        {
-            // エナジーを受け渡す
-            player.GetComponent<Player1Controller>().currentEnergy += this.currentEnergy;
-
-        }
-
-    }
-
-
-    // デスしたら相手に経験値を渡す関数
-    private void TransferExpPointToKiller()
-    {
-        // ダメージ量が現在ライフを超えてる時だけ渡す
-        if (currentLife <= damage)
-        {
-            // 経験値を現在レベルに応じて受け渡す
-            player.GetComponent<Player1Controller>().grossExpPoint += this.playerLevel * expCoefficient;
-        }
-    }
 
 
 }

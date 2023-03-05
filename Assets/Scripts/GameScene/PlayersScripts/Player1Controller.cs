@@ -95,59 +95,6 @@ public class Player1Controller : BasePlayer
 
 
 
-    // 弾が当たったらダメージが減る処理
-    private void OnCollisionEnter(Collision collision)
-    {
-        // 衝突対象が弾の時のみ
-        if (collision.gameObject.tag == "EnemyWeapon")
-        {
-
-            // damageを定義
-            damage = collision.gameObject.GetComponent<DamageController>().damage;
-
-            // エナジーを受け渡す
-            TransferEnergyToKiller();
-
-            // 経験値を受け渡す
-            TransferExpPointToKiller();
-
-            currentLife -= damage;
-        }
-
-    }
-
-
-
-    // デスしたら相手にエナジーを渡す関数
-    private void TransferEnergyToKiller()
-    {
-        // ダメージ量が現在ライフを超えてる時だけ渡す
-        if (currentLife <= damage)
-        {
-            // エナジーを受け渡す
-            enemy.GetComponent<EnemyController>().currentEnergy += this.currentEnergy;
-
-        }
-
-    }
-
-
-
-    // デスしたら相手に経験値を渡す関数
-    private void TransferExpPointToKiller()
-    {
-        // ダメージ量が現在ライフを超えてる時だけ渡す
-        if(currentLife <= damage)
-        {
-            // 経験値を現在レベルに応じて受け渡す
-            enemy.GetComponent<EnemyController>().grossExpPoint += this.playerLevel * expCoefficient;
-        }
-    }
-
-
-
-
-
     // 十字キーで移動する関数
     private void MoveByKey()
     {

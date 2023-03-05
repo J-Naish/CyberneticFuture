@@ -12,6 +12,9 @@ public class SwordController : BaseWeaponController
     {
         // Playerのステータスを設定
         SetStatus(1400.0f, 700.0f, 14.0f,8);
+
+        // 武器の種類を定義
+        isCollisionWeapon = true;
     }
 
 
@@ -22,6 +25,9 @@ public class SwordController : BaseWeaponController
 
         // 必殺技が溜まる時間を定義
         superPowerCoolTime = 90.0f;
+
+        // ダメージを定義
+        damage = 80.0f;
     }
 
 
@@ -70,7 +76,7 @@ public class SwordController : BaseWeaponController
         {
 
             // Sで必殺技使用
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.P))
             {
                 // 通常攻撃と同じアニメーションを流用
                 player.GetComponent<Player1Controller>().animator.SetTrigger("SwordAttack");

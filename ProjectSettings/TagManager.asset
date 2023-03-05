@@ -28,6 +28,7 @@ TagManager:
   - EnergyGlove
   - Robot
   - Ground
+  - KingRobot
   layers:
   - Default
   - TransparentFX

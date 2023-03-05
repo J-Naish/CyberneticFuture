@@ -11,6 +11,9 @@ public class EnergyGlove : BaseWeaponController
         // ステータスを設定
         SetStatus(1700.0f, 500.0f, 17.0f,8);
 
+        // 武器の種類を定義
+        isCollisionWeapon = true;
+
     }
 
 
@@ -21,6 +24,8 @@ public class EnergyGlove : BaseWeaponController
 
         // 必殺技が溜まる時間を定義
         superPowerCoolTime = 100.0f;
+
+        damage = 110;
 
     }
 
@@ -70,7 +75,7 @@ public class EnergyGlove : BaseWeaponController
         {
 
             // Sで必殺技使用
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.P))
             {
                 // 通常攻撃と同じアニメーションを流用
                 player.GetComponent<Player1Controller>().animator.SetTrigger("SwordAttack");

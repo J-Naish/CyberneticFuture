@@ -20,6 +20,9 @@ public class BulletController : BaseWeaponController
         // ステータスを設定
         SetStatus(900.0f, 1100.0f, 10.0f,8);
 
+        // 武器の種類を定義
+        isCollisionWeapon = false;
+
     }
 
 
@@ -88,7 +91,7 @@ public class BulletController : BaseWeaponController
         {
 
             // Sキーで使える
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.P))
             {
                 GameObject SuperBullet =
                     Instantiate(superBullet, transform.position, Quaternion.Euler(transform.parent.eulerAngles.x, transform.parent.eulerAngles.y, 0));
@@ -114,12 +117,17 @@ public class BulletController : BaseWeaponController
     {
 
         // Aキーを押してる間エイムモーションに
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             // Aimトリガーを起動
             player.GetComponent<Player1Controller>().animator.SetTrigger("Aim");
         }
-
+        // Aキーを離したらエイム解除
+        if (Input.GetKeyUp(KeyCode.O))
+        {
+            // Aimトリガーを起動
+            player.GetComponent<Player1Controller>().animator.SetTrigger("AimCancel");
+        }
 
     }
 

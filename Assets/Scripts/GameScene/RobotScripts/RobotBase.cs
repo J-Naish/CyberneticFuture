@@ -11,7 +11,7 @@ public class RobotBase : MonoBehaviour
     // ロボットのステータス
     public float robotGrossLife;
     public float robotCurrentLife;
-    protected float robotEnergy;
+    public float robotEnergy;
 
 
     // ロボットのライフ表示用UI
@@ -22,6 +22,10 @@ public class RobotBase : MonoBehaviour
     // 攻撃してきたPlayerを取得するための変数
     protected GameObject player;
     protected float currentEnergyOfPlayer;
+
+
+    // 経験値を定義
+    [SerializeField] public int expPoint;
 
 
     /// <summary>

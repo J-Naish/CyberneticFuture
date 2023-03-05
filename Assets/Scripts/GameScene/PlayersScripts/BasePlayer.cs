@@ -86,7 +86,7 @@ public class BasePlayer : MonoBehaviour
     /// <summary>
     /// キャラをキルした時に得られる経験値の係数
     /// </summary>
-    protected int expCoefficient;
+    public int expCoefficient;
 
 
     /// <summary>
