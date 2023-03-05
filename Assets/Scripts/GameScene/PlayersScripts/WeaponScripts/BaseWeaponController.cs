@@ -181,13 +181,6 @@ public class BaseWeaponController : MonoBehaviour
             if (isBullet) Destroy(this.gameObject);
 
         }
-        // その他のものに衝突した場合
-        else
-        {
-            // 弾丸系の武器の場合は衝突処理後に破壊
-            if (isBullet) Destroy(this.gameObject);
-
-        }
     }
 
 
