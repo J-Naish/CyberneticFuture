@@ -21,8 +21,17 @@ public class MobMove : MonoBehaviour
     {
         if (collider.CompareTag("Player") || collider.CompareTag("Enemy"))
         {
-            roboAgent.destination = collider.transform.position;
+            // 一定距離まで近づく
+            if (Vector3.Distance(collider.transform.position, this.gameObject.transform.position) >= 20.0f)
+            {
+                roboAgent.destination = collider.transform.position;
+            }
+            else if(Vector3.Distance(collider.transform.position, this.gameObject.transform.position) < 20.0f)
+            {
+                roboAgent.destination = this.gameObject.transform.position;
+            }
             roboAgent.transform.LookAt(collider.transform.position);
+            
         }
     }
 
