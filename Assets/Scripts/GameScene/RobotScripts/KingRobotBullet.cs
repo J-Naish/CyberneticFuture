@@ -19,7 +19,7 @@ public class KingRobotBullet : MonoBehaviour
 
 
     // 範囲内にいるかを検知するために取得するオブジェクト
-    [SerializeField] private GameObject kingRobotParent;
+    [SerializeField] private GameObject kingRobot;
 
 
     // 間隔を空けて弾を撃つための変数
@@ -55,7 +55,7 @@ public class KingRobotBullet : MonoBehaviour
     private void ShootingBulletAfterSeconds(float t)
     {
         // 範囲内にいる時のみ処理を行う
-        if (kingRobotParent.GetComponent<KingRobotMove>().playerIsInArea)
+        if (kingRobot.GetComponent<KingRobotMove>().playerIsInArea)
         {
             // 時間計測開始
             currentTime += Time.deltaTime;

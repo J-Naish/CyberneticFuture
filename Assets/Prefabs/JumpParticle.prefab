@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5940385232140121829}
   - component: {fileID: -352018624214563165}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: JumpParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

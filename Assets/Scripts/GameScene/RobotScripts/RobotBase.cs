@@ -28,6 +28,10 @@ public class RobotBase : MonoBehaviour
     [SerializeField] public int expPoint;
 
 
+    // 爆発パーティクルを取得
+    [SerializeField] protected GameObject explosionParticle;
+
+
     /// <summary>
     /// ロボットのライフを設定する関数
     /// </summary>
@@ -57,7 +61,8 @@ public class RobotBase : MonoBehaviour
     {
         if(robotCurrentLife <= 0)
         {
-            Destroy(this.gameObject);
+            Instantiate(explosionParticle);
+            Destroy(transform.root.gameObject);
         }
     }
 

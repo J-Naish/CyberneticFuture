@@ -28,6 +28,15 @@ public class KingRobotMove : MonoBehaviour
     private int randomNumber;
 
 
+    // キングロボットの位置ベクトル取得
+    private Vector3 kingRobotPosition;
+
+
+    private void Start()
+    {
+        // キングロボットの位置ベクトル取得
+        kingRobotPosition = transform.position;
+    }
 
 
     private void Update()
@@ -84,7 +93,12 @@ public class KingRobotMove : MonoBehaviour
                 // ターゲットを確定
                 ChooseTargetInRandom();
 
-                transform.LookAt(targetPlayer.transform.position);
+                // 向く方向を定義
+                // キングロボットが下向きに屈まないようにYだけ自身のY座標に
+                Vector3 lookingPosition =
+                    new Vector3(targetPlayer.transform.position.x, kingRobotPosition.y, targetPlayer.transform.position.z);
+
+                transform.LookAt(lookingPosition);
             }
             if(currentTimeLook > spanLook)
             {
@@ -111,9 +125,6 @@ public class KingRobotMove : MonoBehaviour
             isAlradyGenerated = true;
         }
     }
-
-
-    
 
 
 
