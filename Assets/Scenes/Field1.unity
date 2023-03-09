@@ -40765,6 +40765,8 @@ MonoBehaviour:
   rangeZ1: {fileID: 1408079063}
   rangeZ2: {fileID: 1051144466}
   mobRobotPrefab: {fileID: 1697002924}
+  emptyCollisionDetector: {fileID: 823182409711420663, guid: 01273d89c23ba4230891dadc59942455,
+    type: 3}
   kingRobot: {fileID: 86964336}
   centerObject: {fileID: 506223541}
 --- !u!4 &2101229520
