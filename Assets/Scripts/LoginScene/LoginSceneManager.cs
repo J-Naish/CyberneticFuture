@@ -19,7 +19,7 @@ public class LoginSceneManager : MonoBehaviour
     private float fadingNumber = 0f;
 
     // Enterが押された事を検知するbool値
-    private bool isLodinghomeScene = false;
+    private bool isLodingHomeScene = false;
 
 
     private void Awake()
@@ -33,7 +33,7 @@ public class LoginSceneManager : MonoBehaviour
     {
         SceneFadeAway();
 
-        LoadhomeScene();
+        LoadHomeScene();
     }
     
 
@@ -44,10 +44,10 @@ public class LoginSceneManager : MonoBehaviour
         // EnterキーでHomeSceneへ
         if (Input.GetKey(KeyCode.Return))
         {
-            isLodinghomeScene = true;
+            isLodingHomeScene = true;
         }
 
-        if (isLodinghomeScene)
+        if (isLodingHomeScene)
         {
             // 画像を有効化
             blackImage.enabled = true;
@@ -65,7 +65,7 @@ public class LoginSceneManager : MonoBehaviour
 
 
     // Scene遷移の関数
-    private void LoadhomeScene()
+    private void LoadHomeScene()
     {
         // フェードアウトが完了したらScene遷移
         if(fadingNumber == framesForFadingAway)
