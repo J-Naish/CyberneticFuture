@@ -10,20 +10,30 @@ public class ParticleCollision : MonoBehaviour
     // ダメージを定義
     private float damage = 1.0f;
 
-    
-    private void OnParticleCollision(GameObject other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            other.gameObject.GetComponent<Player1Controller>().currentLife -= damage;
-            other.gameObject.GetComponent<Player1Controller>().animator.SetTrigger("Hindered");
-        }
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            other.gameObject.GetComponent<EnemyController>().currentLife -= damage;
-        }
 
-    }
+    //private void OnParticleTrigger(GameObject other)
+    //{
+    //    ParticleSystem ps = GetComponent<ParticleSystem>();
+
+
+    //    List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
+
+    //    GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+    //    foreach(ParticleSystem.Particle particle in enter)
+    //    {
+    //        Collider collider = player.GetComponent<Collider>();
+
+    //        if (collider.bounds.Contains(particle.position))
+    //        {
+    //            player.GetComponent<Player1Controller>().currentLife -= damage;
+    //            player.GetComponent<Player1Controller>().animator.SetTrigger("Hindered");
+    //        }
+    //    }
+
+    //    ps.SetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
+
+    //}
 
 
 }

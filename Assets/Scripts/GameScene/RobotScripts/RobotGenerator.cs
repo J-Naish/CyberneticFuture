@@ -25,7 +25,7 @@ public class RobotGenerator : MonoBehaviour
 
 
     // MobPrefab生成のスパンと個数を定義
-    private float mobSpan = 10.0f;
+    private float mobSpan = 60.0f;
     private int mobGeneratingNumber = 10;
 
 
