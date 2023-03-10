@@ -42,29 +42,26 @@ public class PlayerController : MonoBehaviour
 
     private void MoveByArrowKey()
     {
-
-
         animator.SetFloat("MoveSpeed", moveDirection.magnitude);
-
 
         // キャラクターの移動
         // *暫定的に十字キーで移動
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             moveDirection += transform.forward;
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.B))
         {
             moveDirection -= transform.forward;
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             moveDirection += transform.right;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             moveDirection -= transform.right;
         }

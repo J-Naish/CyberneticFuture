@@ -35,7 +35,7 @@ public class LoginSceneManager : MonoBehaviour
 
         LoadhomeScene();
     }
-
+    
 
 
     // 徐々にフェードアウトするための関数
