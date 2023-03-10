@@ -6,30 +6,17 @@ using UnityEngine.UI;
 
 
 // HomeSceneの遷移に関するクラス
-public class HomeSceneManager : MonoBehaviour
+public class HomeSceneManager : BaseSceneManager
 {
 
     // 衝突検知オブジェクトを取得
     [SerializeField] private GameObject collisionDetector;
 
 
-    // フェードアウト用の黒画像を取得
-    [SerializeField] private Image blackImage;
-
-    // フェードアウトが終わるまでにかかるフレーム数
-    private float framesForFadingAway = 180f;
-
-    // フェードアウト(透明度調整)に用いる変数
-    private float fadingNumber = 0f;
-
-    // Enterが押された事を検知するbool値
-    private bool isLodingMatchingScene = false;
-
-
     private void Awake()
     {
         // 黒画像を初期では表示させない
-        blackImage.enabled = false;
+        SetBlackImageActivity(false);
     }
 
 
@@ -44,32 +31,30 @@ public class HomeSceneManager : MonoBehaviour
 
 
     // Sceneフェードアウトの関数
-    private void SceneFadeAway()
+    protected override void SceneFadeAway()
     {
-        // 範囲内にいる時に
-        if (collisionDetector.GetComponent<CollsionDetector>().isInArea)
+        // 中央の扉の範囲内にいない時はreturn
+        if (!collisionDetector.GetComponent<CollsionDetector>().isInArea) return;
+
+        // EnterキーでHomeSceneへ
+        if (Input.GetKey(KeyCode.Return))
         {
-            // リターンキーを押したら
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                // リターンが押された事を検知
-                isLodingMatchingScene = true;
-            }
+            isLodingNextScene = true;
+        }
 
-            if (isLodingMatchingScene)
-            {
-                // 画像を有効化
-                blackImage.enabled = true;
+        if (isLodingNextScene)
+        {
+            // 画像を有効化
+            SetBlackImageActivity(true);
 
-                // 画像のColorを取得(画像の透明度調整のため)
-                var c = blackImage.GetComponent<Image>().color;
+            // 画像のColorを取得(画像の透明度調整のため)
+            var c = blackImage.GetComponent<Image>().color;
 
-                // 黒画像の透明度変更
-                blackImage.GetComponent<Image>().color = new Color(c.r, c.g, c.b, fadingNumber / framesForFadingAway);
+            // 黒画像の透明度変更
+            blackImage.GetComponent<Image>().color = new Color(c.r, c.g, c.b, fadingNumber / framesForFadingAway);
 
-                // 徐々に非透明にするために加算
-                fadingNumber += 1f;
-            }
+            // 徐々に非透明にするために加算
+            fadingNumber += 1f;
         }
     }
 
