@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 
 // HomeSceneの遷移に関するクラス
+// SceneManagerの基底クラスを継承
 public class HomeSceneManager : BaseSceneManager
 {
 

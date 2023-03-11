@@ -4,11 +4,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 // SelectSceneの遷移に関するクラス
-public class SelectSceneManager : MonoBehaviour
+public class SelectSceneManager : BaseSceneManager
 {
+
+    private void Awake()
+    {
+        // 黒画像を初期では表示させない
+        SetBlackImageActivity(false);
+    }
+
 
     void Update()
     {
+        SceneFadeAway();
+
         LoadLoadingScene();
     }
 
@@ -17,7 +26,7 @@ public class SelectSceneManager : MonoBehaviour
     private void LoadLoadingScene()
     {
         // Enterで遷移
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (fadingNumber == framesForFadingAway)
         {
             SceneManager.LoadScene("Loading");
         }
