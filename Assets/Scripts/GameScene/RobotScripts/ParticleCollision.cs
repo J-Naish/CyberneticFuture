@@ -10,17 +10,27 @@ public class ParticleCollision : MonoBehaviour
     // ダメージを定義
     private float damage = 1.0f;
 
+    //// パーティクルを宣言
+    //private ParticleSystem ps;
+
+    //// Enterで発動するパーティクルをリストに格納
+    //List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
+
+
+    //private void OnEnable()
+    //{
+    //    // パーティクルシステムを取得
+    //    ps = GetComponent<ParticleSystem>();
+    //}
+
 
     //private void OnParticleTrigger(GameObject other)
     //{
-    //    ParticleSystem ps = GetComponent<ParticleSystem>();
 
-
-    //    List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
 
     //    GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-    //    foreach(ParticleSystem.Particle particle in enter)
+    //    foreach (ParticleSystem.Particle particle in enter)
     //    {
     //        Collider collider = player.GetComponent<Collider>();
 
@@ -35,5 +45,6 @@ public class ParticleCollision : MonoBehaviour
 
     //}
 
+    
 
 }
