@@ -6,36 +6,32 @@ using UnityEngine.SceneManagement;
 
 // LoadingSceneからゲームSceneに遷移するクラス
 // とりあえず7秒経てばゲームSceneに遷移
-public class LoadingSceneManager : MonoBehaviour
+public class LoadingSceneManager : BaseSceneManager
 {
 
-    // 秒数を扱うための変数
-    private float currentTime = 0f;
-
-    
-    void Update()
+    private void Awake()
     {
-
-        // 秒数をカウント
-        currentTime += Time.deltaTime;
-
-
-        LoadGameScene();
-
+        // 黒画像を初期では表示させない
+        SetBlackImageActivity(false);
     }
 
 
-    // ゲームSceneへ遷移する関数
+
+    void Update()
+    {
+        SceneFadeAway();
+
+        LoadGameScene();
+    }
+
+
+    // LoadingSceneに遷移する関数
     private void LoadGameScene()
     {
-
-        // 7秒経てばゲームSceneへ
-        if(currentTime >= 7.0f)
+        // フェードアウトが終われば遷移
+        if (fadingNumber == framesForFadingAway)
         {
-
-            // フィールドを複数用意したらランダムで遷移するようにする
             SceneManager.LoadScene("Field1");
-
         }
 
     }

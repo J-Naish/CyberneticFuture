@@ -25,7 +25,7 @@ public class SelectSceneManager : BaseSceneManager
     // LoadingSceneに遷移する関数
     private void LoadLoadingScene()
     {
-        // Enterで遷移
+        // フェードアウトが終われば遷移
         if (fadingNumber == framesForFadingAway)
         {
             SceneManager.LoadScene("Loading");
