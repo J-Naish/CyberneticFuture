@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+// メカの基底クラス
 public class MechaBase : MonoBehaviour
 {
 

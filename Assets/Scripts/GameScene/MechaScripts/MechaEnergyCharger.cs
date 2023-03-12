@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// PlayerのエナジーをMAXに回復するメカ
+
+// PlayerのエナジーをMAXに回復するメカに関するクラス
 public class MechaEnergyCharger : MechaBase
 {
 
@@ -18,13 +19,6 @@ public class MechaEnergyCharger : MechaBase
     [SerializeField] private GameObject mechaUse;
 
 
-    void Start()
-    {
-
-        // 初期はfalse
-        isAlreadyCharged = false;
-
-    }
 
 
     private void Update()
@@ -36,43 +30,41 @@ public class MechaEnergyCharger : MechaBase
 
 
 
+    // このメカを使用する関数
     private void EnergyChargerUsed()
     {
         // Prefabが新規生成された時のみ実行
-        if (isPrefabGenerated)
+        if (!isPrefabGenerated) return;
+
+
+        // Mキーでのメカの使用を検知
+        if (mechaUse.GetComponent<MechaUse>().useMecha)
         {
-            // Mキーでのメカの使用を検知
-            if (mechaUse.GetComponent<MechaUse>().useMecha)
+
+            if (!isAlreadyCharged)
             {
 
-                if (!isAlreadyCharged)
-                {
+                // PlayerのエナジーをMAXに
+                player.GetComponent<Player1Controller>().currentEnergy = player.GetComponent<Player1Controller>().grossEnergy;
 
-                    // PlayerのエナジーをMAXに
-                    player.GetComponent<Player1Controller>().currentEnergy = player.GetComponent<Player1Controller>().grossEnergy;
-
-                    // bool値を更新
-                    isAlreadyCharged = true;
-
-                }
-
-
-                // メカ使用後はfalseに戻す
-                mechaUse.GetComponent<MechaUse>().useMecha = false;
-
-
-                // 使用後はisPrefabGeneratedをfalseに戻す
-                isPrefabGenerated = false;
-
-
-                // メカ使用後はプレファブ化されたものを破壊
-                Destroy(this.gameObject);
-
+                // bool値を更新
+                isAlreadyCharged = true;
 
             }
+
+            // メカ使用後はfalseに戻す
+            mechaUse.GetComponent<MechaUse>().useMecha = false;
+
+            // 使用後はisPrefabGeneratedをfalseに戻す
+            isPrefabGenerated = false;
+
+            // メカ使用後はプレファブ化されたものを破壊
+            Destroy(this.gameObject);
+
         }
 
     }
+
 
 
 }

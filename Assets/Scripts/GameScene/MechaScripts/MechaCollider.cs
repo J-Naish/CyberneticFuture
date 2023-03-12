@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
-// メカに近づくと獲得ボタンを表示したりできるクラス
+// メカに近づくと獲得ボタンを表示したりメカを取得できる実装に関するクラス
 public class MechaCollider : MonoBehaviour
 {
 
@@ -38,6 +38,11 @@ public class MechaCollider : MonoBehaviour
     [SerializeField] private GameObject player;
 
 
+    // メカの種類数
+    private int numberOfMechas = 3;
+
+
+
     private void Start()
     {
 
@@ -51,42 +56,36 @@ public class MechaCollider : MonoBehaviour
     }
 
 
+
     private void Update()
     {
 
         // 範囲内にいる時のみ呼び出す
-        if (isInMechaBoxArea)
+        if (!isInMechaBoxArea) return;
+
+
+        // メカを持ってない時のみ取得できる
+        if (!mechaButton.GetComponent<MechaButton>().hasMecha)
         {
-
-            // メカを持ってない時のみ取得できる
-            if (!mechaButton.GetComponent<MechaButton>().hasMecha)
+            // Gキーでメカを獲得
+            if (Input.GetKeyDown(KeyCode.G))
             {
+                // メカ所持のbool値を変更
+                mechaEmpty.GetComponent<MechaButton>().hasMecha = true;
 
-                // Gキーでメカを獲得
-                if (Input.GetKeyDown(KeyCode.G))
-                {
+                // Playerがメカを取得
+                GetNewMecha();
 
-                    // メカを拾うアニメーションを起動
-                    player.GetComponent<Player1Controller>().animator.SetTrigger("Pick");
-
-                    // メカ所持のbool値を変更
-                    mechaEmpty.GetComponent<MechaButton>().hasMecha = true;
-
-
-                    // Playerがメカを取得
-                    GetNewMecha();
-
-
-                    // メカを取得したらメカボックスを破壊
-                    Destroy(this.gameObject);
-
-                }
+                // メカを取得したらメカボックスを破壊
+                Destroy(this.gameObject);
 
             }
 
         }
 
     }
+
+
 
 
     private void OnTriggerStay(Collider other)
@@ -124,8 +123,8 @@ public class MechaCollider : MonoBehaviour
     private void GetNewMecha()
     {
 
-        // 乱数を生成
-        int x = Random.Range(1,4);
+        // メカの種類数に応じて乱数を生成
+        int x = Random.Range(1, numberOfMechas + 1);
 
 
         // 取得した乱数に応じてメカをPrefab化
@@ -191,6 +190,7 @@ public class MechaCollider : MonoBehaviour
         }
 
     }
+
 
 
     // どのメカを取得したか表示するUI

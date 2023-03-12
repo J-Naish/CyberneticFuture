@@ -14,6 +14,11 @@ public class MechaButton : MonoBehaviour
     // メカを持ってるかどうかの変数
     public bool hasMecha;
 
+
+    // メカボタンを半透明にする時のAlpha値
+    private float translucenceValue = 0.4f;
+
+
     void Start()
     {
         // 初期はメカを持ってないのでfalse
@@ -50,7 +55,7 @@ public class MechaButton : MonoBehaviour
             // imageのcolorを取得
             var c = mechaButtonImage.color;
             // colorはそのままでalphaを変更する
-            mechaButtonImage.color = new Color(c.r, c.g, c.b, 0.4f);
+            mechaButtonImage.color = new Color(c.r, c.g, c.b, translucenceValue);
 
         }
 

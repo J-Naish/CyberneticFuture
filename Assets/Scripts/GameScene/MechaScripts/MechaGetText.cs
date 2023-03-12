@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
+// メカを獲得した時に表示されるUIテキストに関するクラス
 public class MechaGetText : MonoBehaviour
 {
 
@@ -18,8 +20,6 @@ public class MechaGetText : MonoBehaviour
 
 
 
-
-
     private void Start()
     {
         // メカ獲得テキストをデフォルトでは表示させないようにする
@@ -30,32 +30,33 @@ public class MechaGetText : MonoBehaviour
     void Update()
     {
         ShowMechaGetText();
-
     }
+
 
 
     // メカを取得したらテキストを表示する関数
     private void ShowMechaGetText()
     {
         // メカを取得した場合だけ処理を起こす
-        if (gotMehca)
+        if (!gotMehca) return;
+
+
+        // 時間の加算開始
+        currentTime += Time.deltaTime;
+
+
+        // 2秒間だけ表示
+        if (currentTime < duration)
         {
-
-            // 時間の加算開始
-            currentTime += Time.deltaTime;
-
-            // 2秒間だけ表示
-            if(currentTime < duration)
-            {
-                GetComponent<TextMeshProUGUI>().enabled = true;
-            }
-            else if(currentTime > duration)
-            {
-                // 2秒表示した後は非表示に
-                GetComponent<TextMeshProUGUI>().enabled = false;
-                Destroy(this.gameObject);
-            }
+            GetComponent<TextMeshProUGUI>().enabled = true;
         }
+        else if (currentTime > duration)
+        {
+            // 2秒表示した後は非表示に
+            GetComponent<TextMeshProUGUI>().enabled = false;
+            Destroy(this.gameObject);
+        }
+        
 
     }
 

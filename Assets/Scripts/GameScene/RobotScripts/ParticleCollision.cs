@@ -8,7 +8,7 @@ public class ParticleCollision : MonoBehaviour
 {
 
     // ダメージを定義
-    private float damage = 1.0f;
+    //private float damage = 1.0f;
 
     //// パーティクルを宣言
     //private ParticleSystem ps;

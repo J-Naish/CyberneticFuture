@@ -15900,7 +15900,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &698802748
 Transform:
   m_ObjectHideFlags: 0
@@ -19121,7 +19121,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850847498}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -21742,7 +21742,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194230}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -21815,7 +21815,7 @@ Transform:
   m_Father: {fileID: 245064692}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &963194230
+--- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21824,7 +21824,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db9c04b2d8e7845ba84aebb48a12ae95, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ecfe232e9d3544b7b1a842653d739be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 245064691}
@@ -29910,6 +29910,7 @@ MonoBehaviour:
   mechaBoxPrefab: {fileID: 1062442308}
   emptyCollisionDetector: {fileID: 4499270721777481673, guid: 193497f2bc2554a3183932f8beef5619,
     type: 3}
+  span: 30
 --- !u!1 &1276215155
 GameObject:
   m_ObjectHideFlags: 0
@@ -31033,7 +31034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1327110807
 Transform:
   m_ObjectHideFlags: 0
@@ -32730,9 +32731,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63741ed5554f74d93aae05ce920fbb70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerText: {fileID: 1335419204}
   totalTime: 0
   timeupText: {fileID: 553817776}
   startText: {fileID: 2102329016}
+  gameManager: {fileID: 981249625}
 --- !u!4 &1405624861
 Transform:
   m_ObjectHideFlags: 0
@@ -41103,7 +41106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1749791014
 Transform:
   m_ObjectHideFlags: 0

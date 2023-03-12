@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// ゲームの勝敗などを管理するクラス
 public class GameManager : MonoBehaviour
 {
-
 
     // Player1のチームが勝利したかどうか
     private string winningTeam;
@@ -14,7 +15,6 @@ public class GameManager : MonoBehaviour
     public float currentLeftTotalEnergy;
     public float currentRightTotalEnergy;
 
-    
 
 
     void Start()

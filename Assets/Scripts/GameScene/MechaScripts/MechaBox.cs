@@ -30,7 +30,7 @@ public class MechaBox : MonoBehaviour
 
 
     // 時間ごとにPrefabを生成するために時間変数を取得
-    private float span = 30.0f;
+    [SerializeField] private float span = 30.0f;
     private float currentTime = 0f;
 
 

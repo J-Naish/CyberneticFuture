@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+// メカの使用に関するクラス
 public class MechaUse : MonoBehaviour
 {
 
@@ -17,15 +18,23 @@ public class MechaUse : MonoBehaviour
 
     void Update()
     {
+        UseMecha();
+    }
 
-        
+
+
+    // メカを使用する関数
+    private void UseMecha()
+    {
         if (Input.GetKeyDown(KeyCode.M))
         {
+            // メカ使用検知bool値を更新
             useMecha = true;
 
             // メカを使用したのでメカボタンを半透明に
             mechaEmpty.GetComponent<MechaButton>().hasMecha = false;
         }
-
     }
+
+
 }

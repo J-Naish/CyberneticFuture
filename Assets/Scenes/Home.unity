@@ -289,8 +289,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277432cf2a4b946ce986583fec75f9cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDetector: {fileID: 1260214246}
   blackImage: {fileID: 681282707}
+  isLodingNextScene: 0
+  collisionDetector: {fileID: 1260214246}
 --- !u!4 &672438185
 Transform:
   m_ObjectHideFlags: 0
@@ -1120,11 +1121,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2113092493}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db9c04b2d8e7845ba84aebb48a12ae95, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ecfe232e9d3544b7b1a842653d739be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1000272673}
-  rotateSpeed: 3
+  rotateSpeed: 2
 --- !u!81 &2113092496
 AudioListener:
   m_ObjectHideFlags: 0
