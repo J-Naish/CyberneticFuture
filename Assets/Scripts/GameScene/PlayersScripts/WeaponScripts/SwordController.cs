@@ -8,7 +8,6 @@ public class SwordController : BaseWeaponController
 {
 
 
-
     private void Awake()
     {
         // Playerのステータスを設定
@@ -17,6 +16,7 @@ public class SwordController : BaseWeaponController
         // 武器の種類を定義
         isCollisionWeapon = true;
     }
+
 
 
     void Start()
@@ -30,6 +30,7 @@ public class SwordController : BaseWeaponController
         // ダメージを定義
         damage = 80.0f;
     }
+
 
 
     private void Update()
@@ -46,6 +47,7 @@ public class SwordController : BaseWeaponController
         // bool値変更関数
         SuperPowerCharged();
     }
+
 
 
     // 剣で攻撃する関数
@@ -67,9 +69,9 @@ public class SwordController : BaseWeaponController
                 // SEを起動するbool値を変更
                 GetComponent<EnergySwordSE>().isAttacking = true;
             }
-
         }
     }
+
 
 
     // 必殺技(モーションは通常攻撃と同じ)
@@ -88,9 +90,7 @@ public class SwordController : BaseWeaponController
                 // 必殺技を使用した判定をする関数
                 SuperPowerUsed();
             }
-
         }
-
     }
 
     

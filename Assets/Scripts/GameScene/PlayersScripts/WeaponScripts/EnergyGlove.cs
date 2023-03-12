@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 // エナジーグローブに関するクラス
 public class EnergyGlove : BaseWeaponController
 {
@@ -25,6 +26,7 @@ public class EnergyGlove : BaseWeaponController
         // 必殺技が溜まる時間を定義
         superPowerCoolTime = 100.0f;
 
+        // ダメージを定義
         damage = 110;
 
     }
@@ -44,6 +46,7 @@ public class EnergyGlove : BaseWeaponController
         // bool値変更関数
         SuperPowerCharged();
     }
+
 
 
     // グローブで攻撃する関数
@@ -73,7 +76,6 @@ public class EnergyGlove : BaseWeaponController
         // 必殺技が溜まってたら発動できる
         if (superPowerButton.GetComponent<SuperPowerButton>().isSuperPowerCharged)
         {
-
             // Sで必殺技使用
             if (Input.GetKeyDown(KeyCode.P))
             {

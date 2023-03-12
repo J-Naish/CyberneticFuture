@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 // 武器に関する共通基底クラス
 public class BaseWeaponController : MonoBehaviour
 {

@@ -24,6 +24,13 @@ public class EnemyBulletController : MonoBehaviour
     private float currentTime = 0f;
 
 
+    // 敵が弾を撃ってくる距離
+    private float shootArea = 20.0f;
+
+
+    // 発射された弾が破壊されるまでの秒数
+    private float bulletDestroySpan = 3.0f;
+
 
     void Update()
     {
@@ -39,7 +46,7 @@ public class EnemyBulletController : MonoBehaviour
     {
 
         // 一定距離にいる時だけ
-        if (enemy.GetComponent<EnemyMove>().distance <= 20.0f)
+        if (enemy.GetComponent<EnemyMove>().distance <= shootArea)
         {
             // 必要エナジーがある時だけ
             if (enemy.GetComponent<EnemyController>().currentEnergy >= bulletRequiringEnergy)
@@ -55,17 +62,16 @@ public class EnemyBulletController : MonoBehaviour
                 enemy.GetComponent<EnemyController>().currentEnergy -= bulletRequiringEnergy;
 
                 // 弾丸を一定時間後に破壊
-                Destroy(Bullet, 3.0f);
+                Destroy(Bullet, bulletDestroySpan);
             }
         }
-
     }
+
 
 
     // n秒後に弾を発射する関数
     private void WaitSecondsForShoot(float n)
     {
-
         currentTime += Time.deltaTime;
 
         // n秒経てば弾を撃つ
@@ -76,10 +82,9 @@ public class EnemyBulletController : MonoBehaviour
 
             // 時間をリセット
             currentTime = 0f;
-
         }
-
     }
+
 
 
 }

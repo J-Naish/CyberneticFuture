@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// 弾丸に関するクラス
 public class BulletCollisionController : BaseWeaponController
 {
 

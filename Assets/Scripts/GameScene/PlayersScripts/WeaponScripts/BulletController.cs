@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// エナジーガンに関するクラス
 public class BulletController : BaseWeaponController
 {
 
@@ -13,6 +15,7 @@ public class BulletController : BaseWeaponController
     // 必殺技の弾丸と速度を取得
     [SerializeField] private GameObject superBullet;
     private float superBulletSpeed = 7000.0f;
+
 
 
     private void Awake()
@@ -58,6 +61,8 @@ public class BulletController : BaseWeaponController
     }
 
 
+
+    // エナジーガンの攻撃の関数
     private void BulletAttack()
     {
 
@@ -84,6 +89,7 @@ public class BulletController : BaseWeaponController
     }
 
 
+    // エナジーガンの必殺技
     private void BulletSuperPower()
     {
         // 必殺技が溜まってたら使用できる
@@ -110,6 +116,7 @@ public class BulletController : BaseWeaponController
         }
 
     }
+
 
 
     // エイミングする関数

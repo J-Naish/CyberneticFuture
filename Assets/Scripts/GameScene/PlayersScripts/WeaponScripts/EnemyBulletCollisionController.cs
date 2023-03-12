@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 // 弾が当たった時の処理に関するクラス
 public class EnemyBulletCollisionController : MonoBehaviour
 {
