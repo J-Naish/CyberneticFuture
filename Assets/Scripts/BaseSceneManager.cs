@@ -18,7 +18,7 @@ public class BaseSceneManager : MonoBehaviour
     protected float fadingNumber = 0f;
 
     // Enterが押された事を検知するbool値
-    protected bool isLodingNextScene = false;
+    public bool isLodingNextScene = false;
 
 
 
