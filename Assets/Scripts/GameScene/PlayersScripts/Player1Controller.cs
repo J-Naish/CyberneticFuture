@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+
+// 操作するPlayerに関するクラス
 public class Player1Controller : BasePlayer
 {
 
@@ -23,11 +25,6 @@ public class Player1Controller : BasePlayer
     // 敵を取得
     [SerializeField] private GameObject enemy;
 
-
-    // ダメージを宣言
-    private float damage;
-
-
     // CharacterControllerを取得
     private CharacterController characterController;
 
@@ -39,7 +36,7 @@ public class Player1Controller : BasePlayer
 
     void Start()
     {
-        // Player1のステータス
+        // Player1のステータスを設定
         currentLife = grossLife;
         currentEnergy = grossEnergy;
 
@@ -68,13 +65,14 @@ public class Player1Controller : BasePlayer
     }
 
 
+
     void Update()
     {
-        // エナジーバーを変化
-        EnergyBarChange();
+        // エナジーバーとライフバーを変化
+        SliderChangeByValue();
 
         // エナジーが上限を超えないように
-        NotExcessGrossEnergy();
+        DontExcessGrossEnergyAndLife();
 
         // キャラが移動する関数
         MoveByKey();
@@ -86,8 +84,8 @@ public class Player1Controller : BasePlayer
 
 
 
-    // エナジーバー変更の関数
-    private void EnergyBarChange()
+    // エナジーバーとライフバー変更の関数
+    private void SliderChangeByValue()
     {
         energySlider.value = (float)currentEnergy / (float)grossEnergy;
         lifeSlider.value = (float)currentLife / (float)grossLife;
@@ -121,16 +119,19 @@ public class Player1Controller : BasePlayer
         {
             moveDirection -= transform.right;
         }
-
+        // キーが押されてなければ移動しない
         if (!Input.anyKey)
         {
             moveDirection = Vector3.zero;
         }
 
+        // ベクトルを正規化
         moveDirection.Normalize();
 
+        // 移動方向にカメラを向ける
         transform.LookAt(transform.position + moveDirection);
 
+        // Playerを移動させる
         characterController.Move(moveDirection * moveVelocity * Time.deltaTime);
     }
 

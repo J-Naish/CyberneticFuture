@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 // デスに関するクラス
 public class DeathController : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class DeathController : MonoBehaviour
     }
 
 
-    // スタート地点に戻るcoroutine
+    // スタート地点に戻る関数
     protected virtual void ReviveAtStartPointAfterSeconds(float n)
     {
         // ライフが0になると処理開始
@@ -77,6 +78,7 @@ public class DeathController : MonoBehaviour
         }
 
     }
+
 
 
     // Playerのライフが0以下になった事を検知する関数

@@ -20,6 +20,7 @@ public class EnemyCollisionDetector : MonoBehaviour
     
     void Start()
     {
+        // 元々いた場所を取得
         originalPosition = enemyAgent.transform.position;
     }
 

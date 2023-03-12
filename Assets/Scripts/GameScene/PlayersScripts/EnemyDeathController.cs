@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+
 // Enemyのデスに関するクラス
 // Playerのデスに関するクラスを継承
 public class EnemyDeathController : DeathController
 {
 
+    // Enemyのデスタイム
+    private float enemyDeathTime = 5.0f;
+
+
 
     protected override void Update()
     {
-        ReviveAtStartPointAfterSeconds(5.0f);
+        ReviveAtStartPointAfterSeconds(enemyDeathTime);
     }
 
 
+    // Enemyのライフが0になった時の処理
     protected override void ReviveAtStartPointAfterSeconds(float n)
     {
         // ライフが0になると処理開始

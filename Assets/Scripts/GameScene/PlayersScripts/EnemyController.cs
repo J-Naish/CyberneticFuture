@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+// 敵(bot)に関するクラス
 public class EnemyController : BasePlayer
 {
-
-    // 敵の武器とそのダメージ
-    private float damage;
-    private GameObject weapon;
 
     // ライフ表示UI
     [SerializeField] private GameObject LifeBar;
@@ -58,9 +56,9 @@ public class EnemyController : BasePlayer
 
     void Update()
     {
-        EnergyBarChange();
+        SliderChangeByValue();
 
-        NotExcessGrossEnergy();
+        DontExcessGrossEnergyAndLife();
 
         LevelUp();
         StatusIncreaseByLevel();
@@ -68,7 +66,7 @@ public class EnemyController : BasePlayer
 
 
     // バーを更新する関数
-    private void EnergyBarChange()
+    private void SliderChangeByValue()
     {
         // ライフゲージ処理
         lifeSlider.value = (float)currentLife / (float)grossLife;

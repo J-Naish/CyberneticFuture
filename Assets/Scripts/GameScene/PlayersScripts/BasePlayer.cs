@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// キャラクターの基底クラス
 public class BasePlayer : MonoBehaviour
 {
 
@@ -101,16 +103,32 @@ public class BasePlayer : MonoBehaviour
     public int superPowerRequringLevel;
 
 
+    // レベルアップに応じたライフの上昇数
+    protected float lifeIncreaseByLevelup = 100.0f;
 
-    // エナジーが上限を超えないようにする関数
-    protected void NotExcessGrossEnergy()
+    // レベルアップに応じたエナジーの上昇率
+    protected int energyIncreaseByLevelup = 10;
+
+    // レベルアップに応じた移動速度の上昇係数
+    protected float velocityIncreaseByLevelip = 1.01f;
+
+
+
+    /// <summary>
+    /// エナジーとライフが上限を超えないようにする関数
+    /// </summary>
+    protected void DontExcessGrossEnergyAndLife()
     {
-
+        // 上限を超えたら最大量にする
         if(currentEnergy > grossEnergy)
         {
             currentEnergy = grossEnergy;
         }
 
+        if (currentLife > grossLife)
+        {
+            currentLife = grossLife;
+        }
     }
 
 
@@ -137,6 +155,7 @@ public class BasePlayer : MonoBehaviour
     }
 
 
+
     /// <summary>
     /// レベルに応じてステータスを変更するクラス
     /// </summary>
@@ -146,16 +165,18 @@ public class BasePlayer : MonoBehaviour
         if (isLevelUp)
         {
             // レベルに応じて最大ライフを上昇
-            grossLife *= Mathf.Pow(1.05f, playerLevel - 1);
+            grossLife += lifeIncreaseByLevelup;
+            currentLife += lifeIncreaseByLevelup;
 
             // レベルに応じて最大エナジーを上昇
-            grossEnergy += 10 * (playerLevel - 1);
+            grossEnergy += energyIncreaseByLevelup * (playerLevel - 1);
+            currentEnergy += energyIncreaseByLevelup * (playerLevel - 1);
 
             // レベルに応じて移動速度を上昇
-            moveVelocity *= Mathf.Pow(1.01f, playerLevel - 1);
+            moveVelocity *= Mathf.Pow(velocityIncreaseByLevelip, playerLevel - 1);
 
 
-            // レベルアップ検知を更新
+            // レベルアップ検知変数を更新
             isLevelUp = false;
         }
 

@@ -7,7 +7,7 @@ using UnityEngine.AI;
 // 敵の挙動に関するクラス
 public class EnemyMove : MonoBehaviour
 {
-
+    // EnemyのNavmeshを宣言
     private NavMeshAgent enemyAgent;
 
     // Pleyerとの距離を測る変数
@@ -17,11 +17,16 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] private GameObject player;
 
 
+    // Playerまで近づく距離
+    private float minimumDistanceToApproach = 20.0f;
+
+
 
     void Start()
     {
         enemyAgent = GetComponent<NavMeshAgent>();
     }
+
 
     private void Update()
     {
@@ -29,6 +34,7 @@ public class EnemyMove : MonoBehaviour
         distance = Vector3.Distance(player.transform.position, this.transform.position);
 
     }
+
 
 
     public void OnDetectPlayer(Collider collider)
@@ -39,11 +45,11 @@ public class EnemyMove : MonoBehaviour
         {
 
             // 一定距離までしか近づかない
-            if (distance >= 20.0f)
+            if (distance >= minimumDistanceToApproach)
             {
                 enemyAgent.destination = collider.transform.position;
             }
-            else if(distance < 20.0f)
+            else if(distance < minimumDistanceToApproach)
             {
                 enemyAgent.destination = this.transform.position;
             }
