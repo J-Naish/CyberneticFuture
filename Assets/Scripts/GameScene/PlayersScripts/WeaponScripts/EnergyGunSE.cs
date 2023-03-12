@@ -19,7 +19,7 @@ public class EnergyGunSE : MonoBehaviour
         // AudioSorceコンポーネントを取得
         audioSource = GetComponent<AudioSource>();
 
-        // Start時にSEを再生
+        // Start時(Prefab化された時)にSEを再生
         audioSource.PlayOneShot(energyGunSE);
     }
 

@@ -8,6 +8,7 @@ public class SwordController : BaseWeaponController
 {
 
 
+
     private void Awake()
     {
         // Playerのステータスを設定
@@ -62,6 +63,9 @@ public class SwordController : BaseWeaponController
 
                 // エナジーを消費
                 player.GetComponent<Player1Controller>().currentEnergy -= requiringEnergy;
+
+                // SEを起動するbool値を変更
+                GetComponent<EnergySwordSE>().isAttacking = true;
             }
 
         }
@@ -89,6 +93,6 @@ public class SwordController : BaseWeaponController
 
     }
 
-
+    
 
 }
