@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 // デスした時に表示するUIに関するクラス
 public class DeathText : MonoBehaviour
 {
 
     // 画面を暗くするための背景画像UIを取得
     [SerializeField] private Image backgroundImage;
+
     // デス時の表示テキストを取得
     [SerializeField] private TextMeshProUGUI deathText;
 
