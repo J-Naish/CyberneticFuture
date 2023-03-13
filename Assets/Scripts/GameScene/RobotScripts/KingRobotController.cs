@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
 
+
+// キングロボットに関するクラス
 public class KingRobotController : RobotBase
 {
-
-
 
     void Start()
     {
@@ -27,10 +27,5 @@ public class KingRobotController : RobotBase
 
         BreakWhenDeath();
     }
-
-
-
-
-
 
 }

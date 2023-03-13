@@ -34,6 +34,7 @@ public class KingRobotJumpParticle : MonoBehaviour
     }
 
 
+    // 時間が経てばパーティクルを破壊するクラス
     private void DeleteParticle()
     {
         currentTimeDelete += Time.deltaTime;
@@ -45,6 +46,7 @@ public class KingRobotJumpParticle : MonoBehaviour
     }
 
 
+    // パーティクルが広がっていくクラス
     private void ExpandParticle()
     {
         currentTimeExpand += Time.deltaTime;

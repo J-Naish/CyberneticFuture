@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+// Tankに関するクラス
 public class TankController : MonoBehaviour
 {
 
@@ -19,8 +21,6 @@ public class TankController : MonoBehaviour
 
     private void Start()
     {
-
-
         // 最初のエナジー量は0
         currentTankEnergy = 0f;
 

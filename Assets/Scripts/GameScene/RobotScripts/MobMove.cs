@@ -5,6 +5,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 
 
+// モブの動きに関するクラス
 public class MobMove : MonoBehaviour
 {
 

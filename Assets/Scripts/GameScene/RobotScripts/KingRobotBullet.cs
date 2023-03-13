@@ -25,6 +25,9 @@ public class KingRobotBullet : MonoBehaviour
     // 間隔を空けて弾を撃つための変数
     private float currentTime = 0f;
 
+    // 弾丸を破壊する秒数
+    private float bulletDestroySpan = 3.0f;
+
 
     void Update()
     {
@@ -46,7 +49,7 @@ public class KingRobotBullet : MonoBehaviour
         Bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
 
         // 弾丸を一定時間後に破壊
-        Destroy(Bullet, 3.0f);
+        Destroy(Bullet, bulletDestroySpan);
 
     }
 

@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// モブロボットに関するクラス
 public class RobotAController : RobotBase
 {
 
-
     // ミニマップ用のCubeを取得
     [SerializeField] private GameObject minimapCube;
-
 
 
     void Start()
@@ -25,7 +25,6 @@ public class RobotAController : RobotBase
         expPoint = 40;
 
     }
-
 
 
     void Update()

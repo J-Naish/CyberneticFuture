@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.AI;
 
 
-
+// 範囲内にキャラが近づいた事を検知するクラス
 [RequireComponent(typeof(Collider))]
 public class CollisionDetector : MonoBehaviour
 {
@@ -42,6 +42,7 @@ public class CollisionDetector : MonoBehaviour
         onTriggerStay.Invoke(other);
         if(other.CompareTag("Player") || other.CompareTag("Enemy"))
         {
+            // 範囲内にいる事を検知
             isInArea = true;
         }
     }
@@ -51,6 +52,7 @@ public class CollisionDetector : MonoBehaviour
     {
         if (other.CompareTag("Player") || other.CompareTag("Enemy"))
         {
+            // 範囲外にいけば元の位置に戻る
             roboAgentNMA.destination = originalPosition;
             isInArea = false;
         }

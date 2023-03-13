@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+// Tankへのエナジー注入に関するクラス
 public class TankCollider : MonoBehaviour
 {
 
