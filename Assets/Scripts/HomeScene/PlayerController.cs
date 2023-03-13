@@ -18,31 +18,25 @@ public class PlayerController : MonoBehaviour
 
 
 
-
-
     void Start()
     {
-
         // キャラクターコントローラー取得
         characterController = GetComponent<CharacterController>();
-
-
-
     }
 
     
     void Update()
     {
-
-        MoveByArrowKey();
-
+        MoveByKey();
     }
 
 
-
-    private void MoveByArrowKey()
+    // キーで移動させる関数
+    private void MoveByKey()
     {
+        // animatorのパラメーターを定義
         animator.SetFloat("MoveSpeed", moveDirection.magnitude);
+
 
         // キャラクターの移動
         // *暫定的に十字キーで移動
@@ -65,16 +59,19 @@ public class PlayerController : MonoBehaviour
         {
             moveDirection -= transform.right;
         }
-
+        // キーの入力がなければ移動量は0に
         if (!Input.anyKey)
         {
             moveDirection = Vector3.zero;
         }
 
+        // ベクトルを正規化
         moveDirection.Normalize();
 
+        // 移動方向に向く
         transform.LookAt(transform.position + moveDirection);
 
+        // 移動させる
         characterController.Move(moveDirection * moveVelocity * Time.deltaTime);
 
     }

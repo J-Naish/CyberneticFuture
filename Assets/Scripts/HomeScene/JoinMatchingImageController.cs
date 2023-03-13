@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 // UIの表示に関するクラス
 public class JoinMatchingImageController : MonoBehaviour
 {
 
+    // マッチング画面へ行く事を表す画像を取得
     [SerializeField] private Image joinMatchingImage;
 
+    // キャラが近づく事を検知するオブジェクトを取得
     [SerializeField] private GameObject collisionDetector;
 
 
@@ -24,9 +27,7 @@ public class JoinMatchingImageController : MonoBehaviour
 
     void Update()
     {
-        
         ShowImage();
-
     }
 
 
@@ -37,16 +38,16 @@ public class JoinMatchingImageController : MonoBehaviour
         // 特定範囲内にいる時のみ表示
         if (collisionDetector.GetComponent<CollsionDetector>().isInArea)
         {
+            // 画像を有効化
             joinMatchingImage.GetComponent<Image>().enabled = true;
         }
         else
         {
+            // 画像を無効に
             joinMatchingImage.GetComponent<Image>().enabled = false;
         }
 
     }
-
-
 
 
 
