@@ -11,7 +11,7 @@ public class KingRobotController : RobotBase
     void Start()
     {
         // ロボットの初期設定
-        robotGrossLife = 1500.0f;
+        robotGrossLife = 50000.0f;
         robotEnergy = 400.0f;
 
         SetRobotLife();
