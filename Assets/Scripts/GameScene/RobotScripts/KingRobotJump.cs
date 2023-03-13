@@ -26,6 +26,7 @@ public class KingRobotJump : MonoBehaviour
 
     private void Start()
     {
+        // Rigidbodyを取得
         rb = GetComponent<Rigidbody>();
     }
 
@@ -40,7 +41,7 @@ public class KingRobotJump : MonoBehaviour
     }
 
 
-
+    // ジャンプする関数
     private void JumpUp()
     {
         // ライフが半分以下になった時だけ
