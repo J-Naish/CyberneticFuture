@@ -4,9 +4,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+// ロード中に表示させるテキストに関するクラス
 public class LoadingTextController : MonoBehaviour
 {
-
+    // ローディングテキストを取得
     [SerializeField] private TextMeshProUGUI loadingText;
 
 
@@ -15,11 +17,10 @@ public class LoadingTextController : MonoBehaviour
     float i = 480.0f;
 
 
+
     void Update()
     {
-
         FadeInAndOut();
-
     }
 
 
@@ -27,8 +28,7 @@ public class LoadingTextController : MonoBehaviour
     // フェード表示するための関数
     private void FadeInAndOut()
     {
-
-
+        // テキストの色を取得して透明度だけ操作
         var c = loadingText.color;
         loadingText.color = new Color(c.r, c.g, c.b, i / 240);
 
@@ -39,7 +39,7 @@ public class LoadingTextController : MonoBehaviour
         {
             x *= -1.0f;
         }
-
     }
+
 
 }
