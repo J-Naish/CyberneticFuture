@@ -30,14 +30,12 @@ public class MatchingScreenController : MonoBehaviour
     
     void Update()
     {
-
         // 秒数カウント開始
         currentTime += Time.deltaTime;
 
-
         ShowMatchmakingSuccesful();
-
     }
+
 
 
     // マッチング完了を知らせる画像を表示する関数
