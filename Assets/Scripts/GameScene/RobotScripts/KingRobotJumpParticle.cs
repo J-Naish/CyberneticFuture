@@ -19,19 +19,14 @@ public class KingRobotJumpParticle : MonoBehaviour
     private float scaleupParameter = 0.03f;
 
 
-    // パーティクルを徐々に透明にするための変数
-    //private float opacityParameter = 0f;
-
 
     void Update()
     {
         DeleteParticle();
 
-
         ExpandParticle();
-
-        //ChangeOpacity();
     }
+
 
 
     // 時間が経てばパーティクルを破壊するクラス
@@ -57,15 +52,6 @@ public class KingRobotJumpParticle : MonoBehaviour
         }
 
     }
-
-
-    //private void ChangeOpacity()
-    //{
-    //    Color c = GetComponent<Renderer>().material.color;
-    //    GetComponent<Renderer>().material.color = new Color(c.r, c.g, c.b, c.a - opacityParameter);
-    //    opacityParameter += 1.0f / (60.0f * deleteTime);
-    //}
-    // startColorの色を変更しても想定どおり動かず
 
 
 }
