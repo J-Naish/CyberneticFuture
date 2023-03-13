@@ -16,12 +16,11 @@ public class LoginTextController : MonoBehaviour
     float x = 1.0f;
     float i = 240.0f;
 
-    
+
+
     void Update()
     {
-
         FadeInAndOut();
-
     }
 
 
@@ -30,10 +29,11 @@ public class LoginTextController : MonoBehaviour
     private void FadeInAndOut()
     {
         
-
+        // テキストの色を取得して透明度だけ操作
         var c = loginText.color;
         loginText.color = new Color(c.r, c.g, c.b, i/240);
 
+        // 透明度を変更
         i -= x;
 
         // alphaが0または1になればalpha値の加算を変更
