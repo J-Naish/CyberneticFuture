@@ -15,10 +15,8 @@ public class MatchingSceneManager : MonoBehaviour
     
     void Update()
     {
-
         // カウント開始
         currentTime += Time.deltaTime;
-
 
         LoadGameScene();
 
@@ -31,7 +29,6 @@ public class MatchingSceneManager : MonoBehaviour
     // マッチングをキャンセルしてHomeSceneに戻る関数
     private void CancelMatchingToHome()
     {
-
         // 5秒経つまではキャンセルできる
         if (currentTime < 5.0f)
         {
@@ -41,24 +38,20 @@ public class MatchingSceneManager : MonoBehaviour
                 // キャンセルしたらHomeへ
                 SceneManager.LoadScene("Home");
             }
-
         }
-
     }
+
 
 
     // LoadingSceneへ遷移する関数
     private void LoadGameScene()
     {
-
         // 5秒経てばロード開始
         if(currentTime >= 10.0f)
         {
-            
+            // 武器選択Sceneへ
             SceneManager.LoadScene("Select");
-
         }
-
     }
 
 

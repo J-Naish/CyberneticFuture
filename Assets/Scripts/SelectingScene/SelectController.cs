@@ -76,6 +76,7 @@ public class SelectController : MonoBehaviour
     }
 
 
+
     // 選択した武器を有効化する関数
     private void ActivateSelectedWeapon()
     {
@@ -87,7 +88,6 @@ public class SelectController : MonoBehaviour
                 weapons[i].SetActive(true);
             }
         }
-
     }
 
 

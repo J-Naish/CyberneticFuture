@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 // SelectSceneの遷移に関するクラス
 public class SelectSceneManager : BaseSceneManager
 {

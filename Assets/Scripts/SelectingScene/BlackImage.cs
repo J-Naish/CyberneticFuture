@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 // 選択してない武器画像を薄暗くするためのクラス
 public class BlackImage : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class BlackImage : MonoBehaviour
     }
 
 
-
+    // 選択されてない武器画像を薄暗くする関数
     private void ChangeOpacity()
     {
         // 選択されてない時は薄暗くする
@@ -42,7 +43,7 @@ public class BlackImage : MonoBehaviour
     }
 
 
-
+    // 透明度を変更する関数
     private void SetOpacity(float alphaValue)
     {
         // imageのcolorを取得
