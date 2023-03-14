@@ -18,6 +18,9 @@ public class KingRobotJumpParticle : MonoBehaviour
     // パーティクルの拡大の度合いの変数
     private float scaleupParameter = 0.03f;
 
+    // パーティクルの上昇量
+    private Vector3 raisingVector = new Vector3(0, 0.001f, 0);
+
 
 
     void Update()
@@ -25,11 +28,13 @@ public class KingRobotJumpParticle : MonoBehaviour
         DeleteParticle();
 
         ExpandParticle();
+
+        RaiseParticle();
     }
 
 
 
-    // 時間が経てばパーティクルを破壊するクラス
+    // 時間が経てばパーティクルを破壊する関数
     private void DeleteParticle()
     {
         currentTimeDelete += Time.deltaTime;
@@ -41,7 +46,7 @@ public class KingRobotJumpParticle : MonoBehaviour
     }
 
 
-    // パーティクルが広がっていくクラス
+    // パーティクルが広がっていく関数
     private void ExpandParticle()
     {
         currentTimeExpand += Time.deltaTime;
@@ -50,7 +55,13 @@ public class KingRobotJumpParticle : MonoBehaviour
         {
             transform.localScale += new Vector3(scaleupParameter, scaleupParameter, scaleupParameter);
         }
+    }
 
+
+    // パーティクルを上昇させる関数
+    private void RaiseParticle()
+    {
+        transform.position += raisingVector;
     }
 
 
